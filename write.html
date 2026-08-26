@@ -471,78 +471,106 @@ with the writer's name.
 
 <script type="module">
 
+
+/* =========================================
+   FIREBASE REALTIME DATABASE
+   THE SHINING WINDOW
+   ========================================= */
+
+
 import {
     initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
 
 import {
-    getFirestore,
-    collection,
-    addDoc,
-    serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    getDatabase,
+    ref,
+    push,
+    set
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 
-/* ================================
-   FIREBASE CONFIG
-   ================================ */
+/* =========================================
+   FIREBASE CONFIGURATION
+   ========================================= */
+
 
 const firebaseConfig = {
 
     apiKey:
-    "AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
+    "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
 
     authDomain:
-    "poet--deedar---shahbaz.firebaseapp.com",
+    "the-shining-window.firebaseapp.com",
+
+    databaseURL:
+    "https://the-shining-window-default-rtdb.firebaseio.com",
 
     projectId:
-    "poet--deedar---shahbaz",
+    "the-shining-window",
 
     storageBucket:
-    "poet--deedar---shahbaz.firebasestorage.app",
+    "the-shining-window.firebasestorage.app",
 
     messagingSenderId:
-    "411582745091",
+    "636523709313",
 
     appId:
-    "1:411582745091:web:96413eef58092e77911c36",
+    "1:636523709313:web:8cbd2ce21eddae998fde80",
 
     measurementId:
-    "G-E0V5QH9D98"
+    "G-NMNL6J6J1P"
 
 };
+
+
+/* =========================================
+   INITIALIZE FIREBASE
+   ========================================= */
 
 
 const app =
 initializeApp(firebaseConfig);
 
+
 const db =
-getFirestore(app);
+getDatabase(app);
 
 
-/* ================================
-   FORM
-   ================================ */
+
+/* =========================================
+   GET FORM ELEMENTS
+   ========================================= */
+
 
 const form =
 document.getElementById(
     "articleForm"
 );
 
+
 const submitBtn =
 document.getElementById(
     "submitBtn"
 );
+
 
 const successMessage =
 document.getElementById(
     "successMessage"
 );
 
+
 const errorMessage =
 document.getElementById(
     "errorMessage"
 );
+
 
 const errorText =
 document.getElementById(
@@ -550,9 +578,11 @@ document.getElementById(
 );
 
 
-/* ================================
+
+/* =========================================
    SUBMIT ARTICLE
-   ================================ */
+   ========================================= */
+
 
 form.addEventListener(
     "submit",
@@ -561,11 +591,18 @@ form.addEventListener(
         event.preventDefault();
 
 
+        /* Hide old messages */
+
         successMessage.style.display =
         "none";
 
         errorMessage.style.display =
         "none";
+
+
+        /* =====================================
+           GET FORM VALUES
+           ===================================== */
 
 
         const writerName =
@@ -609,6 +646,12 @@ form.addEventListener(
         .trim();
 
 
+
+        /* =====================================
+           REQUIRED FIELD CHECK
+           ===================================== */
+
+
         if(
             !writerName ||
             !email ||
@@ -626,41 +669,91 @@ form.addEventListener(
         }
 
 
+
+        /* =====================================
+           ARTICLE LENGTH CHECK
+           ===================================== */
+
+
+        if(article.length < 150){
+
+            showError(
+                "Your article is too short. Please write at least 150 characters."
+            );
+
+            return;
+
+        }
+
+
+
+        /* =====================================
+           DISABLE BUTTON
+           ===================================== */
+
+
         submitBtn.disabled =
         true;
+
 
         submitBtn.textContent =
         "⏳ Submitting...";
 
 
+
+        /* =====================================
+           SEND TO FIREBASE
+           ===================================== */
+
+
         try{
 
-            await addDoc(
-                collection(
+
+            const submissionRef =
+            push(
+                ref(
                     db,
                     "articleSubmissions"
-                ),
+                )
+            );
+
+
+            await set(
+                submissionRef,
                 {
 
-                    name: writerName,
+                    name:
+                    writerName,
 
-                    email: email,
+                    email:
+                    email,
 
-                    title: title,
+                    title:
+                    title,
 
-                    category: category,
+                    category:
+                    category,
 
-                    article: article,
+                    article:
+                    article,
 
-                    bio: bio,
+                    bio:
+                    bio,
 
-                    status: "pending",
+                    status:
+                    "pending",
 
                     submittedAt:
-                    serverTimestamp()
+                    new Date().toISOString()
 
                 }
             );
+
+
+
+            /* =================================
+               SUCCESS
+               ================================= */
 
 
             form.reset();
@@ -673,18 +766,25 @@ form.addEventListener(
             submitBtn.disabled =
             false;
 
+
             submitBtn.textContent =
             "✨ Submit Article";
 
 
             window.scrollTo({
+
                 top:0,
+
                 behavior:"smooth"
+
             });
+
 
         }
 
+
         catch(error){
+
 
             console.error(
                 "Article submission error:",
@@ -700,6 +800,7 @@ form.addEventListener(
             submitBtn.disabled =
             false;
 
+
             submitBtn.textContent =
             "✨ Submit Article";
 
@@ -709,9 +810,11 @@ form.addEventListener(
 );
 
 
-/* ================================
-   ERROR MESSAGE
-   ================================ */
+
+/* =========================================
+   ERROR FUNCTION
+   ========================================= */
+
 
 function showError(message){
 
@@ -722,6 +825,7 @@ function showError(message){
     "block";
 
 }
+
 
 </script>
 
