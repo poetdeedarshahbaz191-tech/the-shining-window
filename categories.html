@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Categories | The Shining Window</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #222;
+        }
+
+        header {
+            background: #173f5f;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 13px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .intro h1 {
+            color: #173f5f;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .intro p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .categories {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 30px 20px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            transition: transform 0.2s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .category h2 {
+            color: #173f5f;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .category p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .category button {
+            margin-top: 18px;
+
+            padding: 10px 20px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #173f5f;
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .category button:hover {
+            background: #0f2f49;
+        }
+
+        .writer-section {
+            margin-top: 50px;
+
+            background: #173f5f;
+            color: white;
+
+            text-align: center;
+
+            padding: 45px 20px;
+
+            border-radius: 15px;
+        }
+
+        .writer-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .writer-section p {
+            margin-bottom: 20px;
+        }
+
+        .writer-button {
+            display: inline-block;
+
+            background: white;
+            color: #173f5f;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #102d43;
+
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px;
+            }
+
+            .intro h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-content">
+
+
+        <div>
+
+            <div class="logo">
+                🪟 The Shining Window
+            </div>
+
+            <div class="tagline">
+                Open your mind. Share your thoughts.
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="write.html">
+                Write for Us
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <section class="intro">
+
+        <h1>
+            📚 Explore Categories
+        </h1>
+
+        <p>
+            Discover ideas, knowledge, creativity and
+            stories from different areas of life.
+        </p>
+
+    </section>
+
+
+
+    <section class="categories">
+
+
+        <div class="category">
+
+            <div class="icon">
+                📚
+            </div>
+
+            <h2>
+                Grammar
+            </h2>
+
+            <p>
+                Learn English grammar, sentence structures,
+                vocabulary and practical language use.
+            </p>
+
+            <button onclick="openCategory('Grammar')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                🔬
+            </div>
+
+            <h2>
+                Science
+            </h2>
+
+            <p>
+                Explore interesting scientific ideas,
+                discoveries and facts about our world.
+            </p>
+
+            <button onclick="openCategory('Science')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                🎓
+            </div>
+
+            <h2>
+                Education
+            </h2>
+
+            <p>
+                Articles about teaching, learning,
+                students, schools and education.
+            </p>
+
+            <button onclick="openCategory('Education')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                💻
+            </div>
+
+            <h2>
+                Technology
+            </h2>
+
+            <p>
+                Discover technology, digital tools,
+                websites, apps and useful innovations.
+            </p>
+
+            <button onclick="openCategory('Technology')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                📝
+            </div>
+
+            <h2>
+                Poetry
+            </h2>
+
+            <p>
+                Read poems, creative writing and
+                expressions of imagination.
+            </p>
+
+            <button onclick="openCategory('Poetry')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                📖
+            </div>
+
+            <h2>
+                Stories
+            </h2>
+
+            <p>
+                Enjoy short stories, experiences,
+                fiction and inspiring narratives.
+            </p>
+
+            <button onclick="openCategory('Stories')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                🌍
+            </div>
+
+            <h2>
+                General Knowledge
+            </h2>
+
+            <p>
+                Interesting facts and useful knowledge
+                from around the world.
+            </p>
+
+            <button onclick="openCategory('General Knowledge')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                💡
+            </div>
+
+            <h2>
+                Opinion
+            </h2>
+
+            <p>
+                Read thoughtful opinions, ideas,
+                discussions and perspectives.
+            </p>
+
+            <button onclick="openCategory('Opinion')">
+                Explore
+            </button>
+
+        </div>
+
+
+
+        <div class="category">
+
+            <div class="icon">
+                ✨
+            </div>
+
+            <h2>
+                Other
+            </h2>
+
+            <p>
+                Discover articles that don't fit
+                into our main categories.
+            </p>
+
+            <button onclick="openCategory('Other')">
+                Explore
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="writer-section">
+
+        <h2>
+            Have Something to Share?
+        </h2>
+
+        <p>
+            Become a writer and share your ideas
+            with the readers of The Shining Window.
+        </p>
+
+        <a
+            class="writer-button"
+            href="write.html"
+        >
+            ✍️ Write for Us
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 The Shining Window — All Rights Reserved
+    </p>
+
+</footer>
+
+
+
+<script>
+
+    function openCategory(category) {
+
+        alert(
+            category +
+            " articles will appear here once the article database is connected."
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
