@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | The Shining Window</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f3f6fa;
+    color:#263238;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#123c69,#1f6f8b);
+    color:white;
+    padding:22px 15px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-family:Georgia,serif;
+}
+
+header p{
+    margin:7px 0 0;
+}
+
+/* LOGIN */
+
+#loginBox{
+    max-width:420px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    text-align:center;
+}
+
+#loginBox input{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border:1px solid #bbb;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    border:0;
+    border-radius:8px;
+    padding:11px 17px;
+    margin:5px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.login-btn{
+    width:100%;
+    background:#123c69;
+    color:white;
+}
+
+.login-btn:hover{
+    background:#1f6f8b;
+}
+
+/* DASHBOARD */
+
+#dashboard{
+    display:none;
+    max-width:1100px;
+    margin:30px auto;
+    padding:0 15px;
+}
+
+.topbar{
+    background:white;
+    padding:18px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.logout{
+    background:#8b0000;
+    color:white;
+}
+
+.refresh{
+    background:#123c69;
+    color:white;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.stat{
+    background:white;
+    padding:22px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#123c69;
+}
+
+.stat span{
+    color:#666;
+}
+
+/* SUBMISSIONS */
+
+.submission{
+    background:white;
+    margin:20px 0;
+    padding:22px;
+    border-radius:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.submission h2{
+    color:#123c69;
+    margin-top:0;
+}
+
+.meta{
+    color:#666;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.article-text{
+    white-space:pre-wrap;
+    line-height:1.8;
+    border-top:1px solid #eee;
+    padding-top:15px;
+}
+
+.approve{
+    background:#16803c;
+    color:white;
+}
+
+.reject{
+    background:#b22222;
+    color:white;
+}
+
+.delete{
+    background:#555;
+    color:white;
+}
+
+.message{
+    text-align:center;
+    padding:30px;
+    background:white;
+    border-radius:15px;
+}
+
+.error{
+    color:#b22222;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<h1>🪟 The Shining Window</h1>
+
+<p>Administrator Dashboard</p>
+
+</header>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox">
+
+<h2>🔐 Admin Login</h2>
+
+<p>Sign in to manage article submissions.</p>
+
+<input
+type="email"
+id="email"
+placeholder="Admin email"
+autocomplete="email"
+>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+autocomplete="current-password"
+>
+
+<button
+class="login-btn"
+onclick="login()">
+
+Login
+
+</button>
+
+<p
+id="loginMessage"
+class="error">
+</p>
+
+</div>
+
+
+
+<!-- DASHBOARD -->
+
+<main id="dashboard">
+
+
+<div class="topbar">
+
+<div>
+
+<h2>📋 Article Management</h2>
+
+<p id="adminEmail"></p>
+
+</div>
+
+<div>
+
+<button
+class="refresh"
+onclick="loadSubmissions()">
+
+🔄 Refresh
+
+</button>
+
+<button
+class="logout"
+onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- STATISTICS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<strong id="pendingCount">0</strong>
+
+<span>Pending</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="approvedCount">0</strong>
+
+<span>Approved</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="totalCount">0</strong>
+
+<span>Total Submissions</span>
+
+</div>
+
+</div>
+
+
+
+<!-- SUBMISSIONS -->
+
+<section>
+
+<h2>📥 Pending Submissions</h2>
+
+<div id="submissions">
+
+<div class="message">
+
+Loading submissions...
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    orderBy,
+    doc,
+    updateDoc,
+    deleteDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* ================================
+   FIREBASE CONFIG
+   ================================ */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
+
+    authDomain:
+    "poet--deedar---shahbaz.firebaseapp.com",
+
+    projectId:
+    "poet--deedar---shahbaz",
+
+    storageBucket:
+    "poet--deedar---shahbaz.firebasestorage.app",
+
+    messagingSenderId:
+    "411582745091",
+
+    appId:
+    "1:411582745091:web:96413eef58092e77911c36",
+
+    measurementId:
+    "G-E0V5QH9D98"
+
+};
+
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+
+/* ================================
+   ADMIN EMAIL
+   ================================ */
+
+const ADMIN_EMAIL =
+"poetshahbaz_quambrani@gmail.com";
+
+
+/* ================================
+   LOGIN
+   ================================ */
+
+globalThis.login =
+async function(){
+
+    const email =
+    document
+    .getElementById("email")
+    .value
+    .trim();
+
+    const password =
+    document
+    .getElementById("password")
+    .value;
+
+    const message =
+    document
+    .getElementById("loginMessage");
+
+
+    message.textContent = "";
+
+
+    if(!email || !password){
+
+        message.textContent =
+        "Please enter your email and password.";
+
+        return;
+
+    }
+
+
+    if(email !== ADMIN_EMAIL){
+
+        message.textContent =
+        "Access denied.";
+
+        return;
+
+    }
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        message.textContent =
+        "Login failed. Check your email and password.";
+
+    }
+
+};
+
+
+/* ================================
+   LOGOUT
+   ================================ */
+
+globalThis.logout =
+async function(){
+
+    await signOut(auth);
+
+};
+
+
+/* ================================
+   AUTH STATE
+   ================================ */
+
+onAuthStateChanged(
+    auth,
+    async(user)=>{
+
+        if(
+            user &&
+            user.email === ADMIN_EMAIL
+        ){
+
+            document
+            .getElementById("loginBox")
+            .style.display =
+            "none";
+
+            document
+            .getElementById("dashboard")
+            .style.display =
+            "block";
+
+            document
+            .getElementById("adminEmail")
+            .textContent =
+            "Logged in as: " + user.email;
+
+            await loadSubmissions();
+
+        }
+
+        else{
+
+            document
+            .getElementById("loginBox")
+            .style.display =
+            "block";
+
+            document
+            .getElementById("dashboard")
+            .style.display =
+            "none";
+
+        }
+
+    }
+
+);
+
+
+/* ================================
+   LOAD SUBMISSIONS
+   ================================ */
+
+globalThis.loadSubmissions =
+async function(){
+
+    const box =
+    document
+    .getElementById("submissions");
+
+    box.innerHTML =
+    `<div class="message">Loading submissions...</div>`;
+
+
+    try{
+
+        const snapshot =
+        await getDocs(
+            collection(
+                db,
+                "articleSubmissions"
+            )
+        );
+
+
+        let pending = 0;
+        let approved = 0;
+        let total = snapshot.size;
+
+        let html = "";
+
+
+        snapshot.forEach(
+            item=>{
+
+                const data =
+                item.data();
+
+
+                const status =
+                data.status || "pending";
+
+
+                if(status === "pending"){
+
+                    pending++;
+
+                    html += renderSubmission(
+                        item.id,
+                        data
+                    );
+
+                }
+
+
+                if(status === "approved"){
+
+                    approved++;
+
+                }
+
+            }
+        );
+
+
+        document
+        .getElementById("pendingCount")
+        .textContent =
+        pending;
+
+
+        document
+        .getElementById("approvedCount")
+        .textContent =
+        approved;
+
+
+        document
+        .getElementById("totalCount")
+        .textContent =
+        total;
+
+
+        if(!html){
+
+            box.innerHTML =
+            `<div class="message">
+            🎉 No pending submissions.
+            </div>`;
+
+        }
+
+        else{
+
+            box.innerHTML = html;
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        box.innerHTML =
+        `<div class="message error">
+        Error loading submissions:<br>
+        ${escapeHtml(error.message)}
+        </div>`;
+
+    }
+
+};
+
+
+/* ================================
+   RENDER SUBMISSION
+   ================================ */
+
+function renderSubmission(id,data){
+
+    return `
+
+    <article class="submission">
+
+        <h2>
+        ${escapeHtml(
+            data.title || "Untitled Article"
+        )}
+        </h2>
+
+        <div class="meta">
+
+            ✍️ Writer:
+            ${escapeHtml(
+                data.name || "Unknown"
+            )}
+
+            <br>
+
+            📚 Category:
+            ${escapeHtml(
+                data.category || "General"
+            )}
+
+        </div>
+
+        <div class="article-text">
+
+        ${escapeHtml(
+            data.article ||
+            data.content ||
+            "No article content."
+        )}
+
+        </div>
+
+        <br>
+
+        <button
+        class="approve"
+        onclick="approveArticle('${id}')">
+
+        ✅ Approve
+
+        </button>
+
+        <button
+        class="reject"
+        onclick="rejectArticle('${id}')">
+
+        ❌ Reject
+
+        </button>
+
+        <button
+        class="delete"
+        onclick="deleteSubmission('${id}')">
+
+        🗑 Delete
+
+        </button>
+
+    </article>
+
+    `;
+
+}
+
+
+/* ================================
+   APPROVE
+   ================================ */
+
+globalThis.approveArticle =
+async function(id){
+
+    if(
+        !confirm(
+            "Approve this article?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const submissionRef =
+        doc(
+            db,
+            "articleSubmissions",
+            id
+        );
+
+
+        await updateDoc(
+            submissionRef,
+            {
+
+                status:"approved"
+
+            }
+        );
+
+
+        alert(
+            "✅ Article approved."
+        );
+
+
+        await loadSubmissions();
+
+    }
+
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+
+/* ================================
+   REJECT
+   ================================ */
+
+globalThis.rejectArticle =
+async function(id){
+
+    if(
+        !confirm(
+            "Reject this article?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "articleSubmissions",
+                id
+            ),
+            {
+
+                status:"rejected"
+
+            }
+        );
+
+
+        alert(
+            "Article rejected."
+        );
+
+
+        await loadSubmissions();
+
+    }
+
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+
+/* ================================
+   DELETE
+   ================================ */
+
+globalThis.deleteSubmission =
+async function(id){
+
+    if(
+        !confirm(
+            "Permanently delete this submission?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "articleSubmissions",
+                id
+            )
+        );
+
+
+        alert(
+            "Submission deleted."
+        );
+
+
+        await loadSubmissions();
+
+    }
+
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+
+/* ================================
+   HTML ESCAPE
+   ================================ */
+
+function escapeHtml(value){
+
+    return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
