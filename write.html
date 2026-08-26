@@ -1,177 +1,207 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Write for Us | The Shining Window</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>Write for Us | The Shining Window</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f8fc;
-            color: #222;
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        header {
-            background: #173f5f;
-            color: white;
-            padding: 20px;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f8fc;
+    color:#222;
+}
 
-        .header-content {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
+header{
+    background:#173f5f;
+    color:white;
+    padding:20px;
+}
 
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-        }
+.header-content{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
 
-        .tagline {
-            font-size: 13px;
-            margin-top: 5px;
-        }
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 15px;
-            font-weight: bold;
-        }
+.tagline{
+    font-size:13px;
+    margin-top:5px;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+    font-weight:bold;
+}
 
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+nav a:hover{
+    text-decoration:underline;
+}
 
-        .intro {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.container{
+    max-width:850px;
+    margin:40px auto;
+    padding:20px;
+}
 
-        .intro h1 {
-            color: #173f5f;
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
+.intro{
+    text-align:center;
+    margin-bottom:30px;
+}
 
-        .intro p {
-            color: #555;
-            font-size: 17px;
-            line-height: 1.6;
-        }
+.intro h1{
+    color:#173f5f;
+    font-size:38px;
+    margin-bottom:12px;
+}
 
-        .form-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
+.intro p{
+    color:#555;
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:5px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            margin-top: 20px;
-            font-weight: bold;
-            color: #173f5f;
-        }
+.form-box{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: Arial, sans-serif;
-        }
+label{
+    display:block;
+    margin-bottom:8px;
+    margin-top:20px;
+    font-weight:bold;
+    color:#173f5f;
+}
 
-        textarea {
-            min-height: 250px;
-            resize: vertical;
-            line-height: 1.6;
-        }
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    font-family:Arial,sans-serif;
+}
 
-        .bio {
-            min-height: 120px;
-        }
+textarea{
+    min-height:250px;
+    resize:vertical;
+    line-height:1.6;
+}
 
-        .submit-btn {
-            width: 100%;
-            margin-top: 25px;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: #173f5f;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.bio{
+    min-height:120px;
+}
 
-        .submit-btn:hover {
-            background: #0f2f49;
-        }
+.submit-btn{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#173f5f;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-        .notice {
-            margin-top: 25px;
-            padding: 15px;
-            background: #eef5fb;
-            border-left: 4px solid #173f5f;
-            line-height: 1.6;
-            color: #444;
-        }
+.submit-btn:hover{
+    background:#0f2f49;
+}
 
-        footer {
-            margin-top: 50px;
-            padding: 25px;
-            text-align: center;
-            background: #102d43;
-            color: white;
-        }
+.submit-btn:disabled{
+    background:#888;
+    cursor:not-allowed;
+}
 
-        @media (max-width: 700px) {
+.message{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:8px;
+    line-height:1.5;
+}
 
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
+.success{
+    background:#e8f7ed;
+    color:#176b35;
+    border-left:4px solid #16803c;
+}
 
-            nav a {
-                display: inline-block;
-                margin: 6px;
-            }
+.error{
+    background:#fdecec;
+    color:#9b1c1c;
+    border-left:4px solid #b22222;
+}
 
-            .intro h1 {
-                font-size: 30px;
-            }
+.notice{
+    margin-top:25px;
+    padding:15px;
+    background:#eef5fb;
+    border-left:4px solid #173f5f;
+    line-height:1.6;
+    color:#444;
+}
 
-            .form-box {
-                padding: 20px;
-            }
-        }
+footer{
+    margin-top:50px;
+    padding:25px;
+    text-align:center;
+    background:#102d43;
+    color:white;
+}
 
-    </style>
+@media(max-width:700px){
+
+    .header-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:6px;
+    }
+
+    .intro h1{
+        font-size:30px;
+    }
+
+    .form-box{
+        padding:20px;
+    }
+
+}
+
+</style>
+
 </head>
 
 
@@ -180,44 +210,44 @@
 
 <header>
 
-    <div class="header-content">
+<div class="header-content">
 
-        <div>
+<div>
 
-            <div class="logo">
-                🪟 The Shining Window
-            </div>
+<div class="logo">
+🪟 The Shining Window
+</div>
 
-            <div class="tagline">
-                Open your mind. Share your thoughts.
-            </div>
+<div class="tagline">
+Open your mind. Share your thoughts.
+</div>
 
-        </div>
+</div>
 
 
-        <nav>
+<nav>
 
-            <a href="index.html">Home</a>
+<a href="index.html">Home</a>
 
-            <a href="categories.html">
-                Categories
-            </a>
+<a href="categories.html">
+Categories
+</a>
 
-            <a href="write.html">
-                Write for Us
-            </a>
+<a href="write.html">
+Write for Us
+</a>
 
-            <a href="about.html">
-                About
-            </a>
+<a href="about.html">
+About
+</a>
 
-            <a href="contact.html">
-                Contact
-            </a>
+<a href="contact.html">
+Contact
+</a>
 
-        </nav>
+</nav>
 
-    </div>
+</div>
 
 </header>
 
@@ -226,169 +256,203 @@
 <main class="container">
 
 
-    <section class="intro">
+<section class="intro">
 
-        <h1>✍️ Write for Us</h1>
+<h1>✍️ Write for Us</h1>
 
-        <p>
-            Have an idea, lesson, story, poem, or useful
-            knowledge to share?
-        </p>
+<p>
+Have an idea, lesson, story, poem, or useful
+knowledge to share?
+</p>
 
-        <p>
-            Open your window and let your thoughts reach
-            the world.
-        </p>
+<p>
+Open your window and let your thoughts reach
+the world.
+</p>
 
-    </section>
-
-
-
-    <section class="form-box">
-
-
-        <form id="articleForm">
-
-
-            <label for="writerName">
-                Writer Name
-            </label>
-
-            <input
-                type="text"
-                id="writerName"
-                placeholder="Enter your name"
-                required
-            >
+</section>
 
 
 
-            <label for="email">
-                Email Address
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
+<section class="form-box">
 
 
+<form id="articleForm">
 
-            <label for="title">
-                Article Title
-            </label>
 
-            <input
-                type="text"
-                id="title"
-                placeholder="Enter your article title"
-                required
-            >
+<label for="writerName">
+Writer Name
+</label>
+
+<input
+type="text"
+id="writerName"
+placeholder="Enter your name"
+required
+>
 
 
 
-            <label for="category">
-                Select Category
-            </label>
+<label for="email">
+Email Address
+</label>
 
-            <select id="category" required>
-
-                <option value="">
-                    Select a category
-                </option>
-
-                <option value="Grammar">
-                    Grammar
-                </option>
-
-                <option value="Science">
-                    Science
-                </option>
-
-                <option value="Education">
-                    Education
-                </option>
-
-                <option value="Technology">
-                    Technology
-                </option>
-
-                <option value="Poetry">
-                    Poetry
-                </option>
-
-                <option value="Stories">
-                    Stories
-                </option>
-
-                <option value="General Knowledge">
-                    General Knowledge
-                </option>
-
-                <option value="Opinion">
-                    Opinion
-                </option>
-
-                <option value="Other">
-                    Other
-                </option>
-
-            </select>
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required
+>
 
 
 
-            <label for="article">
-                Your Article
-            </label>
+<label for="title">
+Article Title
+</label>
 
-            <textarea
-                id="article"
-                placeholder="Write your complete article here..."
-                required
-            ></textarea>
-
-
-
-            <label for="bio">
-                About the Writer
-                <small>(Optional)</small>
-            </label>
-
-            <textarea
-                id="bio"
-                class="bio"
-                placeholder="Tell readers a little about yourself..."
-            ></textarea>
+<input
+type="text"
+id="title"
+placeholder="Enter your article title"
+required
+>
 
 
 
-            <button
-                type="submit"
-                class="submit-btn"
-            >
-                ✨ Submit Article
-            </button>
+<label for="category">
+Select Category
+</label>
+
+<select id="category" required>
+
+<option value="">
+Select a category
+</option>
+
+<option value="Grammar">
+Grammar
+</option>
+
+<option value="Science">
+Science
+</option>
+
+<option value="Education">
+Education
+</option>
+
+<option value="Technology">
+Technology
+</option>
+
+<option value="Poetry">
+Poetry
+</option>
+
+<option value="Stories">
+Stories
+</option>
+
+<option value="General Knowledge">
+General Knowledge
+</option>
+
+<option value="Opinion">
+Opinion
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
 
 
-        </form>
+
+<label for="article">
+Your Article
+</label>
+
+<textarea
+id="article"
+placeholder="Write your complete article here..."
+required
+></textarea>
 
 
 
-        <div class="notice">
+<label for="bio">
+About the Writer
+<small>(Optional)</small>
+</label>
 
-            <strong>Important:</strong>
-
-            Your article will be reviewed before publication.
-            Articles that meet our publishing standards may
-            be published on <strong>The Shining Window</strong>
-            with the writer's name.
-
-        </div>
+<textarea
+id="bio"
+class="bio"
+placeholder="Tell readers a little about yourself..."
+></textarea>
 
 
-    </section>
+
+<button
+type="submit"
+class="submit-btn"
+id="submitBtn"
+>
+
+✨ Submit Article
+
+</button>
+
+
+</form>
+
+
+
+<div
+id="successMessage"
+class="message success"
+>
+
+<strong>✅ Article submitted successfully!</strong>
+
+<br>
+
+Thank you for sharing your thoughts.
+Your article has been sent for review.
+
+</div>
+
+
+
+<div
+id="errorMessage"
+class="message error"
+>
+
+<strong>❌ Submission failed.</strong>
+
+<br>
+
+<span id="errorText"></span>
+
+</div>
+
+
+
+<div class="notice">
+
+<strong>Important:</strong>
+
+Your article will be reviewed before publication.
+Articles that meet our publishing standards may
+be published on <strong>The Shining Window</strong>
+with the writer's name.
+
+</div>
+
+
+</section>
 
 
 </main>
@@ -397,27 +461,267 @@
 
 <footer>
 
-    <p>
-        © 2026 The Shining Window — All Rights Reserved
-    </p>
+<p>
+© 2026 The Shining Window — All Rights Reserved
+</p>
 
 </footer>
 
 
 
-<script>
+<script type="module">
 
-    document
-        .getElementById("articleForm")
-        .addEventListener("submit", function(event) {
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-            event.preventDefault();
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-            alert(
-                "Thank you! Your article has been submitted for review."
+
+/* ================================
+   FIREBASE CONFIG
+   ================================ */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
+
+    authDomain:
+    "poet--deedar---shahbaz.firebaseapp.com",
+
+    projectId:
+    "poet--deedar---shahbaz",
+
+    storageBucket:
+    "poet--deedar---shahbaz.firebasestorage.app",
+
+    messagingSenderId:
+    "411582745091",
+
+    appId:
+    "1:411582745091:web:96413eef58092e77911c36",
+
+    measurementId:
+    "G-E0V5QH9D98"
+
+};
+
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+
+/* ================================
+   FORM
+   ================================ */
+
+const form =
+document.getElementById(
+    "articleForm"
+);
+
+const submitBtn =
+document.getElementById(
+    "submitBtn"
+);
+
+const successMessage =
+document.getElementById(
+    "successMessage"
+);
+
+const errorMessage =
+document.getElementById(
+    "errorMessage"
+);
+
+const errorText =
+document.getElementById(
+    "errorText"
+);
+
+
+/* ================================
+   SUBMIT ARTICLE
+   ================================ */
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        successMessage.style.display =
+        "none";
+
+        errorMessage.style.display =
+        "none";
+
+
+        const writerName =
+        document
+        .getElementById("writerName")
+        .value
+        .trim();
+
+
+        const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+        const title =
+        document
+        .getElementById("title")
+        .value
+        .trim();
+
+
+        const category =
+        document
+        .getElementById("category")
+        .value;
+
+
+        const article =
+        document
+        .getElementById("article")
+        .value
+        .trim();
+
+
+        const bio =
+        document
+        .getElementById("bio")
+        .value
+        .trim();
+
+
+        if(
+            !writerName ||
+            !email ||
+            !title ||
+            !category ||
+            !article
+        ){
+
+            showError(
+                "Please complete all required fields."
             );
 
-        });
+            return;
+
+        }
+
+
+        submitBtn.disabled =
+        true;
+
+        submitBtn.textContent =
+        "⏳ Submitting...";
+
+
+        try{
+
+            await addDoc(
+                collection(
+                    db,
+                    "articleSubmissions"
+                ),
+                {
+
+                    name: writerName,
+
+                    email: email,
+
+                    title: title,
+
+                    category: category,
+
+                    article: article,
+
+                    bio: bio,
+
+                    status: "pending",
+
+                    submittedAt:
+                    serverTimestamp()
+
+                }
+            );
+
+
+            form.reset();
+
+
+            successMessage.style.display =
+            "block";
+
+
+            submitBtn.disabled =
+            false;
+
+            submitBtn.textContent =
+            "✨ Submit Article";
+
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Article submission error:",
+                error
+            );
+
+
+            showError(
+                error.message
+            );
+
+
+            submitBtn.disabled =
+            false;
+
+            submitBtn.textContent =
+            "✨ Submit Article";
+
+        }
+
+    }
+);
+
+
+/* ================================
+   ERROR MESSAGE
+   ================================ */
+
+function showError(message){
+
+    errorText.textContent =
+    message;
+
+    errorMessage.style.display =
+    "block";
+
+}
 
 </script>
 
