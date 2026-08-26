@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>The Shining Window</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,42 +22,57 @@
             color: #222;
         }
 
+        /* ================= HEADER ================= */
+
         header {
             background: #173f5f;
             color: white;
-            padding: 20px;
+            padding: 25px 20px;
         }
 
         .header-content {
             max-width: 1100px;
             margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
+            text-align: center;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
+        /* ================= LOGO ================= */
+
+        .logo-area {
+            text-align: center;
+        }
+
+        .logo img {
+            display: block;
+            margin: 0 auto;
+            max-width: 180px;
+            height: auto;
         }
 
         .tagline {
             font-size: 13px;
-            margin-top: 5px;
+            margin-top: 8px;
             opacity: 0.9;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            margin-top: 20px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 18px;
+            margin: 0 10px;
             font-weight: bold;
         }
 
         nav a:hover {
             text-decoration: underline;
         }
+
+        /* ================= HERO ================= */
 
         .hero {
             max-width: 1100px;
@@ -91,6 +109,12 @@
             font-weight: bold;
         }
 
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        /* ================= SECTIONS ================= */
+
         .section {
             max-width: 1100px;
             margin: 35px auto;
@@ -102,6 +126,8 @@
             margin-bottom: 20px;
             text-align: center;
         }
+
+        /* ================= CATEGORIES ================= */
 
         .categories {
             display: grid;
@@ -116,7 +142,14 @@
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
             font-weight: bold;
+            transition: 0.2s;
         }
+
+        .category:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ================= ARTICLES ================= */
 
         .articles {
             display: grid;
@@ -140,6 +173,8 @@
             color: #666;
             line-height: 1.5;
         }
+
+        /* ================= WRITER SECTION ================= */
 
         .writer-section {
             background: #173f5f;
@@ -167,6 +202,12 @@
             font-weight: bold;
         }
 
+        .writer-button:hover {
+            opacity: 0.9;
+        }
+
+        /* ================= FOOTER ================= */
+
         footer {
             text-align: center;
             padding: 25px;
@@ -174,10 +215,24 @@
             color: white;
         }
 
+        /* ================= MOBILE ================= */
+
         @media (max-width: 700px) {
 
+            header {
+                padding: 20px 10px;
+            }
+
             .header-content {
-                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo img {
+                max-width: 150px;
+            }
+
+            nav {
+                margin-top: 18px;
             }
 
             nav a {
@@ -185,34 +240,65 @@
                 display: inline-block;
             }
 
+            .hero {
+                margin: 25px 15px;
+                padding: 45px 20px;
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
+
+            .hero p {
+                font-size: 17px;
+            }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
     <div class="header-content">
 
-        <div>
+        <div class="logo-area">
+
             <div class="logo">
-    <img src="logo.png" alt="The Shining Window Logo">
-</div>
+
+                <img
+                    src="logo.png"
+                    alt="The Shining Window Logo"
+                >
+
+            </div>
+
             <div class="tagline">
                 Open your mind. Share your thoughts.
             </div>
+
         </div>
 
+
         <nav>
+
             <a href="index.html">Home</a>
+
             <a href="categories.html">Categories</a>
+
             <a href="write.html">Write for Us</a>
+
             <a href="about.html">About</a>
+
             <a href="contact.html">Contact</a>
+
         </nav>
 
     </div>
@@ -220,9 +306,14 @@
 </header>
 
 
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
-    <h1>Welcome to The Shining Window</h1>
+    <h1>
+        Welcome to The Shining Window
+    </h1>
 
     <p>
         A place where ideas, knowledge, creativity and stories
@@ -237,35 +328,71 @@
 </section>
 
 
+
+<!-- ================= CATEGORIES ================= -->
+
 <section class="section">
 
-    <h2>Explore Categories</h2>
+    <h2>
+        Explore Categories
+    </h2>
 
     <div class="categories">
 
-        <div class="category">📚 Grammar</div>
-        <div class="category">🔬 Science</div>
-        <div class="category">🎓 Education</div>
-        <div class="category">💻 Technology</div>
-        <div class="category">📝 Poetry</div>
-        <div class="category">📖 Stories</div>
-        <div class="category">🌍 General Knowledge</div>
-        <div class="category">💡 Opinion</div>
+        <div class="category">
+            📚 Grammar
+        </div>
+
+        <div class="category">
+            🔬 Science
+        </div>
+
+        <div class="category">
+            🎓 Education
+        </div>
+
+        <div class="category">
+            💻 Technology
+        </div>
+
+        <div class="category">
+            📝 Poetry
+        </div>
+
+        <div class="category">
+            📖 Stories
+        </div>
+
+        <div class="category">
+            🌍 General Knowledge
+        </div>
+
+        <div class="category">
+            💡 Opinion
+        </div>
 
     </div>
 
 </section>
 
 
+
+<!-- ================= LATEST ARTICLES ================= -->
+
 <section class="section">
 
-    <h2>Latest Articles</h2>
+    <h2>
+        Latest Articles
+    </h2>
 
     <div class="articles">
 
+
         <div class="article">
 
-            <h3>Welcome to The Shining Window</h3>
+            <h3>
+                Welcome to The Shining Window
+            </h3>
 
             <p>
                 Discover a new place for ideas, learning,
@@ -277,7 +404,9 @@
 
         <div class="article">
 
-            <h3>Why Learning Never Stops</h3>
+            <h3>
+                Why Learning Never Stops
+            </h3>
 
             <p>
                 Education is not limited to a classroom.
@@ -289,7 +418,9 @@
 
         <div class="article">
 
-            <h3>The Power of Words</h3>
+            <h3>
+                The Power of Words
+            </h3>
 
             <p>
                 Words can communicate ideas, inspire people
@@ -298,26 +429,38 @@
 
         </div>
 
+
     </div>
 
 </section>
 
 
+
+<!-- ================= WRITER SECTION ================= -->
+
 <section class="writer-section">
 
-    <h2>Have Something to Share?</h2>
+    <h2>
+        Have Something to Share?
+    </h2>
 
     <p>
         Write an article and share your knowledge,
         creativity or ideas with our readers.
     </p>
 
-    <a class="writer-button" href="write.html">
+    <a
+        class="writer-button"
+        href="write.html"
+    >
         Become a Writer
     </a>
 
 </section>
 
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -327,5 +470,7 @@
 
 </footer>
 
+
 </body>
+
 </html>
