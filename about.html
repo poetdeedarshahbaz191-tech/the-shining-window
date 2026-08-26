@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>About | The Shining Window</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #222;
+        }
+
+        header {
+            background: #173f5f;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 13px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 45px auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background: white;
+            padding: 45px 30px;
+
+            text-align: center;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            color: #173f5f;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .section h2 {
+            color: #173f5f;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .values {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 18px;
+
+            margin-top: 20px;
+        }
+
+        .value {
+            padding: 22px;
+
+            background: #f1f6fa;
+
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .value .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .value h3 {
+            color: #173f5f;
+            margin-bottom: 8px;
+        }
+
+        .value p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .writer-section {
+            background: #173f5f;
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            border-radius: 15px;
+        }
+
+        .writer-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .writer-section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .writer-button {
+            display: inline-block;
+
+            background: white;
+            color: #173f5f;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #102d43;
+
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-content">
+
+
+        <div>
+
+            <div class="logo">
+                🪟 The Shining Window
+            </div>
+
+            <div class="tagline">
+                Open your mind. Share your thoughts.
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="write.html">
+                Write for Us
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <section class="hero">
+
+        <h1>
+            🪟 About The Shining Window
+        </h1>
+
+        <p>
+            A place where thoughts become words,
+            ideas become conversations, and knowledge
+            can reach the world.
+        </p>
+
+    </section>
+
+
+
+    <section class="section">
+
+        <h2>
+            Our Story
+        </h2>
+
+        <p>
+            The Shining Window is a platform created for
+            people who have something meaningful to share.
+        </p>
+
+        <p>
+            We believe that everyone has ideas, knowledge,
+            experiences and creativity that can inspire
+            someone else.
+        </p>
+
+        <p>
+            Our goal is to create a welcoming space where
+            writers and readers can meet through words.
+        </p>
+
+    </section>
+
+
+
+    <section class="section">
+
+        <h2>
+            Our Purpose
+        </h2>
+
+        <p>
+            The Shining Window brings together articles
+            from different areas of knowledge and creativity.
+        </p>
+
+        <p>
+            Readers can explore subjects such as Grammar,
+            Science, Education, Technology, Poetry, Stories
+            and General Knowledge.
+        </p>
+
+        <p>
+            Writers can share their work and reach readers
+            who are interested in their ideas.
+        </p>
+
+    </section>
+
+
+
+    <section class="section">
+
+        <h2>
+            What We Value
+        </h2>
+
+
+        <div class="values">
+
+
+            <div class="value">
+
+                <div class="icon">
+                    💡
+                </div>
+
+                <h3>
+                    Ideas
+                </h3>
+
+                <p>
+                    We value thoughtful and useful ideas.
+                </p>
+
+            </div>
+
+
+
+            <div class="value">
+
+                <div class="icon">
+                    📚
+                </div>
+
+                <h3>
+                    Knowledge
+                </h3>
+
+                <p>
+                    We encourage learning and sharing knowledge.
+                </p>
+
+            </div>
+
+
+
+            <div class="value">
+
+                <div class="icon">
+                    ✍️
+                </div>
+
+                <h3>
+                    Creativity
+                </h3>
+
+                <p>
+                    We welcome creative writing and expression.
+                </p>
+
+            </div>
+
+
+
+            <div class="value">
+
+                <div class="icon">
+                    🌍
+                </div>
+
+                <h3>
+                    Community
+                </h3>
+
+                <p>
+                    We want writers and readers to grow together.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <section class="writer-section">
+
+        <h2>
+            Have an Idea to Share?
+        </h2>
+
+        <p>
+            Open your window and let your thoughts
+            reach the world.
+        </p>
+
+        <a
+            class="writer-button"
+            href="write.html"
+        >
+            ✍️ Write for Us
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 The Shining Window — All Rights Reserved
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
