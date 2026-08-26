@@ -1,0 +1,504 @@
+Writing
+contact.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | The Shining Window</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #222;
+        }
+
+        header {
+            background: #173f5f;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 13px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 45px auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro h1 {
+            color: #173f5f;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .intro p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .contact-card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            color: #173f5f;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .form-box {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-box h2 {
+            color: #173f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            margin-top: 18px;
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+            color: #173f5f;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #173f5f;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0f2f49;
+        }
+
+        .note {
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 50px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #102d43;
+
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px;
+            }
+
+            .intro h1 {
+                font-size: 32px;
+            }
+
+            .form-box {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-content">
+
+
+        <div>
+
+            <div class="logo">
+                🪟 The Shining Window
+            </div>
+
+            <div class="tagline">
+                Open your mind. Share your thoughts.
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="write.html">
+                Write for Us
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <section class="intro">
+
+        <h1>
+            📩 Contact Us
+        </h1>
+
+        <p>
+            Have a question, suggestion or message?
+            We'd love to hear from you.
+        </p>
+
+    </section>
+
+
+
+    <section class="contact-grid">
+
+
+        <div class="contact-card">
+
+            <div class="icon">
+                ✉️
+            </div>
+
+            <h3>
+                Email
+            </h3>
+
+            <p>
+                Contact information will be added
+                when the website is connected.
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-card">
+
+            <div class="icon">
+                ✍️
+            </div>
+
+            <h3>
+                Writers
+            </h3>
+
+            <p>
+                Want to contribute?
+                Visit our Write for Us page.
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-card">
+
+            <div class="icon">
+                💡
+            </div>
+
+            <h3>
+                Suggestions
+            </h3>
+
+            <p>
+                Share your ideas to help make
+                The Shining Window better.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="form-box">
+
+        <h2>
+            Send Us a Message
+        </h2>
+
+
+        <form id="contactForm">
+
+
+            <label for="name">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+
+            <label for="subject">
+                Subject
+            </label>
+
+            <input
+                type="text"
+                id="subject"
+                placeholder="Enter the subject"
+                required
+            >
+
+
+
+            <label for="message">
+                Your Message
+            </label>
+
+            <textarea
+                id="message"
+                placeholder="Write your message here..."
+                required
+            ></textarea>
+
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                📩 Send Message
+            </button>
+
+
+        </form>
+
+
+        <div class="note">
+
+            The contact form will be connected to
+            Firebase in a later step.
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 The Shining Window — All Rights Reserved
+    </p>
+
+</footer>
+
+
+
+<script>
+
+    document
+        .getElementById("contactForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for contacting The Shining Window!"
+            );
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
