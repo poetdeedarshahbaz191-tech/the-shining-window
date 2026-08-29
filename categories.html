@@ -32,11 +32,9 @@ header{
 .header-content{
     max-width:1100px;
     margin:auto;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     gap:20px;
 }
 
@@ -87,8 +85,7 @@ nav a:hover{
 
 .categories{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
 
@@ -97,10 +94,7 @@ nav a:hover{
     padding:30px 20px;
     border-radius:15px;
     text-align:center;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,.08);
-
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
     transition:.2s;
 }
 
@@ -128,13 +122,10 @@ nav a:hover{
 .category button{
     margin-top:18px;
     padding:10px 20px;
-
     border:none;
     border-radius:7px;
-
     background:#173f5f;
     color:white;
-
     font-weight:bold;
     cursor:pointer;
 }
@@ -160,18 +151,12 @@ nav a:hover{
 
 .back-button{
     display:inline-block;
-
     margin-bottom:25px;
-
     padding:10px 18px;
-
     background:#777;
     color:white;
-
     text-decoration:none;
-
     border-radius:7px;
-
     font-weight:bold;
 }
 
@@ -181,15 +166,10 @@ nav a:hover{
 
 .article-card{
     background:white;
-
     padding:25px;
-
     margin-bottom:20px;
-
     border-radius:14px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,.08);
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 .article-card h3{
@@ -213,37 +193,76 @@ nav a:hover{
 
 .read-button{
     display:inline-block;
-
     background:#173f5f;
     color:white;
-
     padding:11px 20px;
-
+    border:none;
     border-radius:7px;
-
     text-decoration:none;
-
     font-weight:bold;
+    cursor:pointer;
 }
 
 .read-button:hover{
     background:#0f2f49;
 }
 
+
+/* FULL ARTICLE */
+
+.full-article{
+    display:none;
+    background:white;
+    padding:30px;
+    margin-bottom:30px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.full-article h2{
+    text-align:left !important;
+    margin-bottom:12px !important;
+    color:#173f5f;
+}
+
+.full-meta{
+    color:#777;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.full-content{
+    color:#222;
+    font-size:18px;
+    line-height:2;
+    white-space:pre-wrap;
+    word-break:break-word;
+}
+
+.close-article{
+    margin-top:25px;
+    padding:10px 18px;
+    border:none;
+    border-radius:7px;
+    background:#777;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.close-article:hover{
+    background:#555;
+}
+
+
 .loading,
 .no-articles,
 .database-error{
     background:white;
-
     padding:30px;
-
     border-radius:14px;
-
     text-align:center;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,.08);
-
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
     line-height:1.6;
 }
 
@@ -260,15 +279,10 @@ nav a:hover{
 
 .writer-section{
     margin-top:50px;
-
     background:#173f5f;
-
     color:white;
-
     text-align:center;
-
     padding:45px 20px;
-
     border-radius:15px;
 }
 
@@ -282,17 +296,11 @@ nav a:hover{
 
 .writer-button{
     display:inline-block;
-
     background:white;
-
     color:#173f5f;
-
     padding:12px 25px;
-
     border-radius:8px;
-
     text-decoration:none;
-
     font-weight:bold;
 }
 
@@ -301,13 +309,9 @@ nav a:hover{
 
 footer{
     margin-top:50px;
-
     padding:25px;
-
     text-align:center;
-
     background:#102d43;
-
     color:white;
 }
 
@@ -342,6 +346,15 @@ footer{
         font-size:22px;
     }
 
+    .full-article{
+        padding:20px;
+    }
+
+    .full-content{
+        font-size:17px;
+        line-height:1.9;
+    }
+
 }
 
 </style>
@@ -351,8 +364,6 @@ footer{
 
 <body>
 
-
-<!-- HEADER -->
 
 <header>
 
@@ -370,17 +381,12 @@ Open your mind. Share your thoughts.
 
 </div>
 
-
 <nav>
 
 <a href="index.html">Home</a>
-
 <a href="categories.html">Categories</a>
-
 <a href="write.html">Write for Us</a>
-
 <a href="about.html">About</a>
-
 <a href="contact.html">Contact</a>
 
 </nav>
@@ -390,8 +396,6 @@ Open your mind. Share your thoughts.
 </header>
 
 
-
-<!-- MAIN -->
 
 <main class="container">
 
@@ -410,8 +414,6 @@ stories from different areas of life.
 </section>
 
 
-
-<!-- CATEGORY CARDS -->
 
 <section class="categories">
 
@@ -590,22 +592,40 @@ Explore
 
 
 
-<!-- ARTICLES -->
-
 <section id="articlesSection">
 
-<a
-href="categories.html"
-class="back-button">
-
+<a href="#" class="back-button" onclick="backToCategories(event)">
 ← Back to Categories
-
 </a>
 
 
 <h2 id="selectedCategory">
 Articles
 </h2>
+
+
+<!-- FULL ARTICLE AREA -->
+
+<div id="fullArticle" class="full-article">
+
+<h2 id="fullTitle">
+</h2>
+
+<div id="fullMeta" class="full-meta">
+</div>
+
+<div id="fullContent" class="full-content">
+</div>
+
+<button
+class="close-article"
+onclick="closeFullArticle()">
+
+← Back to Articles
+
+</button>
+
+</div>
 
 
 <div id="articlesList">
@@ -619,8 +639,6 @@ Choose a category to see published writing.
 </section>
 
 
-
-<!-- WRITER SECTION -->
 
 <section class="writer-section">
 
@@ -648,8 +666,6 @@ href="write.html">
 
 
 
-<!-- FOOTER -->
-
 <footer>
 
 <p>
@@ -659,8 +675,6 @@ href="write.html">
 </footer>
 
 
-
-<!-- FIREBASE REALTIME DATABASE -->
 
 <script type="module">
 
@@ -682,8 +696,7 @@ from
 
 
 /* ==================================================
-   THE SHINING WINDOW FIREBASE PROJECT
-   REALTIME DATABASE
+   FIREBASE
 ================================================== */
 
 const firebaseConfig = {
@@ -715,9 +728,6 @@ const firebaseConfig = {
 };
 
 
-
-/* INITIALIZE FIREBASE */
-
 const app =
 initializeApp(firebaseConfig);
 
@@ -726,22 +736,38 @@ getDatabase(app);
 
 
 
-/* ELEMENTS */
+/* ==================================================
+   ELEMENTS
+================================================== */
 
 const articlesSection =
-document.getElementById(
-    "articlesSection"
-);
+document.getElementById("articlesSection");
 
 const articlesList =
-document.getElementById(
-    "articlesList"
-);
+document.getElementById("articlesList");
 
 const selectedCategory =
-document.getElementById(
-    "selectedCategory"
-);
+document.getElementById("selectedCategory");
+
+const fullArticle =
+document.getElementById("fullArticle");
+
+const fullTitle =
+document.getElementById("fullTitle");
+
+const fullMeta =
+document.getElementById("fullMeta");
+
+const fullContent =
+document.getElementById("fullContent");
+
+
+
+/* ==================================================
+   STORE LOADED ARTICLES
+================================================== */
+
+let loadedArticles = [];
 
 
 
@@ -752,18 +778,26 @@ document.getElementById(
 window.openCategory =
 async function(category){
 
-    articlesSection.style.display =
-    "block";
+    articlesSection.style.display = "block";
 
     selectedCategory.textContent =
-    "📚 " + category + " Articles";
+        "📚 " + category + " Articles";
+
+    fullArticle.style.display = "none";
+
+    articlesList.style.display = "block";
 
     articlesList.innerHTML = `
-        <div class="loading">
-            ⏳ Loading ${escapeHtml(category)} articles...
-        </div>
-    `;
 
+        <div class="loading">
+
+            ⏳ Loading
+            ${escapeHtml(category)}
+            articles...
+
+        </div>
+
+    `;
 
     articlesSection.scrollIntoView({
         behavior:"smooth",
@@ -773,62 +807,45 @@ async function(category){
 
     try{
 
-        /*
-           READ ALL SUBMISSIONS FROM
-           REALTIME DATABASE
-        */
-
         const submissionsRef =
-        ref(
-            db,
-            "articleSubmissions"
-        );
+            ref(
+                db,
+                "articleSubmissions"
+            );
 
 
         const snapshot =
-        await get(
-            submissionsRef
-        );
+            await get(
+                submissionsRef
+            );
 
 
         if(!snapshot.exists()){
 
-            articlesList.innerHTML = `
-                <div class="no-articles">
-
-                    <h3>
-                    No published articles yet.
-                    </h3>
-
-                    <p>
-                    There are currently no
-                    published writings.
-                    </p>
-
-                </div>
-            `;
+            showNoArticles(
+                category
+            );
 
             return;
         }
 
 
         const data =
-        snapshot.val();
+            snapshot.val();
 
 
         let articles = [];
 
 
         /*
-           CONVERT FIREBASE OBJECT
-           INTO ARRAY
-        */
+         * READ EVERY SUBMISSION
+         */
 
         Object.keys(data).forEach(
             id => {
 
                 const article =
-                data[id];
+                    data[id];
 
 
                 if(!article){
@@ -837,55 +854,92 @@ async function(category){
 
 
                 /*
-                   ACCEPT APPROVED ARTICLES
-
-                   Also accept "published"
-                   because some publishing
-                   systems use that status.
-                */
-
-                const status =
-                String(
-                    article.status || ""
-                )
-                .trim()
-                .toLowerCase();
-
+                 * CATEGORY
+                 */
 
                 const articleCategory =
-                String(
-                    article.category || ""
-                )
-                .trim();
+                    String(
+                        article.category ||
+                        article.Category ||
+                        ""
+                    )
+                    .trim()
+                    .toLowerCase();
 
 
                 const wantedCategory =
-                String(
-                    category
-                )
-                .trim();
+                    String(category)
+                    .trim()
+                    .toLowerCase();
 
 
                 /*
-                   CATEGORY MATCH
-
-                   Case-insensitive.
-                */
+                 * ACCEPT:
+                 *
+                 * Poetry
+                 * poetry
+                 * POETRY
+                 */
 
                 const categoryMatches =
-                articleCategory.toLowerCase()
-                ===
-                wantedCategory.toLowerCase();
+                    articleCategory ===
+                    wantedCategory;
+
+
+                /*
+                 * STATUS
+                 *
+                 * Accept the common values
+                 * used by publishing systems.
+                 */
+
+                const rawStatus =
+                    article.status;
+
+
+                const status =
+                    String(
+                        rawStatus || ""
+                    )
+                    .trim()
+                    .toLowerCase();
 
 
                 const published =
-                status === "approved" ||
-                status === "published";
+                    status === "approved" ||
+                    status === "published" ||
+                    status === "approve" ||
+                    status === "public" ||
+                    status === "live" ||
+                    status === "yes" ||
+                    status === "true" ||
+                    rawStatus === true;
 
+
+                /*
+                 * CONTENT
+                 */
+
+                const content =
+                    article.article ||
+                    article.content ||
+                    article.poem ||
+                    article.text ||
+                    article.paragraph ||
+                    article.body ||
+                    article.description ||
+                    "";
+
+
+                /*
+                 * ONLY SHOW REAL
+                 * PUBLISHED CONTENT
+                 */
 
                 if(
                     categoryMatches &&
-                    published
+                    published &&
+                    String(content).trim() !== ""
                 ){
 
                     articles.push({
@@ -902,26 +956,29 @@ async function(category){
         );
 
 
-
-        /* SORT NEWEST FIRST */
+        /*
+         * NEWEST FIRST
+         */
 
         articles.sort(
-            (a,b)=>{
+            (a,b) => {
 
                 const dateA =
-                getDateValue(
-                    a.submittedAt ||
-                    a.createdAt ||
-                    a.publishedAt
-                );
+                    getDateValue(
+                        a.publishedAt ||
+                        a.submittedAt ||
+                        a.createdAt ||
+                        a.timestamp
+                    );
 
 
                 const dateB =
-                getDateValue(
-                    b.submittedAt ||
-                    b.createdAt ||
-                    b.publishedAt
-                );
+                    getDateValue(
+                        b.publishedAt ||
+                        b.submittedAt ||
+                        b.createdAt ||
+                        b.timestamp
+                    );
 
 
                 return dateB - dateA;
@@ -930,78 +987,69 @@ async function(category){
         );
 
 
+        loadedArticles =
+            articles;
 
-        /* NO ARTICLES */
+
+        /*
+         * NOTHING FOUND
+         */
 
         if(
             articles.length === 0
         ){
 
-            articlesList.innerHTML = `
-                <div class="no-articles">
-
-                    <h3>
-                    No published articles yet.
-                    </h3>
-
-                    <p>
-                    There are currently no
-                    published writings in
-                    <strong>
-                    ${escapeHtml(category)}
-                    </strong>.
-                    </p>
-
-                </div>
-            `;
+            showNoArticles(
+                category
+            );
 
             return;
 
         }
 
 
-
-        /* DISPLAY ARTICLES */
+        /*
+         * DISPLAY
+         */
 
         let html = "";
 
 
         articles.forEach(
-            article => {
+            (article,index) => {
 
                 const title =
-                article.title ||
-                "Untitled Article";
+                    article.title ||
+                    article.heading ||
+                    "Untitled";
 
 
                 const writer =
-                article.name ||
-                article.author ||
-                "The Shining Window";
+                    article.name ||
+                    article.author ||
+                    article.writer ||
+                    "The Shining Window";
 
 
                 const content =
-                article.article ||
-                article.content ||
-                article.paragraph ||
-                article.poem ||
-                article.text ||
-                "";
+                    getArticleContent(
+                        article
+                    );
 
 
                 const preview =
-                createPreview(
-                    content
-                );
+                    createPreview(
+                        content
+                    );
 
 
                 const date =
-                formatDate(
-                    article.submittedAt ||
-                    article.createdAt ||
-                    article.publishedAt
-                );
-
+                    formatDate(
+                        article.publishedAt ||
+                        article.submittedAt ||
+                        article.createdAt ||
+                        article.timestamp
+                    );
 
 
                 html += `
@@ -1035,14 +1083,14 @@ async function(category){
                     </div>
 
 
-                    <a
+                    <button
                         class="read-button"
-                        href="article.html?id=${encodeURIComponent(article.id)}"
+                        onclick="readArticle(${index})"
                     >
 
-                        📖 Read Full Article
+                        📖 Read Full
 
-                    </a>
+                    </button>
 
                 </article>
 
@@ -1053,7 +1101,7 @@ async function(category){
 
 
         articlesList.innerHTML =
-        html;
+            html;
 
     }
 
@@ -1061,7 +1109,7 @@ async function(category){
     catch(error){
 
         console.error(
-            "Realtime Database error:",
+            "Firebase error:",
             error
         );
 
@@ -1071,21 +1119,22 @@ async function(category){
             <div class="database-error">
 
                 <h3>
-                ❌ Unable to load articles
+                    ❌ Unable to load articles
                 </h3>
 
                 <p>
-                ${escapeHtml(
-                    error.message ||
-                    "Database access failed."
-                )}
+                    ${escapeHtml(
+                        error.message ||
+                        "Database access failed."
+                    )}
                 </p>
 
                 <br>
 
                 <p>
-                Please check the Firebase
-                Realtime Database rules.
+                    Please check your
+                    Firebase Realtime Database
+                    rules.
                 </p>
 
             </div>
@@ -1099,15 +1148,197 @@ async function(category){
 
 
 /* ==================================================
+   GET ARTICLE CONTENT
+================================================== */
+
+function getArticleContent(article){
+
+    return String(
+
+        article.article ||
+        article.content ||
+        article.poem ||
+        article.text ||
+        article.paragraph ||
+        article.body ||
+        article.description ||
+        ""
+
+    ).trim();
+
+}
+
+
+
+/* ==================================================
+   READ FULL ARTICLE
+================================================== */
+
+window.readArticle =
+function(index){
+
+    const article =
+        loadedArticles[index];
+
+
+    if(!article){
+        return;
+    }
+
+
+    const title =
+        article.title ||
+        article.heading ||
+        "Untitled";
+
+
+    const writer =
+        article.name ||
+        article.author ||
+        article.writer ||
+        "The Shining Window";
+
+
+    const date =
+        formatDate(
+            article.publishedAt ||
+            article.submittedAt ||
+            article.createdAt ||
+            article.timestamp
+        );
+
+
+    const content =
+        getArticleContent(
+            article
+        );
+
+
+    fullTitle.textContent =
+        title;
+
+
+    fullMeta.textContent =
+        "✍️ " +
+        writer +
+        "  |  📅 " +
+        date;
+
+
+    fullContent.textContent =
+        content ||
+        "No content available.";
+
+
+    fullArticle.style.display =
+        "block";
+
+
+    articlesList.style.display =
+        "none";
+
+
+    fullArticle.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+};
+
+
+
+/* ==================================================
+   CLOSE FULL ARTICLE
+================================================== */
+
+window.closeFullArticle =
+function(){
+
+    fullArticle.style.display =
+        "none";
+
+    articlesList.style.display =
+        "block";
+
+    articlesList.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+};
+
+
+
+/* ==================================================
+   BACK TO CATEGORIES
+================================================== */
+
+window.backToCategories =
+function(event){
+
+    event.preventDefault();
+
+    articlesSection.style.display =
+        "none";
+
+    fullArticle.style.display =
+        "none";
+
+    articlesList.style.display =
+        "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
+
+
+
+/* ==================================================
+   NO ARTICLES
+================================================== */
+
+function showNoArticles(category){
+
+    articlesList.innerHTML = `
+
+        <div class="no-articles">
+
+            <h3>
+                No published articles yet.
+            </h3>
+
+            <p>
+
+                There are currently no
+                published writings in
+
+                <strong>
+                    ${escapeHtml(category)}
+                </strong>.
+
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* ==================================================
    CREATE PREVIEW
 ================================================== */
 
 function createPreview(text){
 
     text =
-    String(text || "")
-    .replace(/\s+/g," ")
-    .trim();
+        String(text || "")
+        .replace(/\s+/g," ")
+        .trim();
 
 
     if(!text){
@@ -1140,15 +1371,9 @@ function createPreview(text){
 function getDateValue(value){
 
     if(!value){
-
         return 0;
-
     }
 
-
-    /*
-       Firebase timestamp/object
-    */
 
     if(
         typeof value === "object" &&
@@ -1156,33 +1381,24 @@ function getDateValue(value){
     ){
 
         if(
-            typeof value.seconds ===
-            "number"
+            typeof value.seconds === "number"
         ){
 
-            return (
-                value.seconds * 1000
-            );
+            return value.seconds * 1000;
 
         }
 
+
         if(
-            typeof value._seconds ===
-            "number"
+            typeof value._seconds === "number"
         ){
 
-            return (
-                value._seconds * 1000
-            );
+            return value._seconds * 1000;
 
         }
 
     }
 
-
-    /*
-       Number timestamp
-    */
 
     if(
         typeof value === "number"
@@ -1195,12 +1411,8 @@ function getDateValue(value){
     }
 
 
-    /*
-       String date
-    */
-
     const parsed =
-    new Date(value).getTime();
+        new Date(value).getTime();
 
 
     return isNaN(parsed)
@@ -1218,7 +1430,7 @@ function getDateValue(value){
 function formatDate(value){
 
     const time =
-    getDateValue(value);
+        getDateValue(value);
 
 
     if(!time){
@@ -1229,14 +1441,14 @@ function formatDate(value){
 
 
     return new Date(time)
-    .toLocaleDateString(
-        "en-US",
-        {
-            year:"numeric",
-            month:"long",
-            day:"numeric"
-        }
-    );
+        .toLocaleDateString(
+            "en-US",
+            {
+                year:"numeric",
+                month:"long",
+                day:"numeric"
+            }
+        );
 
 }
 
@@ -1250,30 +1462,30 @@ function escapeHtml(value){
 
     return String(value || "")
 
-    .replaceAll(
-        "&",
-        "&amp;"
-    )
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
 
-    .replaceAll(
-        "<",
-        "&lt;"
-    )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
 
-    .replaceAll(
-        ">",
-        "&gt;"
-    )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
 
-    .replaceAll(
-        '"',
-        "&quot;"
-    )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
 
-    .replaceAll(
-        "'",
-        "&#039;"
-    );
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
 
