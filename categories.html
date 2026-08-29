@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -135,7 +134,9 @@ nav a:hover{
 }
 
 
-/* ARTICLES */
+/* ===============================
+   ARTICLES SECTION
+================================ */
 
 #articlesSection{
     display:none;
@@ -158,10 +159,6 @@ nav a:hover{
     text-decoration:none;
     border-radius:7px;
     font-weight:bold;
-}
-
-.back-button:hover{
-    background:#555;
 }
 
 .article-card{
@@ -192,13 +189,11 @@ nav a:hover{
 }
 
 .read-button{
-    display:inline-block;
     background:#173f5f;
     color:white;
     padding:11px 20px;
     border:none;
     border-radius:7px;
-    text-decoration:none;
     font-weight:bold;
     cursor:pointer;
 }
@@ -208,7 +203,9 @@ nav a:hover{
 }
 
 
-/* FULL ARTICLE */
+/* ===============================
+   FULL ARTICLE
+================================ */
 
 .full-article{
     display:none;
@@ -221,18 +218,16 @@ nav a:hover{
 
 .full-article h2{
     text-align:left !important;
-    margin-bottom:12px !important;
     color:#173f5f;
+    margin-bottom:12px !important;
 }
 
 .full-meta{
     color:#777;
     margin-bottom:25px;
-    font-size:14px;
 }
 
 .full-content{
-    color:#222;
     font-size:18px;
     line-height:2;
     white-space:pre-wrap;
@@ -246,14 +241,14 @@ nav a:hover{
     border-radius:7px;
     background:#777;
     color:white;
-    cursor:pointer;
     font-weight:bold;
+    cursor:pointer;
 }
 
-.close-article:hover{
-    background:#555;
-}
 
+/* ===============================
+   MESSAGES
+================================ */
 
 .loading,
 .no-articles,
@@ -263,19 +258,17 @@ nav a:hover{
     border-radius:14px;
     text-align:center;
     box-shadow:0 4px 15px rgba(0,0,0,.08);
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .database-error{
     color:#a00000;
 }
 
-.database-error h3{
-    margin-bottom:10px;
-}
 
-
-/* WRITER */
+/* ===============================
+   WRITER
+================================ */
 
 .writer-section{
     margin-top:50px;
@@ -305,7 +298,9 @@ nav a:hover{
 }
 
 
-/* FOOTER */
+/* ===============================
+   FOOTER
+================================ */
 
 footer{
     margin-top:50px;
@@ -316,7 +311,9 @@ footer{
 }
 
 
-/* MOBILE */
+/* ===============================
+   MOBILE
+================================ */
 
 @media(max-width:700px){
 
@@ -342,17 +339,12 @@ footer{
         padding:20px;
     }
 
-    .article-card h3{
-        font-size:22px;
-    }
-
     .full-article{
         padding:20px;
     }
 
     .full-content{
         font-size:17px;
-        line-height:1.9;
     }
 
 }
@@ -360,7 +352,6 @@ footer{
 </style>
 
 </head>
-
 
 <body>
 
@@ -380,6 +371,7 @@ Open your mind. Share your thoughts.
 </div>
 
 </div>
+
 
 <nav>
 
@@ -402,13 +394,11 @@ Open your mind. Share your thoughts.
 
 <section class="intro">
 
-<h1>
-📚 Explore Categories
-</h1>
+<h1>📚 Explore Categories</h1>
 
 <p>
-Discover ideas, knowledge, creativity and
-stories from different areas of life.
+Discover ideas, knowledge, creativity and stories
+from different areas of life.
 </p>
 
 </section>
@@ -417,176 +407,76 @@ stories from different areas of life.
 
 <section class="categories">
 
-
 <div class="category">
-
 <div class="icon">📚</div>
-
 <h2>Grammar</h2>
-
-<p>
-Learn English grammar, sentence structures,
-vocabulary and practical language use.
-</p>
-
-<button onclick="openCategory('Grammar')">
-Explore
-</button>
-
+<p>Learn English grammar and practical language use.</p>
+<button type="button" onclick="openCategory('Grammar')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">🔬</div>
-
 <h2>Science</h2>
-
-<p>
-Explore interesting scientific ideas,
-discoveries and facts about our world.
-</p>
-
-<button onclick="openCategory('Science')">
-Explore
-</button>
-
+<p>Explore scientific ideas and discoveries.</p>
+<button type="button" onclick="openCategory('Science')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">🎓</div>
-
 <h2>Education</h2>
-
-<p>
-Articles about teaching, learning,
-students, schools and education.
-</p>
-
-<button onclick="openCategory('Education')">
-Explore
-</button>
-
+<p>Articles about teaching and learning.</p>
+<button type="button" onclick="openCategory('Education')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">💻</div>
-
 <h2>Technology</h2>
-
-<p>
-Discover technology, digital tools,
-websites, apps and useful innovations.
-</p>
-
-<button onclick="openCategory('Technology')">
-Explore
-</button>
-
+<p>Discover technology and useful digital tools.</p>
+<button type="button" onclick="openCategory('Technology')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">📝</div>
-
 <h2>Poetry</h2>
-
-<p>
-Read poems, creative writing and
-expressions of imagination.
-</p>
-
-<button onclick="openCategory('Poetry')">
-Explore
-</button>
-
+<p>Read poems, nazams and creative writing.</p>
+<button type="button" onclick="openCategory('Poetry')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">📖</div>
-
 <h2>Stories</h2>
-
-<p>
-Enjoy short stories, experiences,
-fiction and inspiring narratives.
-</p>
-
-<button onclick="openCategory('Stories')">
-Explore
-</button>
-
+<p>Enjoy stories and inspiring narratives.</p>
+<button type="button" onclick="openCategory('Stories')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">🌍</div>
-
 <h2>General Knowledge</h2>
-
-<p>
-Interesting facts and useful knowledge
-from around the world.
-</p>
-
-<button onclick="openCategory('General Knowledge')">
-Explore
-</button>
-
+<p>Interesting facts and useful knowledge.</p>
+<button type="button" onclick="openCategory('General Knowledge')">Explore</button>
 </div>
 
 
-
 <div class="category">
-
 <div class="icon">💡</div>
-
 <h2>Opinion</h2>
-
-<p>
-Read thoughtful opinions, ideas,
-discussions and perspectives.
-</p>
-
-<button onclick="openCategory('Opinion')">
-Explore
-</button>
-
+<p>Read ideas, opinions and perspectives.</p>
+<button type="button" onclick="openCategory('Opinion')">Explore</button>
 </div>
-
 
 
 <div class="category">
-
 <div class="icon">✨</div>
-
 <h2>Other</h2>
-
-<p>
-Discover articles that don't fit
-into our main categories.
-</p>
-
-<button onclick="openCategory('Other')">
-Explore
-</button>
-
+<p>Discover other interesting writings.</p>
+<button type="button" onclick="openCategory('Other')">Explore</button>
 </div>
-
 
 </section>
 
@@ -598,31 +488,19 @@ Explore
 ← Back to Categories
 </a>
 
+<h2 id="selectedCategory">Articles</h2>
 
-<h2 id="selectedCategory">
-Articles
-</h2>
-
-
-<!-- FULL ARTICLE AREA -->
 
 <div id="fullArticle" class="full-article">
 
-<h2 id="fullTitle">
-</h2>
+<h2 id="fullTitle"></h2>
 
-<div id="fullMeta" class="full-meta">
-</div>
+<div id="fullMeta" class="full-meta"></div>
 
-<div id="fullContent" class="full-content">
-</div>
+<div id="fullContent" class="full-content"></div>
 
-<button
-class="close-article"
-onclick="closeFullArticle()">
-
+<button class="close-article" type="button" onclick="closeFullArticle()">
 ← Back to Articles
-
 </button>
 
 </div>
@@ -642,103 +520,73 @@ Choose a category to see published writing.
 
 <section class="writer-section">
 
-<h2>
-Have Something to Share?
-</h2>
+<h2>Have Something to Share?</h2>
 
 <p>
-Become a writer and share your ideas
-with the readers of The Shining Window.
+Become a writer and share your ideas with the readers
+of The Shining Window.
 </p>
 
-<a
-class="writer-button"
-href="write.html">
-
+<a class="writer-button" href="write.html">
 ✍️ Write for Us
-
 </a>
 
 </section>
-
 
 </main>
 
 
 
 <footer>
-
-<p>
-© 2026 The Shining Window — All Rights Reserved
-</p>
-
+<p>© 2026 The Shining Window — All Rights Reserved</p>
 </footer>
 
 
 
 <script type="module">
 
-import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getDatabase,
     ref,
     get
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-
-/* ==================================================
-   FIREBASE
-================================================== */
+/* ===============================
+   FIREBASE CONFIGURATION
+================================ */
 
 const firebaseConfig = {
 
-    apiKey:
-    "AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
+    apiKey:"AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
 
-    authDomain:
-    "poet--deedar---shahbaz.firebaseapp.com",
+    authDomain:"poet--deedar---shahbaz.firebaseapp.com",
 
-    databaseURL:
-    "https://the-shining-window-default-rtdb.firebaseio.com",
+    databaseURL:"https://the-shining-window-default-rtdb.firebaseio.com",
 
-    projectId:
-    "poet--deedar---shahbaz",
+    projectId:"poet--deedar---shahbaz",
 
-    storageBucket:
-    "poet--deedar---shahbaz.firebasestorage.app",
+    storageBucket:"poet--deedar---shahbaz.firebasestorage.app",
 
-    messagingSenderId:
-    "411582745091",
+    messagingSenderId:"411582745091",
 
-    appId:
-    "1:411582745091:web:96413eef58092e77911c36",
-
-    measurementId:
-    "G-E0V5QH9D98"
+    appId:"1:411582745091:web:96413eef58092e77911c36"
 
 };
 
 
-const app =
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db =
-getDatabase(app);
+const db = getDatabase(app);
 
 
-
-/* ==================================================
+/* ===============================
    ELEMENTS
-================================================== */
+================================ */
 
 const articlesSection =
 document.getElementById("articlesSection");
@@ -762,42 +610,108 @@ const fullContent =
 document.getElementById("fullContent");
 
 
-
-/* ==================================================
-   STORE LOADED ARTICLES
-================================================== */
-
 let loadedArticles = [];
 
 
+/* ===============================
+   NORMALIZE CATEGORY
+================================ */
 
-/* ==================================================
+function normalize(value){
+
+    return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g," ");
+
+}
+
+
+/* ===============================
+   GET CONTENT
+================================ */
+
+function getArticleContent(article){
+
+    return String(
+
+        article.article ||
+        article.content ||
+        article.poem ||
+        article.nazam ||
+        article.text ||
+        article.body ||
+        article.description ||
+        article.writing ||
+        ""
+
+    ).trim();
+
+}
+
+
+/* ===============================
+   CHECK PUBLISHED
+================================ */
+
+function isPublished(article){
+
+    const status =
+    String(
+        article.status ||
+        article.publishStatus ||
+        article.approvalStatus ||
+        ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+    return (
+
+        status === "published" ||
+        status === "approved" ||
+        status === "approve" ||
+        status === "public" ||
+        status === "live" ||
+
+        article.published === true ||
+        article.approved === true ||
+
+        article.publish === true
+
+    );
+
+}
+
+
+/* ===============================
    OPEN CATEGORY
-================================================== */
+================================ */
 
-window.openCategory =
-async function(category){
+window.openCategory = async function(category){
 
     articlesSection.style.display = "block";
-
-    selectedCategory.textContent =
-        "📚 " + category + " Articles";
 
     fullArticle.style.display = "none";
 
     articlesList.style.display = "block";
 
+
+    selectedCategory.textContent =
+    "📚 " + category;
+
+
     articlesList.innerHTML = `
 
-        <div class="loading">
+    <div class="loading">
 
-            ⏳ Loading
-            ${escapeHtml(category)}
-            articles...
+    ⏳ Loading ${escapeHtml(category)}...
 
-        </div>
+    </div>
 
     `;
+
 
     articlesSection.scrollIntoView({
         behavior:"smooth",
@@ -807,337 +721,238 @@ async function(category){
 
     try{
 
-        const submissionsRef =
-            ref(
-                db,
-                "articleSubmissions"
-            );
-
-
-        const snapshot =
-            await get(
-                submissionsRef
-            );
-
-
-        if(!snapshot.exists()){
-
-            showNoArticles(
-                category
-            );
-
-            return;
-        }
-
-
-        const data =
-            snapshot.val();
-
-
-        let articles = [];
-
-
         /*
-         * READ EVERY SUBMISSION
-         */
+        READ BOTH POSSIBLE LOCATIONS
+        */
 
-        Object.keys(data).forEach(
-            id => {
+        const locations = [
+            "articleSubmissions",
+            "publishedArticles"
+        ];
 
-                const article =
+
+        let allArticles = [];
+
+
+        for(const location of locations){
+
+            const snapshot =
+            await get(ref(db,location));
+
+
+            if(snapshot.exists()){
+
+                const data =
+                snapshot.val();
+
+
+                Object.keys(data).forEach(id=>{
+
+                    const article =
                     data[id];
 
 
-                if(!article){
-                    return;
-                }
+                    if(article){
 
+                        allArticles.push({
+                            id:id,
+                            ...article
+                        });
 
-                /*
-                 * CATEGORY
-                 */
+                    }
 
-                const articleCategory =
-                    String(
-                        article.category ||
-                        article.Category ||
-                        ""
-                    )
-                    .trim()
-                    .toLowerCase();
-
-
-                const wantedCategory =
-                    String(category)
-                    .trim()
-                    .toLowerCase();
-
-
-                /*
-                 * ACCEPT:
-                 *
-                 * Poetry
-                 * poetry
-                 * POETRY
-                 */
-
-                const categoryMatches =
-                    articleCategory ===
-                    wantedCategory;
-
-
-                /*
-                 * STATUS
-                 *
-                 * Accept the common values
-                 * used by publishing systems.
-                 */
-
-                const rawStatus =
-                    article.status;
-
-
-                const status =
-                    String(
-                        rawStatus || ""
-                    )
-                    .trim()
-                    .toLowerCase();
-
-
-                const published =
-                    status === "approved" ||
-                    status === "published" ||
-                    status === "approve" ||
-                    status === "public" ||
-                    status === "live" ||
-                    status === "yes" ||
-                    status === "true" ||
-                    rawStatus === true;
-
-
-                /*
-                 * CONTENT
-                 */
-
-                const content =
-                    article.article ||
-                    article.content ||
-                    article.poem ||
-                    article.text ||
-                    article.paragraph ||
-                    article.body ||
-                    article.description ||
-                    "";
-
-
-                /*
-                 * ONLY SHOW REAL
-                 * PUBLISHED CONTENT
-                 */
-
-                if(
-                    categoryMatches &&
-                    published &&
-                    String(content).trim() !== ""
-                ){
-
-                    articles.push({
-
-                        id:id,
-
-                        ...article
-
-                    });
-
-                }
+                });
 
             }
-        );
+
+        }
 
 
-        /*
-         * NEWEST FIRST
-         */
-
-        articles.sort(
-            (a,b) => {
-
-                const dateA =
-                    getDateValue(
-                        a.publishedAt ||
-                        a.submittedAt ||
-                        a.createdAt ||
-                        a.timestamp
-                    );
+        const wanted =
+        normalize(category);
 
 
-                const dateB =
-                    getDateValue(
-                        b.publishedAt ||
-                        b.submittedAt ||
-                        b.createdAt ||
-                        b.timestamp
-                    );
+        const articles =
+        allArticles.filter(article=>{
 
 
-                return dateB - dateA;
+            const articleCategory =
+            normalize(
 
-            }
-        );
+                article.category ||
+                article.Category ||
+                article.type ||
+                article.section ||
+                ""
 
-
-        loadedArticles =
-            articles;
-
-
-        /*
-         * NOTHING FOUND
-         */
-
-        if(
-            articles.length === 0
-        ){
-
-            showNoArticles(
-                category
             );
+
+
+            const categoryMatches =
+            articleCategory === wanted;
+
+
+            const content =
+            getArticleContent(article);
+
+
+            /*
+            CONTENT IN publishedArticles
+            IS ACCEPTED AUTOMATICALLY
+            IF IT HAS NO STATUS
+            */
+
+            const published =
+            isPublished(article) ||
+            article.source === "published";
+
+
+            return (
+                categoryMatches &&
+                content !== "" &&
+                (
+                    published ||
+                    article.status === undefined
+                )
+            );
+
+        });
+
+
+        articles.sort((a,b)=>{
+
+            return (
+                getDateValue(
+                    b.publishedAt ||
+                    b.createdAt ||
+                    b.timestamp
+                )
+
+                -
+
+                getDateValue(
+                    a.publishedAt ||
+                    a.createdAt ||
+                    a.timestamp
+                )
+
+            );
+
+        });
+
+
+        loadedArticles = articles;
+
+
+        if(articles.length === 0){
+
+            showNoArticles(category);
 
             return;
 
         }
 
-
-        /*
-         * DISPLAY
-         */
 
         let html = "";
 
 
-        articles.forEach(
-            (article,index) => {
-
-                const title =
-                    article.title ||
-                    article.heading ||
-                    "Untitled";
+        articles.forEach((article,index)=>{
 
 
-                const writer =
-                    article.name ||
-                    article.author ||
-                    article.writer ||
-                    "The Shining Window";
+            const title =
+            article.title ||
+            article.heading ||
+            article.nameOfArticle ||
+            "Untitled";
 
 
-                const content =
-                    getArticleContent(
-                        article
-                    );
+            const writer =
+            article.name ||
+            article.author ||
+            article.writer ||
+            "The Shining Window";
 
 
-                const preview =
-                    createPreview(
-                        content
-                    );
+            const content =
+            getArticleContent(article);
 
 
-                const date =
-                    formatDate(
-                        article.publishedAt ||
-                        article.submittedAt ||
-                        article.createdAt ||
-                        article.timestamp
-                    );
+            const preview =
+            createPreview(content);
 
 
-                html += `
+            const date =
+            formatDate(
 
-                <article
-                    class="article-card"
-                >
+                article.publishedAt ||
+                article.submittedAt ||
+                article.createdAt ||
+                article.timestamp
 
-                    <h3>
-                        ${escapeHtml(title)}
-                    </h3>
-
-
-                    <div class="article-meta">
-
-                        ✍️
-                        ${escapeHtml(writer)}
-
-                        &nbsp; | &nbsp;
-
-                        📅
-                        ${escapeHtml(date)}
-
-                    </div>
+            );
 
 
-                    <div
-                        class="article-preview"
-                    >
-                        ${escapeHtml(preview)}
-                    </div>
+            html += `
+
+            <article class="article-card">
+
+            <h3>
+            ${escapeHtml(title)}
+            </h3>
+
+            <div class="article-meta">
+
+            ✍️ ${escapeHtml(writer)}
+
+            &nbsp; | &nbsp;
+
+            📅 ${escapeHtml(date)}
+
+            </div>
+
+            <div class="article-preview">
+
+            ${escapeHtml(preview)}
+
+            </div>
+
+            <button
+            type="button"
+            class="read-button"
+            onclick="readArticle(${index})">
+
+            📖 Read Full
+
+            </button>
+
+            </article>
+
+            `;
+
+        });
 
 
-                    <button
-                        class="read-button"
-                        onclick="readArticle(${index})"
-                    >
+        articlesList.innerHTML = html;
 
-                        📖 Read Full
-
-                    </button>
-
-                </article>
-
-                `;
-
-            }
-        );
-
-
-        articlesList.innerHTML =
-            html;
 
     }
 
-
     catch(error){
 
-        console.error(
-            "Firebase error:",
-            error
-        );
+        console.error(error);
 
 
         articlesList.innerHTML = `
 
-            <div class="database-error">
+        <div class="database-error">
 
-                <h3>
-                    ❌ Unable to load articles
-                </h3>
+        <h3>❌ Unable to load articles</h3>
 
-                <p>
-                    ${escapeHtml(
-                        error.message ||
-                        "Database access failed."
-                    )}
-                </p>
+        <p>
+        ${escapeHtml(error.message)}
+        </p>
 
-                <br>
-
-                <p>
-                    Please check your
-                    Firebase Realtime Database
-                    rules.
-                </p>
-
-            </div>
+        </div>
 
         `;
 
@@ -1146,96 +961,63 @@ async function(category){
 };
 
 
+/* ===============================
+   READ ARTICLE
+================================ */
 
-/* ==================================================
-   GET ARTICLE CONTENT
-================================================== */
-
-function getArticleContent(article){
-
-    return String(
-
-        article.article ||
-        article.content ||
-        article.poem ||
-        article.text ||
-        article.paragraph ||
-        article.body ||
-        article.description ||
-        ""
-
-    ).trim();
-
-}
-
-
-
-/* ==================================================
-   READ FULL ARTICLE
-================================================== */
-
-window.readArticle =
-function(index){
+window.readArticle = function(index){
 
     const article =
-        loadedArticles[index];
+    loadedArticles[index];
 
 
-    if(!article){
-        return;
-    }
+    if(!article) return;
 
 
     const title =
-        article.title ||
-        article.heading ||
-        "Untitled";
+    article.title ||
+    article.heading ||
+    article.nameOfArticle ||
+    "Untitled";
 
 
     const writer =
-        article.name ||
-        article.author ||
-        article.writer ||
-        "The Shining Window";
-
-
-    const date =
-        formatDate(
-            article.publishedAt ||
-            article.submittedAt ||
-            article.createdAt ||
-            article.timestamp
-        );
+    article.name ||
+    article.author ||
+    article.writer ||
+    "The Shining Window";
 
 
     const content =
-        getArticleContent(
-            article
-        );
+    getArticleContent(article);
 
 
-    fullTitle.textContent =
-        title;
+    const date =
+    formatDate(
+
+        article.publishedAt ||
+        article.submittedAt ||
+        article.createdAt ||
+        article.timestamp
+
+    );
+
+
+    fullTitle.textContent = title;
 
 
     fullMeta.textContent =
-        "✍️ " +
-        writer +
-        "  |  📅 " +
-        date;
+    "✍️ " + writer +
+    " | 📅 " + date;
 
 
     fullContent.textContent =
-        content ||
-        "No content available.";
+    content;
 
 
-    fullArticle.style.display =
-        "block";
+    articlesList.style.display = "none";
 
-
-    articlesList.style.display =
-        "none";
+    fullArticle.style.display = "block";
 
 
     fullArticle.scrollIntoView({
@@ -1246,46 +1028,38 @@ function(index){
 };
 
 
+/* ===============================
+   CLOSE ARTICLE
+================================ */
 
-/* ==================================================
-   CLOSE FULL ARTICLE
-================================================== */
+window.closeFullArticle = function(){
 
-window.closeFullArticle =
-function(){
+    fullArticle.style.display = "none";
 
-    fullArticle.style.display =
-        "none";
+    articlesList.style.display = "block";
 
-    articlesList.style.display =
-        "block";
 
     articlesList.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
+        behavior:"smooth"
     });
 
 };
 
 
+/* ===============================
+   BACK
+================================ */
 
-/* ==================================================
-   BACK TO CATEGORIES
-================================================== */
-
-window.backToCategories =
-function(event){
+window.backToCategories = function(event){
 
     event.preventDefault();
 
-    articlesSection.style.display =
-        "none";
+    articlesSection.style.display = "none";
 
-    fullArticle.style.display =
-        "none";
+    fullArticle.style.display = "none";
 
-    articlesList.style.display =
-        "block";
+    articlesList.style.display = "block";
+
 
     window.scrollTo({
         top:0,
@@ -1295,57 +1069,41 @@ function(event){
 };
 
 
-
-/* ==================================================
+/* ===============================
    NO ARTICLES
-================================================== */
+================================ */
 
 function showNoArticles(category){
 
     articlesList.innerHTML = `
 
-        <div class="no-articles">
+    <div class="no-articles">
 
-            <h3>
-                No published articles yet.
-            </h3>
+    <h3>📭 No published writing yet</h3>
 
-            <p>
+    <p>
 
-                There are currently no
-                published writings in
+    There are currently no published writings
+    in <strong>${escapeHtml(category)}</strong>.
 
-                <strong>
-                    ${escapeHtml(category)}
-                </strong>.
+    </p>
 
-            </p>
-
-        </div>
+    </div>
 
     `;
 
 }
 
 
-
-/* ==================================================
-   CREATE PREVIEW
-================================================== */
+/* ===============================
+   PREVIEW
+================================ */
 
 function createPreview(text){
 
-    text =
-        String(text || "")
-        .replace(/\s+/g," ")
-        .trim();
-
-
-    if(!text){
-
-        return "No preview available.";
-
-    }
+    text = String(text || "")
+    .replace(/\s+/g," ")
+    .trim();
 
 
     if(text.length <= 260){
@@ -1355,23 +1113,26 @@ function createPreview(text){
     }
 
 
-    return (
-        text.substring(0,260)
-        + "..."
-    );
+    return text.substring(0,260) + "...";
 
 }
 
 
-
-/* ==================================================
-   DATE VALUE
-================================================== */
+/* ===============================
+   DATE
+================================ */
 
 function getDateValue(value){
 
-    if(!value){
-        return 0;
+    if(!value) return 0;
+
+
+    if(typeof value === "number"){
+
+        return value < 10000000000
+        ? value * 1000
+        : value;
+
     }
 
 
@@ -1380,18 +1141,13 @@ function getDateValue(value){
         value !== null
     ){
 
-        if(
-            typeof value.seconds === "number"
-        ){
+        if(typeof value.seconds === "number"){
 
             return value.seconds * 1000;
 
         }
 
-
-        if(
-            typeof value._seconds === "number"
-        ){
+        if(typeof value._seconds === "number"){
 
             return value._seconds * 1000;
 
@@ -1400,37 +1156,19 @@ function getDateValue(value){
     }
 
 
-    if(
-        typeof value === "number"
-    ){
-
-        return value < 10000000000
-            ? value * 1000
-            : value;
-
-    }
+    const date =
+    new Date(value).getTime();
 
 
-    const parsed =
-        new Date(value).getTime();
-
-
-    return isNaN(parsed)
-        ? 0
-        : parsed;
+    return isNaN(date) ? 0 : date;
 
 }
 
 
-
-/* ==================================================
-   FORMAT DATE
-================================================== */
-
 function formatDate(value){
 
     const time =
-        getDateValue(value);
+    getDateValue(value);
 
 
     if(!time){
@@ -1441,57 +1179,40 @@ function formatDate(value){
 
 
     return new Date(time)
-        .toLocaleDateString(
-            "en-US",
-            {
-                year:"numeric",
-                month:"long",
-                day:"numeric"
-            }
-        );
+    .toLocaleDateString(
+        "en-US",
+        {
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
 
 }
 
 
-
-/* ==================================================
-   ESCAPE HTML
-================================================== */
+/* ===============================
+   SECURITY: ESCAPE HTML
+================================ */
 
 function escapeHtml(value){
 
     return String(value || "")
 
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
+    .replace(/&/g,"&amp;")
 
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
+    .replace(/</g,"&lt;")
 
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
+    .replace(/>/g,"&gt;")
 
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
+    .replace(/"/g,"&quot;")
 
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
+    .replace(/'/g,"&#039;");
 
 }
 
 </script>
 
-
 </body>
-
 </html>
+Important
