@@ -17,12 +17,10 @@
 
 body{
     margin:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f3f6fa;
     color:#263238;
 }
-
-/* HEADER */
 
 header{
     background:linear-gradient(135deg,#123c69,#1f6f8b);
@@ -39,8 +37,6 @@ header h1{
 header p{
     margin:7px 0 0;
 }
-
-/* LOGIN */
 
 #loginBox{
     max-width:420px;
@@ -80,8 +76,6 @@ button{
     background:#1f6f8b;
 }
 
-/* DASHBOARD */
-
 #dashboard{
     display:none;
     max-width:1100px;
@@ -111,8 +105,6 @@ button{
     color:white;
 }
 
-/* STATS */
-
 .stats{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -138,8 +130,6 @@ button{
     color:#666;
 }
 
-/* SUBMISSIONS */
-
 .submission{
     background:white;
     margin:20px 0;
@@ -157,16 +147,18 @@ button{
     color:#666;
     font-size:14px;
     margin-bottom:15px;
+    line-height:1.7;
 }
 
 .article-text{
     white-space:pre-wrap;
-    line-height:1.8;
+    line-height:1.9;
     border-top:1px solid #eee;
     padding-top:15px;
+    font-size:16px;
 }
 
-.approve{
+.publish{
     background:#16803c;
     color:white;
 }
@@ -192,12 +184,16 @@ button{
     color:#b22222;
 }
 
+.success{
+    color:#16803c;
+    font-weight:bold;
+}
+
 </style>
 
 </head>
 
 <body>
-
 
 <header>
 
@@ -246,11 +242,9 @@ class="error">
 </div>
 
 
-
 <!-- DASHBOARD -->
 
 <main id="dashboard">
-
 
 <div class="topbar">
 
@@ -285,7 +279,6 @@ onclick="logout()">
 </div>
 
 
-
 <!-- STATISTICS -->
 
 <div class="stats">
@@ -298,15 +291,21 @@ onclick="logout()">
 
 </div>
 
-
 <div class="stat">
 
-<strong id="approvedCount">0</strong>
+<strong id="publishedCount">0</strong>
 
-<span>Approved</span>
+<span>Published</span>
 
 </div>
 
+<div class="stat">
+
+<strong id="rejectedCount">0</strong>
+
+<span>Rejected</span>
+
+</div>
 
 <div class="stat">
 
@@ -317,7 +316,6 @@ onclick="logout()">
 </div>
 
 </div>
-
 
 
 <!-- SUBMISSIONS -->
@@ -338,16 +336,20 @@ Loading submissions...
 
 </section>
 
-
 </main>
-
 
 
 <script type="module">
 
+
+/* =====================================
+   FIREBASE
+===================================== */
+
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
     getAuth,
@@ -356,69 +358,76 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+
 import {
-    getFirestore,
-    collection,
-    getDocs,
-    query,
-    orderBy,
-    doc,
-    updateDoc,
-    deleteDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    getDatabase,
+    ref,
+    get,
+    update,
+    remove
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-/* ================================
-   FIREBASE CONFIG
-   ================================ */
+/* =====================================
+   CORRECT FIREBASE PROJECT
+===================================== */
 
 const firebaseConfig = {
 
     apiKey:
-    "AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
+    "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
 
     authDomain:
-    "poet--deedar---shahbaz.firebaseapp.com",
+    "the-shining-window.firebaseapp.com",
+
+    databaseURL:
+    "https://the-shining-window-default-rtdb.firebaseio.com",
 
     projectId:
-    "poet--deedar---shahbaz",
+    "the-shining-window",
 
     storageBucket:
-    "poet--deedar---shahbaz.firebasestorage.app",
+    "the-shining-window.firebasestorage.app",
 
     messagingSenderId:
-    "411582745091",
+    "636523709313",
 
     appId:
-    "1:411582745091:web:96413eef58092e77911c36",
+    "1:636523709313:web:8cbd2ce21eddae998fde80",
 
     measurementId:
-    "G-E0V5QH9D98"
+    "G-NMNL6J6J1P"
 
 };
 
 
+/* =====================================
+   INITIALIZE
+===================================== */
+
 const app =
 initializeApp(firebaseConfig);
+
 
 const auth =
 getAuth(app);
 
+
 const db =
-getFirestore(app);
+getDatabase(app);
 
 
-/* ================================
+/* =====================================
    ADMIN EMAIL
-   ================================ */
+===================================== */
 
 const ADMIN_EMAIL =
 "poetshahbaz_quambrani@gmail.com";
 
 
-/* ================================
+/* =====================================
    LOGIN
-   ================================ */
+===================================== */
 
 globalThis.login =
 async function(){
@@ -484,9 +493,9 @@ async function(){
 };
 
 
-/* ================================
+/* =====================================
    LOGOUT
-   ================================ */
+===================================== */
 
 globalThis.logout =
 async function(){
@@ -496,9 +505,9 @@ async function(){
 };
 
 
-/* ================================
+/* =====================================
    AUTH STATE
-   ================================ */
+===================================== */
 
 onAuthStateChanged(
     auth,
@@ -514,15 +523,18 @@ onAuthStateChanged(
             .style.display =
             "none";
 
+
             document
             .getElementById("dashboard")
             .style.display =
             "block";
 
+
             document
             .getElementById("adminEmail")
             .textContent =
             "Logged in as: " + user.email;
+
 
             await loadSubmissions();
 
@@ -534,6 +546,7 @@ onAuthStateChanged(
             .getElementById("loginBox")
             .style.display =
             "block";
+
 
             document
             .getElementById("dashboard")
@@ -547,9 +560,9 @@ onAuthStateChanged(
 );
 
 
-/* ================================
-   LOAD SUBMISSIONS
-   ================================ */
+/* =====================================
+   LOAD REALTIME DATABASE
+===================================== */
 
 globalThis.loadSubmissions =
 async function(){
@@ -558,59 +571,90 @@ async function(){
     document
     .getElementById("submissions");
 
+
     box.innerHTML =
-    `<div class="message">Loading submissions...</div>`;
+    `<div class="message">
+        Loading submissions...
+    </div>`;
 
 
     try{
 
-        const snapshot =
-        await getDocs(
-            collection(
-                db,
-                "articleSubmissions"
-            )
+        const submissionsRef =
+        ref(
+            db,
+            "articleSubmissions"
         );
 
 
+        const snapshot =
+        await get(submissionsRef);
+
+
         let pending = 0;
-        let approved = 0;
-        let total = snapshot.size;
+        let published = 0;
+        let rejected = 0;
+        let total = 0;
 
         let html = "";
 
 
-        snapshot.forEach(
-            item=>{
+        if(snapshot.exists()){
 
-                const data =
-                item.data();
-
-
-                const status =
-                data.status || "pending";
+            const submissions =
+            snapshot.val();
 
 
-                if(status === "pending"){
+            Object.entries(
+                submissions
+            ).forEach(
+                ([id,data])=>{
 
-                    pending++;
+                    total++;
 
-                    html += renderSubmission(
-                        item.id,
-                        data
-                    );
+
+                    const status =
+                    data.status ||
+                    "pending";
+
+
+                    if(
+                        status === "pending"
+                    ){
+
+                        pending++;
+
+
+                        html +=
+                        renderSubmission(
+                            id,
+                            data
+                        );
+
+                    }
+
+
+                    if(
+                        status === "published"
+                    ){
+
+                        published++;
+
+                    }
+
+
+                    if(
+                        status === "rejected"
+                    ){
+
+                        rejected++;
+
+                    }
 
                 }
+            );
 
-
-                if(status === "approved"){
-
-                    approved++;
-
-                }
-
-            }
-        );
+        }
 
 
         document
@@ -620,9 +664,15 @@ async function(){
 
 
         document
-        .getElementById("approvedCount")
+        .getElementById("publishedCount")
         .textContent =
-        approved;
+        published;
+
+
+        document
+        .getElementById("rejectedCount")
+        .textContent =
+        rejected;
 
 
         document
@@ -635,14 +685,15 @@ async function(){
 
             box.innerHTML =
             `<div class="message">
-            🎉 No pending submissions.
+                🎉 No pending submissions.
             </div>`;
 
         }
 
         else{
 
-            box.innerHTML = html;
+            box.innerHTML =
+            html;
 
         }
 
@@ -652,10 +703,18 @@ async function(){
 
         console.error(error);
 
+
         box.innerHTML =
         `<div class="message error">
-        Error loading submissions:<br>
-        ${escapeHtml(error.message)}
+
+        ❌ Error loading submissions.
+
+        <br><br>
+
+        ${escapeHtml(
+            error.message
+        )}
+
         </div>`;
 
     }
@@ -663,57 +722,98 @@ async function(){
 };
 
 
-/* ================================
+/* =====================================
    RENDER SUBMISSION
-   ================================ */
+===================================== */
 
-function renderSubmission(id,data){
+function renderSubmission(
+    id,
+    data
+){
+
+    const article =
+    data.article ||
+    data.content ||
+    "No article content.";
+
 
     return `
 
     <article class="submission">
 
         <h2>
+
         ${escapeHtml(
-            data.title || "Untitled Article"
+            data.title ||
+            "Untitled Article"
         )}
+
         </h2>
+
 
         <div class="meta">
 
             ✍️ Writer:
             ${escapeHtml(
-                data.name || "Unknown"
+                data.name ||
+                "Unknown"
+            )}
+
+            <br>
+
+            📧 Email:
+            ${escapeHtml(
+                data.email ||
+                "Not provided"
             )}
 
             <br>
 
             📚 Category:
             ${escapeHtml(
-                data.category || "General"
+                data.category ||
+                "General"
+            )}
+
+            <br>
+
+            📅 Submitted:
+            ${escapeHtml(
+                data.submittedAt ||
+                "Unknown"
+            )}
+
+            <br>
+
+            🔖 Status:
+            ${escapeHtml(
+                data.status ||
+                "pending"
             )}
 
         </div>
 
+
         <div class="article-text">
 
         ${escapeHtml(
-            data.article ||
-            data.content ||
-            "No article content."
+            article
         )}
 
         </div>
 
+
         <br>
 
-        <button
-        class="approve"
-        onclick="approveArticle('${id}')">
 
-        ✅ Approve
+        <button
+        class="publish"
+        onclick="publishArticle('${id}')">
+
+        ✅ Publish
 
         </button>
+
 
         <button
         class="reject"
@@ -723,6 +823,7 @@ function renderSubmission(id,data){
 
         </button>
 
+
         <button
         class="delete"
         onclick="deleteSubmission('${id}')">
@@ -731,6 +832,7 @@ function renderSubmission(id,data){
 
         </button>
 
+
     </article>
 
     `;
@@ -738,16 +840,16 @@ function renderSubmission(id,data){
 }
 
 
-/* ================================
-   APPROVE
-   ================================ */
+/* =====================================
+   PUBLISH
+===================================== */
 
-globalThis.approveArticle =
+globalThis.publishArticle =
 async function(id){
 
     if(
         !confirm(
-            "Approve this article?"
+            "Publish this article?\n\nIt will become visible on The Shining Window."
         )
     ){
 
@@ -759,25 +861,32 @@ async function(id){
     try{
 
         const submissionRef =
-        doc(
+        ref(
             db,
-            "articleSubmissions",
+            "articleSubmissions/" +
             id
         );
 
 
-        await updateDoc(
+        await update(
             submissionRef,
             {
 
-                status:"approved"
+                status:
+                "published",
+
+                approved:
+                true,
+
+                publishedAt:
+                new Date().toISOString()
 
             }
         );
 
 
         alert(
-            "✅ Article approved."
+            "✅ Published successfully!"
         );
 
 
@@ -787,23 +896,29 @@ async function(id){
 
     catch(error){
 
-        alert(error.message);
+        console.error(error);
+
+
+        alert(
+            "❌ Publishing failed:\n\n" +
+            error.message
+        );
 
     }
 
 };
 
 
-/* ================================
+/* =====================================
    REJECT
-   ================================ */
+===================================== */
 
 globalThis.rejectArticle =
 async function(id){
 
     if(
         !confirm(
-            "Reject this article?"
+            "Reject this submission?"
         )
     ){
 
@@ -814,22 +929,33 @@ async function(id){
 
     try{
 
-        await updateDoc(
-            doc(
-                db,
-                "articleSubmissions",
-                id
-            ),
+        const submissionRef =
+        ref(
+            db,
+            "articleSubmissions/" +
+            id
+        );
+
+
+        await update(
+            submissionRef,
             {
 
-                status:"rejected"
+                status:
+                "rejected",
+
+                approved:
+                false,
+
+                rejectedAt:
+                new Date().toISOString()
 
             }
         );
 
 
         alert(
-            "Article rejected."
+            "❌ Submission rejected."
         );
 
 
@@ -839,16 +965,22 @@ async function(id){
 
     catch(error){
 
-        alert(error.message);
+        console.error(error);
+
+
+        alert(
+            "❌ Rejection failed:\n\n" +
+            error.message
+        );
 
     }
 
 };
 
 
-/* ================================
+/* =====================================
    DELETE
-   ================================ */
+===================================== */
 
 globalThis.deleteSubmission =
 async function(id){
@@ -866,17 +998,17 @@ async function(id){
 
     try{
 
-        await deleteDoc(
-            doc(
+        await remove(
+            ref(
                 db,
-                "articleSubmissions",
+                "articleSubmissions/" +
                 id
             )
         );
 
 
         alert(
-            "Submission deleted."
+            "🗑 Submission deleted."
         );
 
 
@@ -886,25 +1018,51 @@ async function(id){
 
     catch(error){
 
-        alert(error.message);
+        console.error(error);
+
+
+        alert(
+            "❌ Delete failed:\n\n" +
+            error.message
+        );
 
     }
 
 };
 
 
-/* ================================
+/* =====================================
    HTML ESCAPE
-   ================================ */
+===================================== */
 
 function escapeHtml(value){
 
     return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+
+    .replaceAll(
+        "&",
+        "&amp;"
+    )
+
+    .replaceAll(
+        "<",
+        "&lt;"
+    )
+
+    .replaceAll(
+        ">",
+        "&gt;"
+    )
+
+    .replaceAll(
+        '"',
+        "&quot;"
+    )
+
+    .replaceAll(
+        "'",
+        "&#039;"
+    );
 
 }
 
@@ -913,4 +1071,4 @@ function escapeHtml(value){
 
 </body>
 
-  </html>
+</html>
