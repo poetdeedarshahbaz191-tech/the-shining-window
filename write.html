@@ -1,12 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Write for Us | The Shining Window</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -111,6 +115,30 @@ textarea{
     resize:vertical;
 }
 
+/* ==========================================
+   SINDHI / URDU / ARABIC WRITING AREA
+   ========================================== */
+
+#content{
+    direction:rtl;
+    text-align:right;
+    unicode-bidi:plaintext;
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Noto Sans Arabic",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+    line-height:2.2;
+    font-size:18px;
+}
+
+#content::placeholder{
+    text-align:right;
+    direction:rtl;
+    color:#888;
+}
+
 .note{
     font-size:13px;
     color:#666;
@@ -171,6 +199,7 @@ footer{
 }
 
 @media(max-width:600px){
+
     .card{
         padding:20px 16px;
     }
@@ -182,36 +211,58 @@ footer{
     textarea{
         min-height:300px;
     }
+
+    #content{
+        font-size:17px;
+        line-height:2.1;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
 
-    <div class="logo">🪟 The Shining Window</div>
+    <div class="logo">
+        🪟 The Shining Window
+    </div>
 
     <div class="subtitle">
         Open your mind. Share your thoughts.
     </div>
 
     <nav>
+
         <a href="index.html">Home</a>
+
         <a href="categories.html">Categories</a>
+
         <a href="write-for-us.html">Write for Us</a>
+
         <a href="about.html">About</a>
+
         <a href="contact.html">Contact</a>
+
     </nav>
 
 </header>
+
 
 
 <div class="container">
 
 <div class="card">
 
-<h1>✍️ Write for The Shining Window</h1>
+
+<h1>
+    ✍️ Write for The Shining Window
+</h1>
 
 <p class="intro">
 Have an idea, story, poem, article or useful knowledge to share?
@@ -219,9 +270,13 @@ Submit your writing and become part of The Shining Window community.
 </p>
 
 
+
 <form id="submissionForm">
 
-<label for="name">✍️ Your Name</label>
+
+<label for="name">
+    ✍️ Your Name
+</label>
 
 <input
     type="text"
@@ -231,7 +286,10 @@ Submit your writing and become part of The Shining Window community.
 >
 
 
-<label for="email">📧 Email Address</label>
+
+<label for="email">
+    📧 Email Address
+</label>
 
 <input
     type="email"
@@ -245,7 +303,10 @@ Your email will only be used for communication about your submission.
 </p>
 
 
-<label for="title">📝 Article Title</label>
+
+<label for="title">
+    📝 Article Title
+</label>
 
 <input
     type="text"
@@ -255,34 +316,57 @@ Your email will only be used for communication about your submission.
 >
 
 
-<label for="category">📚 Select Category</label>
+
+<label for="category">
+    📚 Select Category
+</label>
 
 <select id="category" required>
 
-    <option value="">Select a category</option>
+    <option value="">
+        Select a category
+    </option>
 
-    <option value="Poetry">Poetry</option>
+    <option value="Poetry">
+        Poetry
+    </option>
 
-    <option value="Stories">Stories</option>
+    <option value="Stories">
+        Stories
+    </option>
 
-    <option value="Articles">Articles</option>
+    <option value="Articles">
+        Articles
+    </option>
 
-    <option value="Education">Education</option>
+    <option value="Education">
+        Education
+    </option>
 
-    <option value="Knowledge">Knowledge</option>
+    <option value="Knowledge">
+        Knowledge
+    </option>
 
-    <option value="Other">Other</option>
+    <option value="Other">
+        Other
+    </option>
 
 </select>
 
 
-<label for="content">📖 Your Writing</label>
+
+<label for="content">
+    📖 Your Writing
+</label>
 
 <textarea
     id="content"
-    placeholder="Write or paste your original content here..."
+    dir="rtl"
+    lang="sd"
+    placeholder="پنهنجي لکڻي هتي لکو يا پيسٽ ڪريو..."
     required
 ></textarea>
+
 
 
 <button
@@ -292,67 +376,103 @@ Your email will only be used for communication about your submission.
     🚀 Submit Your Writing
 </button>
 
+
 <div id="message"></div>
+
 
 </form>
 
 
+
 <div style="margin-top:28px;">
 
-<h3>📌 Before You Submit</h3>
+<h3>
+    📌 Before You Submit
+</h3>
 
 <ul style="margin:12px 0 0 22px;">
 
-<li>Make sure your writing is original.</li>
+<li>
+    Make sure your writing is original.
+</li>
 
-<li>Choose the correct category.</li>
+<li>
+    Choose the correct category.
+</li>
 
-<li>Write a clear and meaningful title.</li>
+<li>
+    Write a clear and meaningful title.
+</li>
 
-<li>Review spelling and grammar before submitting.</li>
+<li>
+    Review spelling and grammar before submitting.
+</li>
 
-<li>Your submission will be reviewed before publication.</li>
+<li>
+    Your submission will be reviewed before publication.
+</li>
 
-<li>Only approved articles will appear publicly on the website.</li>
+<li>
+    Only approved articles will appear publicly on the website.
+</li>
 
 </ul>
 
 </div>
 
+
 </div>
 
 </div>
+
 
 
 <footer>
+
 © 2026 The Shining Window — All Rights Reserved
+
 </footer>
 
 
-<!-- Firebase -->
+
+<!-- ==========================================
+     FIREBASE REALTIME DATABASE
+     ========================================== -->
+
 <script type="module">
 
 import { initializeApp }
+
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
+
 import {
-    getFirestore,
-    collection,
-    addDoc,
-    serverTimestamp
+
+    getDatabase,
+    ref,
+    push,
+    set
+
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
 
 
 /*
-========================================================
+==================================================
 FIREBASE CONFIGURATION
-========================================================
+==================================================
 
-Replace ONLY the values below with the Firebase
-configuration from your existing The Shining Window
-Firebase project.
+IMPORTANT:
+
+Replace ONLY the values below with the SAME
+Firebase configuration used by your existing
+The Shining Window website.
+
+==================================================
 */
+
 
 const firebaseConfig = {
 
@@ -360,165 +480,292 @@ const firebaseConfig = {
 
     authDomain: "YOUR_PROJECT.firebaseapp.com",
 
+    databaseURL:
+        "https://the-shining-window-default-rtdb.firebaseio.com",
+
     projectId: "YOUR_PROJECT_ID",
 
-    storageBucket: "YOUR_PROJECT.appspot.com",
+    storageBucket:
+        "YOUR_PROJECT.appspot.com",
 
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    messagingSenderId:
+        "YOUR_MESSAGING_SENDER_ID",
 
-    appId: "YOUR_APP_ID"
+    appId:
+        "YOUR_APP_ID"
 
 };
 
 
+
 /*
-========================================================
+==================================================
 INITIALIZE FIREBASE
-========================================================
+==================================================
 */
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+
+const db =
+    getDatabase(app);
+
 
 
 /*
-========================================================
-FORM
-========================================================
+==================================================
+GET FORM ELEMENTS
+==================================================
 */
 
 const form =
-    document.getElementById("submissionForm");
+    document.getElementById(
+        "submissionForm"
+    );
+
 
 const button =
-    document.getElementById("submitButton");
+    document.getElementById(
+        "submitButton"
+    );
+
 
 const message =
-    document.getElementById("message");
+    document.getElementById(
+        "message"
+    );
 
 
-form.addEventListener("submit", async function(event){
 
-    event.preventDefault();
+/*
+==================================================
+SHOW MESSAGE FUNCTION
+==================================================
+*/
 
-    message.className = "";
-    message.style.display = "none";
-    message.textContent = "";
+function showMessage(
+    text,
+    type
+){
 
-    const name =
-        document.getElementById("name").value.trim();
+    message.textContent = text;
 
-    const email =
-        document.getElementById("email").value.trim();
+    message.className = type;
 
-    const title =
-        document.getElementById("title").value.trim();
+    message.style.display = "block";
 
-    const category =
-        document.getElementById("category").value;
-
-    const content =
-        document.getElementById("content").value.trim();
+}
 
 
-    /*
-    Basic validation
-    */
 
-    if(!name || !email || !title || !category || !content){
+/*
+==================================================
+SUBMIT FORM
+==================================================
+*/
 
-        message.textContent =
-            "Please complete all required fields.";
+form.addEventListener(
+    "submit",
+    async function(event){
 
-        message.className = "error";
-
-        return;
-    }
-
-
-    /*
-    Disable button while submitting
-    */
-
-    button.disabled = true;
-
-    button.textContent =
-        "⏳ Submitting...";
-
-
-    try{
-
-        /*
-        Save submission to Firestore.
-
-        Collection:
-        submissions
-        */
-
-        await addDoc(
-            collection(db, "submissions"),
-            {
-
-                name: name,
-
-                email: email,
-
-                title: title,
-
-                category: category,
-
-                content: content,
-
-                status: "pending",
-
-                approved: false,
-
-                submittedAt: serverTimestamp()
-
-            }
-        );
+        event.preventDefault();
 
 
         /*
-        Success
+        Clear previous message
         */
 
-        message.textContent =
-            "✅ Your writing has been submitted successfully. It will be reviewed before publication.";
+        message.textContent = "";
 
-        message.className = "success";
+        message.className = "";
 
-
-        form.reset();
+        message.style.display = "none";
 
 
-    }catch(error){
 
-        console.error(
-            "Submission error:",
-            error
-        );
+        /*
+        Get form values
+        */
 
-
-        message.textContent =
-            "❌ Unable to submit your writing. Please check your Firebase Firestore permissions.";
-
-        message.className = "error";
+        const name =
+            document
+                .getElementById("name")
+                .value
+                .trim();
 
 
-    }finally{
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
 
-        button.disabled = false;
+
+        const title =
+            document
+                .getElementById("title")
+                .value
+                .trim();
+
+
+        const category =
+            document
+                .getElementById("category")
+                .value;
+
+
+        const content =
+            document
+                .getElementById("content")
+                .value
+                .trim();
+
+
+
+        /*
+        Basic validation
+        */
+
+        if(
+            !name ||
+            !email ||
+            !title ||
+            !category ||
+            !content
+        ){
+
+            showMessage(
+                "❌ Please complete all required fields.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+
+        /*
+        Disable button
+        */
+
+        button.disabled = true;
 
         button.textContent =
-            "🚀 Submit Your Writing";
+            "⏳ Submitting...";
+
+
+
+        try{
+
+
+            /*
+            Create a new submission ID
+            */
+
+            const submissionRef =
+                push(
+                    ref(
+                        db,
+                        "articleSubmissions"
+                    )
+                );
+
+
+            /*
+            Save the submission
+            */
+
+            await set(
+                submissionRef,
+                {
+
+                    name: name,
+
+                    email: email,
+
+                    title: title,
+
+                    category: category,
+
+                    article: content,
+
+                    content: content,
+
+                    status: "pending",
+
+                    approved: false,
+
+                    submittedAt:
+                        new Date().toISOString()
+
+                }
+            );
+
+
+
+            /*
+            SUCCESS
+            */
+
+            showMessage(
+
+                "✅ Your writing has been submitted successfully! It will be reviewed before publication.",
+
+                "success"
+
+            );
+
+
+            /*
+            Clear the form
+            */
+
+            form.reset();
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Firebase submission error:",
+                error
+            );
+
+
+            showMessage(
+
+                "❌ Submission failed. Please try again. If the problem continues, check your Firebase Realtime Database rules.",
+
+                "error"
+
+            );
+
+        }
+
+
+        finally{
+
+            /*
+            Always restore button
+            */
+
+            button.disabled = false;
+
+            button.textContent =
+                "🚀 Submit Your Writing";
+
+        }
 
     }
 
-});
+);
 
 </script>
 
+
 </body>
+
 </html>
