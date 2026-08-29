@@ -1,13 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Shining Window | کُھليل کَڙڪي</title>
+<title>The Shining Window | کُليَل کَڙڪي</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,162 +18,178 @@
 
 body {
     font-family: Georgia, "Times New Roman", serif;
-    background: linear-gradient(135deg, #07111f, #102b46, #07111f);
-    color: white;
+    background: #f4efe3;
+    color: #222;
     min-height: 100vh;
 }
 
 /* =========================
-   HEADER / LOGO
+   HEADER
 ========================= */
 
-.hero {
+header {
     width: 100%;
-    min-height: 250px;
-    padding: 28px 8px 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-
-    background:
-        radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 55%),
-        linear-gradient(180deg, #183f63, #07111f);
-
-    border-bottom: 3px solid rgba(255,255,255,0.25);
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.6),
-        inset 0 -5px 15px rgba(0,0,0,0.35);
+    padding: 22px 12px 18px;
+    background: linear-gradient(180deg, #fffdf7, #eee5d2);
+    border-bottom: 3px solid #b89554;
 }
 
 /* English title */
 
 .main-title {
-    width: 100%;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(38px, 8vw, 88px);
-    font-weight: 900;
-    letter-spacing: clamp(2px, 0.8vw, 9px);
+    display: inline-block;
+    max-width: 92%;
+    font-size: clamp(34px, 8vw, 72px);
     line-height: 1.05;
-    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
 
-    color: #fff8cf;
+    color: #fffdf5;
 
     text-shadow:
-        2px 2px 0 #9b7a19,
-        4px 4px 0 #72550e,
-        6px 6px 0 #4b3707,
-        8px 8px 14px rgba(0,0,0,0.8);
+        2px 2px 0 #7d5b20,
+        4px 4px 0 #5c4318,
+        6px 6px 10px rgba(0,0,0,0.35);
 
-    transform: perspective(500px) rotateX(3deg);
-
-    white-space: nowrap;
+    transform: perspective(500px) rotateX(5deg);
 }
 
 /* Sindhi title */
 
 .sindhi-title {
-    margin-top: 18px;
-    width: 100%;
-
+    margin-top: 14px;
     font-family: "Noto Nastaliq Urdu",
                  "Noto Sans Arabic",
                  "Arial",
                  sans-serif;
 
-    font-size: clamp(34px, 7vw, 72px);
+    font-size: clamp(32px, 8vw, 64px);
+    line-height: 1.4;
     font-weight: 900;
-    line-height: 1.25;
-
-    color: #ffd966;
 
     direction: rtl;
 
-    text-shadow:
-        2px 2px 0 #a46d00,
-        4px 4px 0 #704800,
-        6px 6px 0 #3f2900,
-        8px 8px 13px rgba(0,0,0,0.85);
+    color: #fffdf5;
 
-    transform: perspective(500px) rotateX(3deg);
+    text-shadow:
+        2px 2px 0 #70451f,
+        4px 4px 0 #4d2d14,
+        6px 6px 10px rgba(0,0,0,0.35);
+
+    transform: perspective(500px) rotateX(5deg);
 }
 
-/* Small shining line */
+/* =========================
+   WINDOW SECTION
+========================= */
 
-.shine-line {
-    width: min(92%, 900px);
-    height: 3px;
-    margin-top: 22px;
+.window-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 25px 15px 15px;
+}
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #fff4a8,
-        #ffffff,
-        #fff4a8,
-        transparent
-    );
+.window-frame {
+    width: min(850px, 94vw);
+    background: #fff;
+    padding: 10px;
+    border: 8px solid #8c6934;
+    border-radius: 14px;
 
-    box-shadow: 0 0 12px #fff4a8;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25),
+        inset 0 0 0 3px #d6b878;
+}
+
+.window-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    border-radius: 5px;
 }
 
 /* =========================
    INTRODUCTION
 ========================= */
 
-.intro {
-    max-width: 950px;
-    margin: 35px auto;
-    padding: 0 20px;
+.introduction {
+    width: min(900px, 92vw);
+    margin: 22px auto;
+    padding: 22px;
+
+    background: rgba(255,255,255,0.85);
+
+    border-radius: 14px;
+    border: 1px solid #d4c19b;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+
     text-align: center;
 }
 
-.intro h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    color: #ffe9a3;
-    text-shadow: 2px 2px 4px #000;
+.introduction h2 {
+    font-size: clamp(25px, 5vw, 38px);
+    margin-bottom: 12px;
+    color: #765421;
 }
 
-.intro p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #e9f2fa;
+.introduction p {
+    font-size: clamp(17px, 3.8vw, 22px);
+    line-height: 1.7;
 }
 
 /* =========================
-   CONTENT
+   BUTTONS
 ========================= */
 
-.container {
-    width: min(1100px, 94%);
-    margin: auto;
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+
+    width: min(900px, 94vw);
+    margin: 20px auto 35px;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 18px;
-    padding: 25px;
-    margin-bottom: 25px;
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(145deg, #b89554, #765421);
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: bold;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.08);
+        0 5px 0 #50380f,
+        0 8px 15px rgba(0,0,0,0.18);
 
-    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
 }
 
-.card h2 {
-    color: #ffe7a0;
-    margin-bottom: 12px;
-    font-size: 27px;
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 0 #50380f,
+        0 12px 18px rgba(0,0,0,0.20);
 }
 
-.card p {
-    line-height: 1.8;
-    font-size: 17px;
+.btn:active {
+    transform: translateY(3px);
+    box-shadow:
+        0 2px 0 #50380f,
+        0 4px 8px rgba(0,0,0,0.15);
 }
 
 /* =========================
@@ -179,25 +197,25 @@ body {
 ========================= */
 
 footer {
-    margin-top: 50px;
-    padding: 25px 15px;
     text-align: center;
+    padding: 22px 10px;
 
-    background: rgba(0,0,0,0.35);
-    border-top: 1px solid rgba(255,255,255,0.15);
+    background: #29231a;
+    color: #eee;
 
-    color: #dce8f2;
-    line-height: 1.7;
+    font-size: 15px;
 }
 
-.footer-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffe29a;
+footer .footer-sindhi {
+    margin-top: 7px;
 
-    text-shadow:
-        2px 2px 0 #634500,
-        4px 4px 7px #000;
+    direction: rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Noto Sans Arabic",
+        Arial,
+        sans-serif;
 }
 
 /* =========================
@@ -206,136 +224,117 @@ footer {
 
 @media (max-width: 600px) {
 
-    .hero {
-        min-height: 215px;
-        padding: 25px 3px 28px;
+    header {
+        padding: 17px 8px 14px;
     }
 
     .main-title {
-        font-size: 12vw;
+        max-width: 95%;
+        font-size: 38px;
         letter-spacing: 1px;
-
-        text-shadow:
-            1px 1px 0 #9b7a19,
-            3px 3px 0 #72550e,
-            5px 5px 8px rgba(0,0,0,0.85);
     }
 
     .sindhi-title {
-        margin-top: 13px;
-        font-size: 10vw;
-
-        text-shadow:
-            1px 1px 0 #a46d00,
-            3px 3px 0 #704800,
-            5px 5px 8px rgba(0,0,0,0.85);
+        margin-top: 8px;
+        font-size: 37px;
     }
 
-    .shine-line {
+    .window-section {
+        padding: 18px 10px 10px;
+    }
+
+    .window-frame {
+        width: 94vw;
+        border-width: 5px;
+        padding: 6px;
+    }
+
+    .window-frame img {
+        max-height: 55vh;
+    }
+
+    .introduction {
+        padding: 17px;
         margin-top: 15px;
     }
 
-    .intro {
-        margin-top: 25px;
-    }
-
-    .intro h2 {
-        font-size: 25px;
-    }
-
-    .intro p {
-        font-size: 16px;
-    }
-
-    .card {
-        padding: 20px;
+    .btn {
+        width: 90%;
+        text-align: center;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     MAIN SHINING WINDOW LOGO
-========================= -->
-
-<header class="hero">
+<header>
 
     <div class="main-title">
-        THE SHINING WINDOW
+        The Shining Window
     </div>
 
-    <div class="sindhi-title">
-        کُھليل کَڙڪي
+    <div class="sindhi-title" lang="sd">
+        کُليَل کَڙڪي
     </div>
-
-    <div class="shine-line"></div>
 
 </header>
 
 
-<!-- =========================
-     INTRODUCTION
-========================= -->
+<section class="window-section">
 
-<section class="intro">
+    <div class="window-frame">
 
-    <h2>Welcome to The Shining Window</h2>
+        <!--
+        Replace "window.jpg" with the exact filename
+        of your window picture if necessary.
+        -->
+
+        <img
+            src="window.jpg"
+            alt="The Shining Window"
+        >
+
+    </div>
+
+</section>
+
+
+<section class="introduction">
+
+    <h2>The Shining Window</h2>
 
     <p>
-        A window to stories, poetry, ideas and creativity —
-        bringing English and Sindhi together on one beautiful page.
+        A window that opens the way to stories,
+        imagination, learning and new ideas.
     </p>
 
 </section>
 
 
-<!-- =========================
-     CONTENT AREA
-========================= -->
+<div class="buttons">
 
-<main class="container">
+    <a href="#" class="btn">
+        Read Stories
+    </a>
 
-    <div class="card">
-        <h2>The Shining Window</h2>
+    <a href="#" class="btn">
+        Explore
+    </a>
 
-        <p>
-            Welcome to The Shining Window, a place where words,
-            imagination and creativity come together.
-        </p>
-    </div>
+</div>
 
-
-    <div class="card">
-        <h2>کُھليل کَڙڪي</h2>
-
-        <p dir="rtl">
-            هي هڪ اهڙي کليل کڙڪي آهي، جتان لفظن، خيالن،
-            ڪهاڻين ۽ شاعري جي دنيا کي ڏسي سگهجي ٿو.
-        </p>
-    </div>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
-    <div class="footer-title">
-        THE SHINING WINDOW
-    </div>
-
     <div>
-        کُھليل کَڙڪي
+        The Shining Window
     </div>
 
-    <p>
-        A bilingual window of creativity
-    </p>
+    <div class="footer-sindhi" lang="sd">
+        کُليَل کَڙڪي
+    </div>
 
 </footer>
 
