@@ -11,366 +11,335 @@
 
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f8fc;
-    color: #222;
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f8fc;
+    color:#222;
 }
 
-header {
-    background: #173f5f;
-    color: white;
-    padding: 20px;
+header{
+    background:#173f5f;
+    color:white;
+    padding:20px;
 }
 
-.header-content {
-    max-width: 1100px;
-    margin: auto;
+.header-content{
+    max-width:1100px;
+    margin:auto;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-    gap: 20px;
+    gap:20px;
 }
 
-.logo {
-    font-size: 26px;
-    font-weight: bold;
+.logo{
+    font-size:26px;
+    font-weight:bold;
 }
 
-.tagline {
-    font-size: 13px;
-    margin-top: 5px;
-    opacity: 0.9;
+.tagline{
+    font-size:13px;
+    margin-top:5px;
+    opacity:.9;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+    font-weight:bold;
 }
 
-nav a:hover {
-    text-decoration: underline;
+nav a:hover{
+    text-decoration:underline;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 20px;
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
 }
 
-.intro {
-    text-align: center;
-    margin-bottom: 35px;
+.intro{
+    text-align:center;
+    margin-bottom:35px;
 }
 
-.intro h1 {
-    color: #173f5f;
-    font-size: 40px;
-    margin-bottom: 12px;
+.intro h1{
+    color:#173f5f;
+    font-size:40px;
+    margin-bottom:12px;
 }
 
-.intro p {
-    color: #555;
-    font-size: 17px;
-    line-height: 1.6;
+.intro p{
+    color:#555;
+    font-size:17px;
+    line-height:1.6;
 }
 
-.categories {
-    display: grid;
-
+.categories{
+    display:grid;
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 20px;
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-.category {
-    background: white;
-    padding: 30px 20px;
-
-    border-radius: 15px;
-
-    text-align: center;
+.category{
+    background:white;
+    padding:30px 20px;
+    border-radius:15px;
+    text-align:center;
 
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+        0 4px 15px rgba(0,0,0,.08);
 
-    transition: transform 0.2s;
+    transition:.2s;
 }
 
-.category:hover {
-    transform: translateY(-5px);
+.category:hover{
+    transform:translateY(-5px);
 }
 
-.icon {
-    font-size: 42px;
-    margin-bottom: 15px;
+.icon{
+    font-size:42px;
+    margin-bottom:15px;
 }
 
-.category h2 {
-    color: #173f5f;
-    font-size: 22px;
-    margin-bottom: 10px;
+.category h2{
+    color:#173f5f;
+    font-size:22px;
+    margin-bottom:10px;
 }
 
-.category p {
-    color: #666;
-    line-height: 1.5;
-    font-size: 14px;
+.category p{
+    color:#666;
+    line-height:1.5;
+    font-size:14px;
 }
 
-.category button {
-    margin-top: 18px;
+.category button{
+    margin-top:18px;
+    padding:10px 20px;
 
-    padding: 10px 20px;
+    border:none;
+    border-radius:7px;
 
-    border: none;
-    border-radius: 7px;
+    background:#173f5f;
+    color:white;
 
-    background: #173f5f;
-    color: white;
-
-    font-weight: bold;
-
-    cursor: pointer;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.category button:hover {
-    background: #0f2f49;
-}
-
-
-/* ==================================================
-   ARTICLES AREA
-================================================== */
-
-#articlesSection {
-    display: none;
-
-    margin-top: 50px;
-}
-
-#articlesSection h2 {
-    text-align: center;
-
-    color: #173f5f;
-
-    font-size: 32px;
-
-    margin-bottom: 25px;
-}
-
-.back-button {
-    display: inline-block;
-
-    margin-bottom: 25px;
-
-    padding: 10px 18px;
-
-    background: #777;
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 7px;
-
-    font-weight: bold;
-}
-
-.back-button:hover {
-    background: #555;
+.category button:hover{
+    background:#0f2f49;
 }
 
 
-.article-card {
-    background: white;
+/* ARTICLES */
 
-    padding: 25px;
+#articlesSection{
+    display:none;
+    margin-top:50px;
+}
 
-    margin-bottom: 20px;
+#articlesSection h2{
+    text-align:center;
+    color:#173f5f;
+    font-size:32px;
+    margin-bottom:25px;
+}
 
-    border-radius: 14px;
+.back-button{
+    display:inline-block;
+
+    margin-bottom:25px;
+
+    padding:10px 18px;
+
+    background:#777;
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:7px;
+
+    font-weight:bold;
+}
+
+.back-button:hover{
+    background:#555;
+}
+
+.article-card{
+    background:white;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    border-radius:14px;
 
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+        0 4px 15px rgba(0,0,0,.08);
 }
 
-
-.article-card h3 {
-    color: #173f5f;
-
-    font-size: 25px;
-
-    margin-bottom: 10px;
+.article-card h3{
+    color:#173f5f;
+    font-size:25px;
+    margin-bottom:10px;
 }
 
-
-.article-meta {
-    color: #777;
-
-    font-size: 14px;
-
-    margin-bottom: 15px;
+.article-meta{
+    color:#777;
+    font-size:14px;
+    margin-bottom:15px;
 }
 
-
-.article-preview {
-    color: #444;
-
-    line-height: 1.7;
-
-    margin-bottom: 18px;
-
-    white-space: pre-wrap;
+.article-preview{
+    color:#444;
+    line-height:1.7;
+    margin-bottom:18px;
+    white-space:pre-wrap;
 }
 
+.read-button{
+    display:inline-block;
 
-.read-button {
-    display: inline-block;
+    background:#173f5f;
+    color:white;
 
-    background: #173f5f;
+    padding:11px 20px;
 
-    color: white;
+    border-radius:7px;
 
-    padding: 11px 20px;
+    text-decoration:none;
 
-    border-radius: 7px;
-
-    text-decoration: none;
-
-    font-weight: bold;
+    font-weight:bold;
 }
 
-.read-button:hover {
-    background: #0f2f49;
+.read-button:hover{
+    background:#0f2f49;
 }
-
 
 .loading,
 .no-articles,
-.database-error {
-    background: white;
+.database-error{
+    background:white;
 
-    padding: 30px;
+    padding:30px;
 
-    border-radius: 14px;
+    border-radius:14px;
 
-    text-align: center;
+    text-align:center;
 
     box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+        0 4px 15px rgba(0,0,0,.08);
 
-    line-height: 1.6;
+    line-height:1.6;
 }
 
-.database-error {
-    color: #a00000;
+.database-error{
+    color:#a00000;
 }
 
-
-/* ==================================================
-   WRITER SECTION
-================================================== */
-
-.writer-section {
-    margin-top: 50px;
-
-    background: #173f5f;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 45px 20px;
-
-    border-radius: 15px;
-}
-
-.writer-section h2 {
-    margin-bottom: 12px;
-}
-
-.writer-section p {
-    margin-bottom: 20px;
-}
-
-.writer-button {
-    display: inline-block;
-
-    background: white;
-
-    color: #173f5f;
-
-    padding: 12px 25px;
-
-    border-radius: 8px;
-
-    text-decoration: none;
-
-    font-weight: bold;
+.database-error h3{
+    margin-bottom:10px;
 }
 
 
-/* ==================================================
-   FOOTER
-================================================== */
+/* WRITER */
 
-footer {
-    margin-top: 50px;
+.writer-section{
+    margin-top:50px;
 
-    padding: 25px;
+    background:#173f5f;
 
-    text-align: center;
+    color:white;
 
-    background: #102d43;
+    text-align:center;
 
-    color: white;
+    padding:45px 20px;
+
+    border-radius:15px;
+}
+
+.writer-section h2{
+    margin-bottom:12px;
+}
+
+.writer-section p{
+    margin-bottom:20px;
+}
+
+.writer-button{
+    display:inline-block;
+
+    background:white;
+
+    color:#173f5f;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
 }
 
 
-/* ==================================================
-   MOBILE
-================================================== */
+/* FOOTER */
 
-@media (max-width: 700px) {
+footer{
+    margin-top:50px;
 
-    .header-content {
-        flex-direction: column;
+    padding:25px;
 
-        text-align: center;
+    text-align:center;
+
+    background:#102d43;
+
+    color:white;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .header-content{
+        flex-direction:column;
+        text-align:center;
     }
 
-    nav a {
-        display: inline-block;
-
-        margin: 6px;
+    nav a{
+        display:inline-block;
+        margin:6px;
     }
 
-    .intro h1 {
-        font-size: 32px;
+    .intro h1{
+        font-size:32px;
     }
 
-    #articlesSection h2 {
-        font-size: 27px;
+    #articlesSection h2{
+        font-size:27px;
     }
 
-    .article-card {
-        padding: 20px;
+    .article-card{
+        padding:20px;
     }
 
-    .article-card h3 {
-        font-size: 22px;
+    .article-card h3{
+        font-size:22px;
     }
 
 }
@@ -383,14 +352,11 @@ footer {
 <body>
 
 
-<!-- ==================================================
-     HEADER
-================================================== -->
+<!-- HEADER -->
 
 <header>
 
 <div class="header-content">
-
 
 <div>
 
@@ -407,28 +373,17 @@ Open your mind. Share your thoughts.
 
 <nav>
 
-<a href="index.html">
-Home
-</a>
+<a href="index.html">Home</a>
 
-<a href="categories.html">
-Categories
-</a>
+<a href="categories.html">Categories</a>
 
-<a href="write.html">
-Write for Us
-</a>
+<a href="write.html">Write for Us</a>
 
-<a href="about.html">
-About
-</a>
+<a href="about.html">About</a>
 
-<a href="contact.html">
-Contact
-</a>
+<a href="contact.html">Contact</a>
 
 </nav>
-
 
 </div>
 
@@ -436,9 +391,7 @@ Contact
 
 
 
-<!-- ==================================================
-     MAIN
-================================================== -->
+<!-- MAIN -->
 
 <main class="container">
 
@@ -458,22 +411,16 @@ stories from different areas of life.
 
 
 
-<!-- ==================================================
-     CATEGORY CARDS
-================================================== -->
+<!-- CATEGORY CARDS -->
 
 <section class="categories">
 
 
 <div class="category">
 
-<div class="icon">
-📚
-</div>
+<div class="icon">📚</div>
 
-<h2>
-Grammar
-</h2>
+<h2>Grammar</h2>
 
 <p>
 Learn English grammar, sentence structures,
@@ -490,13 +437,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-🔬
-</div>
+<div class="icon">🔬</div>
 
-<h2>
-Science
-</h2>
+<h2>Science</h2>
 
 <p>
 Explore interesting scientific ideas,
@@ -513,13 +456,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-🎓
-</div>
+<div class="icon">🎓</div>
 
-<h2>
-Education
-</h2>
+<h2>Education</h2>
 
 <p>
 Articles about teaching, learning,
@@ -536,13 +475,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-💻
-</div>
+<div class="icon">💻</div>
 
-<h2>
-Technology
-</h2>
+<h2>Technology</h2>
 
 <p>
 Discover technology, digital tools,
@@ -559,13 +494,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-📝
-</div>
+<div class="icon">📝</div>
 
-<h2>
-Poetry
-</h2>
+<h2>Poetry</h2>
 
 <p>
 Read poems, creative writing and
@@ -582,13 +513,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-📖
-</div>
+<div class="icon">📖</div>
 
-<h2>
-Stories
-</h2>
+<h2>Stories</h2>
 
 <p>
 Enjoy short stories, experiences,
@@ -605,13 +532,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-🌍
-</div>
+<div class="icon">🌍</div>
 
-<h2>
-General Knowledge
-</h2>
+<h2>General Knowledge</h2>
 
 <p>
 Interesting facts and useful knowledge
@@ -628,13 +551,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-💡
-</div>
+<div class="icon">💡</div>
 
-<h2>
-Opinion
-</h2>
+<h2>Opinion</h2>
 
 <p>
 Read thoughtful opinions, ideas,
@@ -651,13 +570,9 @@ Explore
 
 <div class="category">
 
-<div class="icon">
-✨
-</div>
+<div class="icon">✨</div>
 
-<h2>
-Other
-</h2>
+<h2>Other</h2>
 
 <p>
 Discover articles that don't fit
@@ -675,9 +590,7 @@ Explore
 
 
 
-<!-- ==================================================
-     ARTICLES
-================================================== -->
+<!-- ARTICLES -->
 
 <section id="articlesSection">
 
@@ -698,19 +611,16 @@ Articles
 <div id="articlesList">
 
 <div class="loading">
-Loading articles...
+Choose a category to see published writing.
 </div>
 
 </div>
-
 
 </section>
 
 
 
-<!-- ==================================================
-     WRITER SECTION
-================================================== -->
+<!-- WRITER SECTION -->
 
 <section class="writer-section">
 
@@ -738,9 +648,7 @@ href="write.html">
 
 
 
-<!-- ==================================================
-     FOOTER
-================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -752,37 +660,30 @@ href="write.html">
 
 
 
-<!-- ==================================================
-     FIREBASE
-================================================== -->
+<!-- FIREBASE REALTIME DATABASE -->
 
 <script type="module">
 
-
 import {
-
     initializeApp
-
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-
-    getFirestore,
-    collection,
-    getDocs
-
+    getDatabase,
+    ref,
+    get
 }
 from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
 
 
 /* ==================================================
-   FIREBASE CONFIGURATION
-
-   SAME PROJECT AS ADMIN.HTML
+   THE SHINING WINDOW FIREBASE PROJECT
+   REALTIME DATABASE
 ================================================== */
 
 const firebaseConfig = {
@@ -792,6 +693,9 @@ const firebaseConfig = {
 
     authDomain:
     "poet--deedar---shahbaz.firebaseapp.com",
+
+    databaseURL:
+    "https://the-shining-window-default-rtdb.firebaseio.com",
 
     projectId:
     "poet--deedar---shahbaz",
@@ -811,20 +715,18 @@ const firebaseConfig = {
 };
 
 
-/* ==================================================
-   INITIALIZE
-================================================== */
+
+/* INITIALIZE FIREBASE */
 
 const app =
 initializeApp(firebaseConfig);
 
 const db =
-getFirestore(app);
+getDatabase(app);
 
 
-/* ==================================================
-   ELEMENTS
-================================================== */
+
+/* ELEMENTS */
 
 const articlesSection =
 document.getElementById(
@@ -842,6 +744,7 @@ document.getElementById(
 );
 
 
+
 /* ==================================================
    OPEN CATEGORY
 ================================================== */
@@ -855,15 +758,12 @@ async function(category){
     selectedCategory.textContent =
     "📚 " + category + " Articles";
 
-    articlesList.innerHTML =
-    `
-    <div class="loading">
-        ⏳ Loading ${escapeHtml(category)} articles...
-    </div>
+    articlesList.innerHTML = `
+        <div class="loading">
+            ⏳ Loading ${escapeHtml(category)} articles...
+        </div>
     `;
 
-
-    /* Scroll to articles */
 
     articlesSection.scrollIntoView({
         behavior:"smooth",
@@ -873,43 +773,126 @@ async function(category){
 
     try{
 
-        const snapshot =
-        await getDocs(
-            collection(
-                db,
-                "articleSubmissions"
-            )
+        /*
+           READ ALL SUBMISSIONS FROM
+           REALTIME DATABASE
+        */
+
+        const submissionsRef =
+        ref(
+            db,
+            "articleSubmissions"
         );
+
+
+        const snapshot =
+        await get(
+            submissionsRef
+        );
+
+
+        if(!snapshot.exists()){
+
+            articlesList.innerHTML = `
+                <div class="no-articles">
+
+                    <h3>
+                    No published articles yet.
+                    </h3>
+
+                    <p>
+                    There are currently no
+                    published writings.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        const data =
+        snapshot.val();
 
 
         let articles = [];
 
 
-        snapshot.forEach(
-            item => {
+        /*
+           CONVERT FIREBASE OBJECT
+           INTO ARRAY
+        */
 
-                const data =
-                item.data();
+        Object.keys(data).forEach(
+            id => {
+
+                const article =
+                data[id];
+
+
+                if(!article){
+                    return;
+                }
 
 
                 /*
-                   PUBLIC ARTICLES ONLY
+                   ACCEPT APPROVED ARTICLES
 
-                   Admin changes status
-                   to "approved".
+                   Also accept "published"
+                   because some publishing
+                   systems use that status.
                 */
 
+                const status =
+                String(
+                    article.status || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+                const articleCategory =
+                String(
+                    article.category || ""
+                )
+                .trim();
+
+
+                const wantedCategory =
+                String(
+                    category
+                )
+                .trim();
+
+
+                /*
+                   CATEGORY MATCH
+
+                   Case-insensitive.
+                */
+
+                const categoryMatches =
+                articleCategory.toLowerCase()
+                ===
+                wantedCategory.toLowerCase();
+
+
+                const published =
+                status === "approved" ||
+                status === "published";
+
+
                 if(
-                    data.status === "approved" &&
-                    data.category === category
+                    categoryMatches &&
+                    published
                 ){
 
                     articles.push({
 
-                        id:
-                        item.id,
+                        id:id,
 
-                        ...data
+                        ...article
 
                     });
 
@@ -919,20 +902,27 @@ async function(category){
         );
 
 
-        /* Sort newest first */
+
+        /* SORT NEWEST FIRST */
 
         articles.sort(
             (a,b)=>{
 
                 const dateA =
                 getDateValue(
-                    a.submittedAt
+                    a.submittedAt ||
+                    a.createdAt ||
+                    a.publishedAt
                 );
+
 
                 const dateB =
                 getDateValue(
-                    b.submittedAt
+                    b.submittedAt ||
+                    b.createdAt ||
+                    b.publishedAt
                 );
+
 
                 return dateB - dateA;
 
@@ -940,34 +930,38 @@ async function(category){
         );
 
 
+
+        /* NO ARTICLES */
+
         if(
             articles.length === 0
         ){
 
-            articlesList.innerHTML =
-            `
-            <div class="no-articles">
+            articlesList.innerHTML = `
+                <div class="no-articles">
 
-                <h3>
-                No published articles yet.
-                </h3>
+                    <h3>
+                    No published articles yet.
+                    </h3>
 
-                <p>
-                There are currently no approved
-                articles in the
-                <strong>
-                ${escapeHtml(category)}
-                </strong>
-                category.
-                </p>
+                    <p>
+                    There are currently no
+                    published writings in
+                    <strong>
+                    ${escapeHtml(category)}
+                    </strong>.
+                    </p>
 
-            </div>
+                </div>
             `;
 
             return;
 
         }
 
+
+
+        /* DISPLAY ARTICLES */
 
         let html = "";
 
@@ -982,21 +976,32 @@ async function(category){
 
                 const writer =
                 article.name ||
+                article.author ||
                 "The Shining Window";
+
+
+                const content =
+                article.article ||
+                article.content ||
+                article.paragraph ||
+                article.poem ||
+                article.text ||
+                "";
 
 
                 const preview =
                 createPreview(
-                    article.article ||
-                    article.content ||
-                    ""
+                    content
                 );
 
 
                 const date =
                 formatDate(
-                    article.submittedAt
+                    article.submittedAt ||
+                    article.createdAt ||
+                    article.publishedAt
                 );
+
 
 
                 html += `
@@ -1009,9 +1014,8 @@ async function(category){
                         ${escapeHtml(title)}
                     </h3>
 
-                    <div
-                        class="article-meta"
-                    >
+
+                    <div class="article-meta">
 
                         ✍️
                         ${escapeHtml(writer)}
@@ -1036,7 +1040,7 @@ async function(category){
                         href="article.html?id=${encodeURIComponent(article.id)}"
                     >
 
-                        📖 Read Story
+                        📖 Read Full Article
 
                     </a>
 
@@ -1057,26 +1061,35 @@ async function(category){
     catch(error){
 
         console.error(
-            "Firebase error:",
+            "Realtime Database error:",
             error
         );
 
 
-        articlesList.innerHTML =
-        `
-        <div class="database-error">
+        articlesList.innerHTML = `
 
-            <h3>
-            ❌ Unable to load articles
-            </h3>
+            <div class="database-error">
 
-            <p>
-            ${escapeHtml(
-                error.message
-            )}
-            </p>
+                <h3>
+                ❌ Unable to load articles
+                </h3>
 
-        </div>
+                <p>
+                ${escapeHtml(
+                    error.message ||
+                    "Database access failed."
+                )}
+                </p>
+
+                <br>
+
+                <p>
+                Please check the Firebase
+                Realtime Database rules.
+                </p>
+
+            </div>
+
         `;
 
     }
@@ -1084,8 +1097,9 @@ async function(category){
 };
 
 
+
 /* ==================================================
-   PREVIEW
+   CREATE PREVIEW
 ================================================== */
 
 function createPreview(text){
@@ -1094,6 +1108,13 @@ function createPreview(text){
     String(text || "")
     .replace(/\s+/g," ")
     .trim();
+
+
+    if(!text){
+
+        return "No preview available.";
+
+    }
 
 
     if(text.length <= 260){
@@ -1111,8 +1132,9 @@ function createPreview(text){
 }
 
 
+
 /* ==================================================
-   DATE
+   DATE VALUE
 ================================================== */
 
 function getDateValue(value){
@@ -1124,30 +1146,61 @@ function getDateValue(value){
     }
 
 
+    /*
+       Firebase timestamp/object
+    */
+
     if(
-        typeof value.toDate ===
-        "function"
+        typeof value === "object" &&
+        value !== null
     ){
 
-        return value.toDate().getTime();
+        if(
+            typeof value.seconds ===
+            "number"
+        ){
+
+            return (
+                value.seconds * 1000
+            );
+
+        }
+
+        if(
+            typeof value._seconds ===
+            "number"
+        ){
+
+            return (
+                value._seconds * 1000
+            );
+
+        }
 
     }
 
 
+    /*
+       Number timestamp
+    */
+
     if(
-        value.seconds
+        typeof value === "number"
     ){
 
-        return (
-            value.seconds * 1000
-        );
+        return value < 10000000000
+            ? value * 1000
+            : value;
 
     }
 
+
+    /*
+       String date
+    */
 
     const parsed =
-    new Date(value)
-    .getTime();
+    new Date(value).getTime();
 
 
     return isNaN(parsed)
@@ -1156,6 +1209,11 @@ function getDateValue(value){
 
 }
 
+
+
+/* ==================================================
+   FORMAT DATE
+================================================== */
 
 function formatDate(value){
 
@@ -1181,6 +1239,7 @@ function formatDate(value){
     );
 
 }
+
 
 
 /* ==================================================
