@@ -1,1184 +1,524 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Write for Us | The Shining Window</title>
 
-
 <style>
-
-/* ==================================================
-   GLOBAL
-================================================== */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f8fc;
-    color: #222;
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f8fc;
+    color:#222;
+    line-height:1.6;
 }
 
-
-/* ==================================================
-   HEADER
-================================================== */
-
-header {
-    background: #173f5f;
-    color: white;
-    padding: 20px;
+header{
+    background:linear-gradient(135deg,#071d49,#1261a0);
+    color:white;
+    text-align:center;
+    padding:28px 15px;
 }
 
-
-.header-content {
-    max-width: 1100px;
-    margin: auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 20px;
+.logo{
+    font-size:34px;
+    font-weight:bold;
+    text-shadow:2px 3px 4px rgba(0,0,0,.4);
 }
 
-
-.logo {
-    font-size: 26px;
-    font-weight: bold;
+.subtitle{
+    font-size:17px;
+    margin-top:5px;
 }
 
-
-.tagline {
-    font-size: 13px;
-    margin-top: 5px;
-    opacity: 0.9;
+nav{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:8px 13px;
+    border-radius:6px;
+    background:rgba(255,255,255,.12);
 }
 
-
-nav a:hover {
-    text-decoration: underline;
+nav a:hover{
+    background:rgba(255,255,255,.25);
 }
 
-
-/* ==================================================
-   MAIN
-================================================== */
-
-.container {
-    max-width: 850px;
-    margin: 40px auto;
-    padding: 20px;
+.container{
+    max-width:850px;
+    margin:30px auto;
+    padding:0 15px;
 }
 
-
-/* ==================================================
-   INTRO
-================================================== */
-
-.intro {
-    text-align: center;
-    margin-bottom: 35px;
+.card{
+    background:white;
+    padding:28px;
+    border-radius:14px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-
-.intro h1 {
-    color: #173f5f;
-    font-size: 40px;
-    margin-bottom: 12px;
+h1{
+    color:#0b4f8a;
+    margin-bottom:10px;
 }
 
-
-.intro p {
-    color: #555;
-    font-size: 17px;
-    line-height: 1.7;
+.intro{
+    margin-bottom:25px;
+    color:#555;
 }
 
-
-/* ==================================================
-   WRITING FORM
-================================================== */
-
-.form-card {
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 16px;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,0.10);
-
+label{
+    display:block;
+    font-weight:bold;
+    margin:18px 0 7px;
 }
-
-
-.form-group {
-    margin-bottom: 22px;
-}
-
-
-label {
-
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #173f5f;
-
-    font-weight: bold;
-
-    font-size: 16px;
-
-}
-
 
 input,
 select,
-textarea {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 1px solid #ccd6df;
-
-    border-radius: 8px;
-
-    font-size: 16px;
-
-    font-family: Arial, sans-serif;
-
-    outline: none;
-
-    transition: 0.2s;
-
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccd5df;
+    border-radius:8px;
+    font-size:16px;
+    font-family:inherit;
 }
-
 
 input:focus,
 select:focus,
-textarea:focus {
-
-    border-color: #173f5f;
-
-    box-shadow:
-    0 0 0 3px
-    rgba(23,63,95,0.12);
-
+textarea:focus{
+    outline:none;
+    border-color:#1261a0;
+    box-shadow:0 0 0 2px rgba(18,97,160,.12);
 }
 
-
-textarea {
-
-    min-height: 280px;
-
-    resize: vertical;
-
-    line-height: 1.7;
-
+textarea{
+    min-height:350px;
+    resize:vertical;
 }
 
-
-.helper-text {
-
-    color: #777;
-
-    font-size: 13px;
-
-    margin-top: 7px;
-
+.note{
+    font-size:13px;
+    color:#666;
+    margin-top:5px;
 }
 
-
-/* ==================================================
-   WORD COUNT
-================================================== */
-
-.word-count {
-
-    text-align: right;
-
-    margin-top: 8px;
-
-    color: #777;
-
-    font-size: 13px;
-
+button{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#0b63a5;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-
-/* ==================================================
-   SUBMIT BUTTON
-================================================== */
-
-.submit-button {
-
-    width: 100%;
-
-    padding: 15px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #173f5f;
-
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-
+button:hover{
+    background:#084d80;
 }
 
-
-.submit-button:hover {
-
-    background: #0f2f49;
-
+button:disabled{
+    background:#8ca6ba;
+    cursor:not-allowed;
 }
 
-
-.submit-button:disabled {
-
-    background: #8a9aa8;
-
-    cursor: not-allowed;
-
+#message{
+    margin-top:20px;
+    padding:14px;
+    border-radius:8px;
+    display:none;
+    font-weight:bold;
 }
 
-
-/* ==================================================
-   MESSAGE
-================================================== */
-
-#message {
-
-    display: none;
-
-    margin-top: 22px;
-
-    padding: 18px;
-
-    border-radius: 10px;
-
-    text-align: center;
-
-    font-weight: bold;
-
-    line-height: 1.6;
-
+.success{
+    display:block !important;
+    background:#e8f7ed;
+    color:#18743b;
+    border:1px solid #a8d8b7;
 }
 
-
-.success {
-
-    display: block !important;
-
-    background: #e5f7eb;
-
-    color: #176b35;
-
-    border: 1px solid #a9dfb8;
-
+.error{
+    display:block !important;
+    background:#fdecec;
+    color:#b42318;
+    border:1px solid #efb0aa;
 }
 
-
-.error {
-
-    display: block !important;
-
-    background: #ffe8e8;
-
-    color: #a00000;
-
-    border: 1px solid #f0b1b1;
-
+footer{
+    text-align:center;
+    margin-top:35px;
+    padding:22px;
+    background:#071d49;
+    color:white;
+    font-size:14px;
 }
 
-
-/* ==================================================
-   INFORMATION BOX
-================================================== */
-
-.info-box {
-
-    margin-top: 30px;
-
-    background: #eaf1f7;
-
-    padding: 25px;
-
-    border-radius: 14px;
-
-    border-left: 5px solid #173f5f;
-
-}
-
-
-.info-box h2 {
-
-    color: #173f5f;
-
-    margin-bottom: 12px;
-
-}
-
-
-.info-box ul {
-
-    padding-left: 20px;
-
-    color: #444;
-
-    line-height: 1.9;
-
-}
-
-
-/* ==================================================
-   FOOTER
-================================================== */
-
-footer {
-
-    margin-top: 50px;
-
-    padding: 25px;
-
-    text-align: center;
-
-    background: #102d43;
-
-    color: white;
-
-}
-
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media (max-width: 700px) {
-
-    .header-content {
-
-        flex-direction: column;
-
-        text-align: center;
-
+@media(max-width:600px){
+    .card{
+        padding:20px 16px;
     }
 
-
-    nav a {
-
-        display: inline-block;
-
-        margin: 6px;
-
+    .logo{
+        font-size:28px;
     }
 
-
-    .intro h1 {
-
-        font-size: 32px;
-
+    textarea{
+        min-height:300px;
     }
-
-
-    .form-card {
-
-        padding: 22px;
-
-    }
-
-
-    textarea {
-
-        min-height: 240px;
-
-    }
-
 }
-
 </style>
-
 </head>
-
-
 
 <body>
 
-
-<!-- ==================================================
-     HEADER
-================================================== -->
-
 <header>
 
-<div class="header-content">
+    <div class="logo">🪟 The Shining Window</div>
 
+    <div class="subtitle">
+        Open your mind. Share your thoughts.
+    </div>
 
-<div>
-
-<div class="logo">
-🪟 The Shining Window
-</div>
-
-
-<div class="tagline">
-Open your mind. Share your thoughts.
-</div>
-
-</div>
-
-
-
-<nav>
-
-<a href="index.html">
-Home
-</a>
-
-<a href="categories.html">
-Categories
-</a>
-
-<a href="write.html">
-Write for Us
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="contact.html">
-Contact
-</a>
-
-</nav>
-
-
-</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="write-for-us.html">Write for Us</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
 </header>
 
 
+<div class="container">
 
-<!-- ==================================================
-     MAIN
-================================================== -->
+<div class="card">
 
-<main class="container">
+<h1>✍️ Write for The Shining Window</h1>
 
-
-<section class="intro">
-
-<h1>
-✍️ Write for The Shining Window
-</h1>
-
-
-<p>
-Have an idea, story, poem, article or useful knowledge
-to share? Submit your writing and become part of
-The Shining Window community.
+<p class="intro">
+Have an idea, story, poem, article or useful knowledge to share?
+Submit your writing and become part of The Shining Window community.
 </p>
 
-</section>
 
+<form id="submissionForm">
 
-
-<!-- ==================================================
-     FORM
-================================================== -->
-
-<section class="form-card">
-
-
-<form id="articleForm">
-
-
-<!-- NAME -->
-
-<div class="form-group">
-
-<label for="name">
-✍️ Your Name
-</label>
-
+<label for="name">✍️ Your Name</label>
 
 <input
-type="text"
-id="name"
-placeholder="Enter your name"
-required>
+    type="text"
+    id="name"
+    placeholder="Enter your name"
+    required
+>
 
 
-</div>
-
-
-
-<!-- EMAIL -->
-
-<div class="form-group">
-
-<label for="email">
-📧 Email Address
-</label>
-
+<label for="email">📧 Email Address</label>
 
 <input
-type="email"
-id="email"
-placeholder="Enter your email address"
-required>
+    type="email"
+    id="email"
+    placeholder="Enter your email address"
+    required
+>
 
-
-<p class="helper-text">
+<p class="note">
 Your email will only be used for communication about your submission.
 </p>
 
 
-</div>
-
-
-
-<!-- TITLE -->
-
-<div class="form-group">
-
-<label for="title">
-📝 Article Title
-</label>
-
+<label for="title">📝 Article Title</label>
 
 <input
-type="text"
-id="title"
-placeholder="Write an interesting title"
-required>
+    type="text"
+    id="title"
+    placeholder="Enter a clear title"
+    required
+>
 
 
-</div>
+<label for="category">📚 Select Category</label>
 
+<select id="category" required>
 
+    <option value="">Select a category</option>
 
-<!-- CATEGORY -->
+    <option value="Poetry">Poetry</option>
 
-<div class="form-group">
+    <option value="Stories">Stories</option>
 
-<label for="category">
-📚 Select Category
-</label>
+    <option value="Articles">Articles</option>
 
+    <option value="Education">Education</option>
 
-<select
-id="category"
-required>
+    <option value="Knowledge">Knowledge</option>
 
-
-<option value="">
--- Choose a Category --
-</option>
-
-
-<option value="Grammar">
-Grammar
-</option>
-
-
-<option value="Science">
-Science
-</option>
-
-
-<option value="Education">
-Education
-</option>
-
-
-<option value="Technology">
-Technology
-</option>
-
-
-<option value="Poetry">
-Poetry
-</option>
-
-
-<option value="Stories">
-Stories
-</option>
-
-
-<option value="General Knowledge">
-General Knowledge
-</option>
-
-
-<option value="Opinion">
-Opinion
-</option>
-
-
-<option value="Other">
-Other
-</option>
-
+    <option value="Other">Other</option>
 
 </select>
 
 
-</div>
-
-
-
-<!-- ARTICLE -->
-
-<div class="form-group">
-
-<label for="article">
-📖 Your Writing
-</label>
-
+<label for="content">📖 Your Writing</label>
 
 <textarea
-id="article"
-placeholder="Start writing your article, story, poem or thoughts here..."
-required></textarea>
+    id="content"
+    placeholder="Write or paste your original content here..."
+    required
+></textarea>
 
-
-<div
-class="word-count"
-id="wordCount">
-
-0 words
-
-</div>
-
-
-<p class="helper-text">
-Write your original content clearly. Please review your writing before submitting.
-</p>
-
-
-</div>
-
-
-
-<!-- SUBMIT -->
 
 <button
-type="submit"
-class="submit-button"
-id="submitButton">
-
-🚀 Submit Your Writing
-
+    type="submit"
+    id="submitButton"
+>
+    🚀 Submit Your Writing
 </button>
 
+<div id="message"></div>
 
 </form>
 
 
+<div style="margin-top:28px;">
 
-<!-- MESSAGE -->
+<h3>📌 Before You Submit</h3>
 
-<div id="message"></div>
+<ul style="margin:12px 0 0 22px;">
 
+<li>Make sure your writing is original.</li>
 
-</section>
+<li>Choose the correct category.</li>
 
+<li>Write a clear and meaningful title.</li>
 
+<li>Review spelling and grammar before submitting.</li>
 
-<!-- ==================================================
-     INFORMATION
-================================================== -->
+<li>Your submission will be reviewed before publication.</li>
 
-<section class="info-box">
-
-<h2>
-📌 Before You Submit
-</h2>
-
-
-<ul>
-
-<li>
-Make sure your writing is original.
-</li>
-
-<li>
-Choose the correct category.
-</li>
-
-<li>
-Write a clear and meaningful title.
-</li>
-
-<li>
-Review spelling and grammar before submitting.
-</li>
-
-<li>
-Your submission will be reviewed before publication.
-</li>
-
-<li>
-Only approved articles will appear publicly on the website.
-</li>
+<li>Only approved articles will appear publicly on the website.</li>
 
 </ul>
 
+</div>
 
-</section>
+</div>
 
+</div>
 
-</main>
-
-
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
 
 <footer>
-
-<p>
 © 2026 The Shining Window — All Rights Reserved
-</p>
-
 </footer>
 
 
-
-<!-- ==================================================
-     FIREBASE
-================================================== -->
-
+<!-- Firebase -->
 <script type="module">
 
-
-/* ==================================================
-   IMPORT FIREBASE
-================================================== */
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-
-    initializeApp
-
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-
-import {
-
     getFirestore,
     collection,
     addDoc,
     serverTimestamp
-
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
+/*
+========================================================
+FIREBASE CONFIGURATION
+========================================================
 
-/* ==================================================
-   FIREBASE CONFIGURATION
-   SAME AS CATEGORIES.HTML
-================================================== */
+Replace ONLY the values below with the Firebase
+configuration from your existing The Shining Window
+Firebase project.
+*/
 
 const firebaseConfig = {
 
-    apiKey:
-    "AIzaSyAEtsOoIe3tll0_hvovC42j9ujcb8Wavu4",
+    apiKey: "YOUR_API_KEY",
 
-    authDomain:
-    "poet--deedar---shahbaz.firebaseapp.com",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
 
-    projectId:
-    "poet--deedar---shahbaz",
+    projectId: "YOUR_PROJECT_ID",
 
-    storageBucket:
-    "poet--deedar---shahbaz.firebasestorage.app",
+    storageBucket: "YOUR_PROJECT.appspot.com",
 
-    messagingSenderId:
-    "411582745091",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
 
-    appId:
-    "1:411582745091:web:96413eef58092e77911c36",
-
-    measurementId:
-    "G-E0V5QH9D98"
+    appId: "YOUR_APP_ID"
 
 };
 
 
+/*
+========================================================
+INITIALIZE FIREBASE
+========================================================
+*/
 
-/* ==================================================
-   INITIALIZE FIREBASE
-================================================== */
+const app = initializeApp(firebaseConfig);
 
-const app =
-initializeApp(firebaseConfig);
-
-
-const db =
-getFirestore(app);
+const db = getFirestore(app);
 
 
+/*
+========================================================
+FORM
+========================================================
+*/
 
-/* ==================================================
-   GET ELEMENTS
-================================================== */
+const form =
+    document.getElementById("submissionForm");
 
-const articleForm =
-document.getElementById(
-    "articleForm"
-);
-
-
-const nameInput =
-document.getElementById(
-    "name"
-);
-
-
-const emailInput =
-document.getElementById(
-    "email"
-);
-
-
-const titleInput =
-document.getElementById(
-    "title"
-);
-
-
-const categoryInput =
-document.getElementById(
-    "category"
-);
-
-
-const articleInput =
-document.getElementById(
-    "article"
-);
-
-
-const submitButton =
-document.getElementById(
-    "submitButton"
-);
-
+const button =
+    document.getElementById("submitButton");
 
 const message =
-document.getElementById(
-    "message"
-);
+    document.getElementById("message");
 
 
-const wordCount =
-document.getElementById(
-    "wordCount"
-);
+form.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    message.className = "";
+    message.style.display = "none";
+    message.textContent = "";
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const title =
+        document.getElementById("title").value.trim();
+
+    const category =
+        document.getElementById("category").value;
+
+    const content =
+        document.getElementById("content").value.trim();
 
 
+    /*
+    Basic validation
+    */
 
-/* ==================================================
-   WORD COUNTER
-================================================== */
+    if(!name || !email || !title || !category || !content){
 
-articleInput.addEventListener(
-    "input",
-    function(){
+        message.textContent =
+            "Please complete all required fields.";
 
-        const text =
-        articleInput.value
-        .trim();
+        message.className = "error";
 
-
-        if(text === ""){
-
-            wordCount.textContent =
-            "0 words";
-
-            return;
-
-        }
-
-
-        const words =
-        text
-        .split(/\s+/)
-        .filter(
-            word => word.length > 0
-        );
-
-
-        wordCount.textContent =
-        words.length +
-        (
-            words.length === 1
-            ? " word"
-            : " words"
-        );
-
+        return;
     }
-);
 
 
+    /*
+    Disable button while submitting
+    */
 
-/* ==================================================
-   SHOW MESSAGE
-================================================== */
+    button.disabled = true;
 
-function showMessage(
-    text,
-    type
-){
-
-    message.textContent =
-    text;
-
-
-    message.className =
-    type;
-
-
-    message.style.display =
-    "block";
-
-
-    message.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
-}
-
-
-
-/* ==================================================
-   SUBMIT ARTICLE
-================================================== */
-
-articleForm.addEventListener(
-    "submit",
-
-    async function(event){
-
-        event.preventDefault();
-
-
-        const name =
-        nameInput.value.trim();
-
-
-        const email =
-        emailInput.value.trim();
-
-
-        const title =
-        titleInput.value.trim();
-
-
-        const category =
-        categoryInput.value;
-
-
-        const article =
-        articleInput.value.trim();
-
-
-
-        /* Validate */
-
-        if(
-            !name ||
-            !email ||
-            !title ||
-            !category ||
-            !article
-        ){
-
-            showMessage(
-                "❌ Please complete all required fields.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-
-        /* Disable button */
-
-        submitButton.disabled =
-        true;
-
-
-        submitButton.textContent =
+    button.textContent =
         "⏳ Submitting...";
 
 
-        message.style.display =
-        "none";
+    try{
+
+        /*
+        Save submission to Firestore.
+
+        Collection:
+        submissions
+        */
+
+        await addDoc(
+            collection(db, "submissions"),
+            {
+
+                name: name,
+
+                email: email,
+
+                title: title,
+
+                category: category,
+
+                content: content,
+
+                status: "pending",
+
+                approved: false,
+
+                submittedAt: serverTimestamp()
+
+            }
+        );
 
 
+        /*
+        Success
+        */
 
-        try{
+        message.textContent =
+            "✅ Your writing has been submitted successfully. It will be reviewed before publication.";
 
-
-            /* ==================================================
-               SAVE TO FIRESTORE
-
-               COLLECTION:
-               articleSubmissions
-
-               STATUS:
-               pending
-
-               ADMIN CAN CHANGE TO:
-               approved
-            ================================================== */
-
-            await addDoc(
-
-                collection(
-                    db,
-                    "articleSubmissions"
-                ),
-
-                {
-
-                    name:
-                    name,
-
-                    email:
-                    email,
-
-                    title:
-                    title,
-
-                    category:
-                    category,
-
-                    article:
-                    article,
+        message.className = "success";
 
 
-                    status:
-                    "pending",
+        form.reset();
 
 
-                    submittedAt:
-                    serverTimestamp()
+    }catch(error){
 
-                }
-
-            );
-
-
-
-            /* Success */
-
-            articleForm.reset();
+        console.error(
+            "Submission error:",
+            error
+        );
 
 
-            wordCount.textContent =
-            "0 words";
+        message.textContent =
+            "❌ Unable to submit your writing. Please check your Firebase Firestore permissions.";
+
+        message.className = "error";
 
 
-            showMessage(
+    }finally{
 
-                "🎉 Thank you! Your writing has been submitted successfully. It will appear on The Shining Window after approval.",
+        button.disabled = false;
 
-                "success"
-
-            );
-
-
-        }
-
-
-        catch(error){
-
-
-            console.error(
-                "Firebase submission error:",
-                error
-            );
-
-
-            showMessage(
-
-                "❌ Unable to submit your writing. " +
-                error.message,
-
-                "error"
-
-            );
-
-
-        }
-
-
-        finally{
-
-
-            submitButton.disabled =
-            false;
-
-
-            submitButton.textContent =
+        button.textContent =
             "🚀 Submit Your Writing";
-
-
-        }
-
 
     }
 
-);
+});
 
 </script>
 
-
 </body>
-
 </html>
