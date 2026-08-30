@@ -322,23 +322,6 @@ required>
 </div>
 
 
-<!-- TITLE -->
-
-<div class="form-group">
-
-<label for="title">
-📝 Title
-</label>
-
-<input
-type="text"
-id="title"
-placeholder="Enter the title of your writing"
-required>
-
-</div>
-
-
 <!-- CATEGORY -->
 
 <div class="form-group">
@@ -640,12 +623,6 @@ form.addEventListener(
             ).value.trim();
 
 
-        const title =
-            document.getElementById(
-                "title"
-            ).value.trim();
-
-
         const category =
             document.getElementById(
                 "category"
@@ -684,18 +661,6 @@ form.addEventListener(
 
             showMessage(
                 "Please enter your email address.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!title){
-
-            showMessage(
-                "Please enter a title.",
                 "error"
             );
 
@@ -779,9 +744,6 @@ form.addEventListener(
 
                     email:
                     email,
-
-                    title:
-                    title,
 
                     category:
                     category,
