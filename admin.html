@@ -94,6 +94,7 @@ main{
     display:grid;
     grid-template-columns:
         repeat(auto-fit,minmax(180px,1fr));
+
     gap:15px;
     margin-bottom:30px;
 }
@@ -124,6 +125,8 @@ main{
     border-radius:8px;
     text-align:center;
     font-weight:bold;
+    background:#e8f7ed;
+    color:#176b35;
 }
 
 .submission{
@@ -216,6 +219,21 @@ button{
     margin-bottom:8px;
 }
 
+.status-published{
+    color:#218739;
+    font-weight:bold;
+}
+
+.status-pending{
+    color:#d97706;
+    font-weight:bold;
+}
+
+.status-rejected{
+    color:#c62828;
+    font-weight:bold;
+}
+
 footer{
     margin-top:45px;
     background:#102d43;
@@ -291,6 +309,7 @@ Write for Us
 
 <main>
 
+
 <div class="page-title">
 
 <h1>
@@ -308,7 +327,8 @@ Review, approve or reject submitted articles.
 
 <div class="stat">
 
-<div class="stat-number" id="totalCount">
+<div class="stat-number"
+     id="totalCount">
 0
 </div>
 
@@ -321,7 +341,8 @@ Total Submissions
 
 <div class="stat">
 
-<div class="stat-number" id="pendingCount">
+<div class="stat-number"
+     id="pendingCount">
 0
 </div>
 
@@ -334,7 +355,8 @@ Pending
 
 <div class="stat">
 
-<div class="stat-number" id="publishedCount">
+<div class="stat-number"
+     id="publishedCount">
 0
 </div>
 
@@ -357,7 +379,7 @@ Published
 <div class="empty">
 
 <h2>
-Loading submissions...
+⏳ Loading submissions...
 </h2>
 
 <p>
@@ -367,6 +389,7 @@ Please wait while Firebase data is loaded.
 </div>
 
 </div>
+
 
 </main>
 
@@ -380,12 +403,19 @@ Please wait while Firebase data is loaded.
 </footer>
 
 
-<!-- FIREBASE -->
 
 <script type="module">
 
-import { initializeApp }
+
+/* =================================
+   FIREBASE
+================================= */
+
+import {
+    initializeApp
+}
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
     getDatabase,
@@ -397,14 +427,15 @@ import {
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
+
 /* =================================
-   FIREBASE CONFIGURATION
+   YOUR REAL FIREBASE CONFIG
 ================================= */
 
 const firebaseConfig = {
 
     apiKey:
-    "REPLACE_WITH_YOUR_API_KEY",
+    "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
 
     authDomain:
     "the-shining-window.firebaseapp.com",
@@ -422,21 +453,30 @@ const firebaseConfig = {
     "636523709313",
 
     appId:
-    "REPLACE_WITH_YOUR_APP_ID"
+    "1:636523709313:web:8cbd2ce21eddae998fde80",
+
+    measurementId:
+    "G-NMNL6J6J1P"
 
 };
 
 
+
 /* =================================
-   INITIALIZE FIREBASE
+   INITIALIZE
 ================================= */
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const db = getDatabase(app);
+
+const db =
+    getDatabase(app);
+
 
 const submissionsRef =
     ref(db,"articleSubmissions");
+
 
 
 /* =================================
@@ -459,23 +499,31 @@ const messageBox =
     document.getElementById("message");
 
 
+
 /* =================================
    MESSAGE
 ================================= */
 
 function showMessage(text){
 
-    messageBox.textContent = text;
+    messageBox.textContent =
+        text;
 
-    messageBox.style.display = "block";
+    messageBox.style.display =
+        "block";
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        messageBox.style.display = "none";
+            messageBox.style.display =
+                "none";
 
-    },3000);
+        },
+        3000
+    );
 
 }
+
 
 
 /* =================================
@@ -484,8 +532,13 @@ function showMessage(text){
 
 function escapeHTML(value){
 
-    if(value === undefined || value === null){
+    if(
+        value === undefined ||
+        value === null
+    ){
+
         return "";
+
     }
 
     return String(value)
@@ -494,7 +547,9 @@ function escapeHTML(value){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
+
 }
+
 
 
 /* =================================
@@ -502,16 +557,28 @@ function escapeHTML(value){
 ================================= */
 
 onValue(
+
     submissionsRef,
+
     (snapshot) => {
 
-        submissionsContainer.innerHTML = "";
+
+        submissionsContainer.innerHTML =
+            "";
+
 
         if(!snapshot.exists()){
 
-            totalCount.textContent = "0";
-            pendingCount.textContent = "0";
-            publishedCount.textContent = "0";
+
+            totalCount.textContent =
+                "0";
+
+            pendingCount.textContent =
+                "0";
+
+            publishedCount.textContent =
+                "0";
+
 
             submissionsContainer.innerHTML = `
 
@@ -530,40 +597,65 @@ onValue(
             `;
 
             return;
+
         }
 
 
-        const data = snapshot.val();
+
+        const data =
+            snapshot.val();
+
 
         const entries =
             Object.entries(data);
 
 
-        let pending = 0;
-        let published = 0;
+
+        let pending =
+            0;
+
+        let published =
+            0;
+
 
 
         totalCount.textContent =
             entries.length;
 
 
+
+        /* =================================
+           COUNT STATUS
+        ================================= */
+
         entries.forEach(
             ([id,item]) => {
 
+
                 const status =
-                    String(item.status || "pending")
-                    .toLowerCase();
+                    String(
+                        item.status || "pending"
+                    ).toLowerCase();
+
+
+
+                const approved =
+                    item.approved === true;
+
 
 
                 if(
                     status === "published" ||
-                    status === "approved"
+                    status === "approved" ||
+                    approved === true
                 ){
 
                     published++;
 
                 }
-                else{
+                else if(
+                    status !== "rejected"
+                ){
 
                     pending++;
 
@@ -573,41 +665,58 @@ onValue(
         );
 
 
+
         pendingCount.textContent =
             pending;
+
 
         publishedCount.textContent =
             published;
 
 
-        /* =========================
-           DISPLAY PENDING FIRST
-        ========================= */
+
+        /* =================================
+           SORT
+        ================================= */
 
         entries.sort(
             (a,b) => {
 
+
                 const aStatus =
-                    String(a[1].status || "pending")
-                    .toLowerCase();
+                    String(
+                        a[1].status || "pending"
+                    ).toLowerCase();
+
 
                 const bStatus =
-                    String(b[1].status || "pending")
-                    .toLowerCase();
+                    String(
+                        b[1].status || "pending"
+                    ).toLowerCase();
+
+
 
                 if(
                     aStatus === "pending" &&
                     bStatus !== "pending"
                 ){
+
                     return -1;
+
                 }
+
+
 
                 if(
                     aStatus !== "pending" &&
                     bStatus === "pending"
                 ){
+
                     return 1;
+
                 }
+
+
 
                 return 0;
 
@@ -615,28 +724,40 @@ onValue(
         );
 
 
+
+        /* =================================
+           DISPLAY
+        ================================= */
+
         entries.forEach(
             ([id,item]) => {
 
+
                 const status =
-                    String(item.status || "pending")
-                    .toLowerCase();
+                    String(
+                        item.status || "pending"
+                    ).toLowerCase();
+
 
 
                 const title =
-                    item.title || "Untitled";
+                    item.title ||
+                    "Untitled";
 
 
                 const name =
-                    item.name || "Unknown writer";
+                    item.name ||
+                    "Unknown writer";
 
 
                 const email =
-                    item.email || "";
+                    item.email ||
+                    "";
 
 
                 const category =
-                    item.category || "Uncategorized";
+                    item.category ||
+                    "Uncategorized";
 
 
                 const article =
@@ -646,18 +767,30 @@ onValue(
 
 
                 const submittedAt =
-                    item.submittedAt || "";
+                    item.submittedAt ||
+                    "";
+
 
 
                 const card =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
+
 
                 card.className =
                     "submission";
 
 
-                let buttons = "";
 
+                let buttons =
+                    "";
+
+
+
+                /* =================================
+                   PENDING
+                ================================= */
 
                 if(
                     status === "pending" ||
@@ -674,6 +807,7 @@ onValue(
 
                         </button>
 
+
                         <button
                             class="reject"
                             onclick="rejectArticle('${id}')">
@@ -685,6 +819,13 @@ onValue(
                     `;
 
                 }
+
+
+
+                /* =================================
+                   PUBLISHED
+                ================================= */
+
                 else if(
                     status === "published" ||
                     status === "approved"
@@ -705,6 +846,11 @@ onValue(
                 }
 
 
+
+                /* =================================
+                   DELETE
+                ================================= */
+
                 buttons += `
 
                     <button
@@ -718,54 +864,133 @@ onValue(
                 `;
 
 
+
+                let statusClass =
+                    "status-pending";
+
+
+                if(
+                    status === "published" ||
+                    status === "approved"
+                ){
+
+                    statusClass =
+                        "status-published";
+
+                }
+
+
+                if(
+                    status === "rejected"
+                ){
+
+                    statusClass =
+                        "status-rejected";
+
+                }
+
+
+
                 card.innerHTML = `
 
                     <h2>
                         ${escapeHTML(title)}
                     </h2>
 
+
                     <div class="meta">
 
-                        <strong>Writer:</strong>
+                        <strong>
+                            Writer:
+                        </strong>
+
                         ${escapeHTML(name)}
+
                         <br>
 
-                        <strong>Email:</strong>
+
+                        <strong>
+                            Email:
+                        </strong>
+
                         ${escapeHTML(email)}
+
                         <br>
 
-                        <strong>Category:</strong>
+
+                        <strong>
+                            Category:
+                        </strong>
+
                         ${escapeHTML(category)}
+
                         <br>
 
-                        <strong>Status:</strong>
-                        ${escapeHTML(status)}
+
+                        <strong>
+                            Status:
+                        </strong>
+
+                        <span class="${statusClass}">
+
+                            ${escapeHTML(status)}
+
+                        </span>
+
                         <br>
 
-                        <strong>Submitted:</strong>
+
+                        <strong>
+                            Submitted:
+                        </strong>
+
                         ${escapeHTML(submittedAt)}
 
                     </div>
 
+
+
                     <div class="article-content">
+
                         ${escapeHTML(article)}
+
                     </div>
 
+
+
                     <div class="buttons">
+
                         ${buttons}
+
                     </div>
 
                 `;
 
 
-                submissionsContainer.appendChild(card);
+
+                submissionsContainer.appendChild(
+                    card
+                );
 
             }
         );
 
     },
 
+
+
+    /* =================================
+       FIREBASE ERROR
+    ================================= */
+
     (error) => {
+
+
+        console.error(
+            "Firebase error:",
+            error
+        );
+
 
         submissionsContainer.innerHTML = `
 
@@ -784,11 +1009,13 @@ onValue(
         `;
 
     }
+
 );
 
 
+
 /* =================================
-   APPROVE ARTICLE
+   APPROVE & PUBLISH
 ================================= */
 
 window.approveArticle =
@@ -796,22 +1023,42 @@ async function(id){
 
     try{
 
+
         await update(
+
             ref(
                 db,
                 "articleSubmissions/" + id
             ),
+
             {
-                status:"published"
+
+                status:
+                "published",
+
+                approved:
+                true
+
             }
+
         );
+
+
 
         showMessage(
             "✅ Article approved and published successfully."
         );
 
+
     }
+
     catch(error){
+
+
+        console.error(
+            error
+        );
+
 
         alert(
             "Could not publish article: " +
@@ -823,8 +1070,9 @@ async function(id){
 };
 
 
+
 /* =================================
-   REJECT ARTICLE
+   REJECT
 ================================= */
 
 window.rejectArticle =
@@ -832,22 +1080,41 @@ async function(id){
 
     try{
 
+
         await update(
+
             ref(
                 db,
                 "articleSubmissions/" + id
             ),
+
             {
-                status:"rejected"
+
+                status:
+                "rejected",
+
+                approved:
+                false
+
             }
+
         );
+
 
         showMessage(
             "❌ Article rejected."
         );
 
+
     }
+
     catch(error){
+
+
+        console.error(
+            error
+        );
+
 
         alert(
             "Could not reject article: " +
@@ -859,6 +1126,7 @@ async function(id){
 };
 
 
+
 /* =================================
    UNPUBLISH
 ================================= */
@@ -868,22 +1136,41 @@ async function(id){
 
     try{
 
+
         await update(
+
             ref(
                 db,
                 "articleSubmissions/" + id
             ),
+
             {
-                status:"pending"
+
+                status:
+                "pending",
+
+                approved:
+                false
+
             }
+
         );
+
 
         showMessage(
-            "Article moved back to pending."
+            "↩️ Article moved back to pending."
         );
 
+
     }
+
     catch(error){
+
+
+        console.error(
+            error
+        );
+
 
         alert(
             "Could not unpublish article: " +
@@ -895,12 +1182,14 @@ async function(id){
 };
 
 
+
 /* =================================
    DELETE
 ================================= */
 
 window.deleteArticle =
 async function(id){
+
 
     const confirmed =
         confirm(
@@ -909,25 +1198,40 @@ async function(id){
 
 
     if(!confirmed){
+
         return;
+
     }
+
 
 
     try{
 
+
         await remove(
+
             ref(
                 db,
                 "articleSubmissions/" + id
             )
+
         );
+
 
         showMessage(
             "🗑️ Submission deleted."
         );
 
+
     }
+
     catch(error){
+
+
+        console.error(
+            error
+        );
+
 
         alert(
             "Could not delete submission: " +
@@ -937,6 +1241,7 @@ async function(id){
     }
 
 };
+
 
 </script>
 
