@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -20,331 +21,344 @@ body{
     font-family:Arial,sans-serif;
     background:#f5f8fc;
     color:#222;
+    line-height:1.6;
 }
+
+
+/* ==========================================
+   HEADER
+========================================== */
 
 header{
-    background:#173f5f;
+    background:linear-gradient(135deg,#071d49,#1261a0);
     color:white;
-    padding:20px;
-}
-
-.header-content{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
+    text-align:center;
+    padding:28px 15px;
 }
 
 .logo{
-    font-size:26px;
+    font-size:34px;
     font-weight:bold;
+    text-shadow:2px 3px 4px rgba(0,0,0,.4);
 }
 
-.tagline{
-    font-size:13px;
+.subtitle{
+    font-size:17px;
     margin-top:5px;
-    opacity:.9;
+}
+
+nav{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin-left:15px;
-    font-weight:bold;
+    padding:8px 13px;
+    border-radius:6px;
+    background:rgba(255,255,255,.12);
 }
 
 nav a:hover{
-    text-decoration:underline;
+    background:rgba(255,255,255,.25);
 }
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
 
 .container{
-    max-width:1100px;
-    margin:40px auto;
-    padding:20px;
+    max-width:900px;
+    margin:30px auto;
+    padding:0 15px;
 }
 
-.intro{
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:25px;
 }
 
-.intro h1{
-    color:#173f5f;
-    font-size:40px;
-    margin-bottom:12px;
+.page-title h1{
+    color:#0b4f8a;
+    margin-bottom:8px;
 }
 
-.intro p{
+.page-title p{
     color:#555;
-    font-size:17px;
-    line-height:1.6;
 }
+
+
+/* ==========================================
+   CATEGORIES
+========================================== */
 
 .categories{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
 }
 
-.category{
+.category-card{
     background:white;
-    padding:30px 20px;
-    border-radius:15px;
+    padding:25px 20px;
+    border-radius:14px;
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
     text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-    transition:.2s;
 }
 
-.category:hover{
-    transform:translateY(-5px);
+.category-icon{
+    font-size:40px;
+    margin-bottom:8px;
 }
 
-.icon{
-    font-size:42px;
-    margin-bottom:15px;
+.category-card h2{
+    color:#0b4f8a;
+    margin-bottom:8px;
 }
 
-.category h2{
-    color:#173f5f;
-    font-size:22px;
-    margin-bottom:10px;
-}
-
-.category p{
+.category-card p{
     color:#666;
-    line-height:1.5;
-    font-size:14px;
+    margin-bottom:18px;
 }
 
-.category button{
-    margin-top:18px;
-    padding:10px 20px;
-    border:none;
-    border-radius:7px;
-    background:#173f5f;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.category button:hover{
-    background:#0f2f49;
-}
-
-
-/* ===============================
-   ARTICLES SECTION
-================================ */
-
-#articlesSection{
-    display:none;
-    margin-top:50px;
-}
-
-#articlesSection h2{
-    text-align:center;
-    color:#173f5f;
-    font-size:32px;
-    margin-bottom:25px;
-}
-
-.back-button{
+.explore-btn{
     display:inline-block;
-    margin-bottom:25px;
-    padding:10px 18px;
-    background:#777;
+
+    background:#0b63a5;
+
     color:white;
+
     text-decoration:none;
+
+    padding:10px 22px;
+
     border-radius:7px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    border:none;
+
+    font-size:16px;
+}
+
+.explore-btn:hover{
+    background:#084d80;
+}
+
+
+/* ==========================================
+   CATEGORY CONTENT
+========================================== */
+
+#categoryContent{
+    display:none;
+    margin-top:30px;
+}
+
+.back-btn{
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    background:#071d49;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 18px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    border:none;
+
+    font-size:15px;
+
     font-weight:bold;
 }
+
+.section-title{
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.07);
+
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    color:#0b4f8a;
+}
+
+
+/* ==========================================
+   ARTICLE CARD
+========================================== */
 
 .article-card{
     background:white;
+
     padding:25px;
+
     margin-bottom:20px;
+
     border-radius:14px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
 }
 
 .article-card h3{
-    color:#173f5f;
-    font-size:25px;
-    margin-bottom:10px;
+    color:#0b4f8a;
+
+    font-size:24px;
+
+    margin-bottom:8px;
 }
 
-.article-meta{
+.article-info{
     color:#777;
+
     font-size:14px;
-    margin-bottom:15px;
-}
 
-.article-preview{
-    color:#444;
-    line-height:1.7;
     margin-bottom:18px;
+}
+
+.article-content{
     white-space:pre-wrap;
+
+    word-wrap:break-word;
+
+    direction:rtl;
+
+    text-align:right;
+
+    unicode-bidi:plaintext;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Noto Sans Arabic",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+
+    font-size:19px;
+
+    line-height:2.2;
 }
 
-.read-button{
-    background:#173f5f;
-    color:white;
-    padding:11px 20px;
-    border:none;
-    border-radius:7px;
-    font-weight:bold;
-    cursor:pointer;
-}
 
-.read-button:hover{
-    background:#0f2f49;
-}
+/* ==========================================
+   MESSAGE
+========================================== */
 
-
-/* ===============================
-   FULL ARTICLE
-================================ */
-
-.full-article{
-    display:none;
+.loading{
     background:white;
-    padding:30px;
-    margin-bottom:30px;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
 
-.full-article h2{
-    text-align:left !important;
-    color:#173f5f;
-    margin-bottom:12px !important;
-}
+    padding:25px;
 
-.full-meta{
-    color:#777;
-    margin-bottom:25px;
-}
-
-.full-content{
-    font-size:18px;
-    line-height:2;
-    white-space:pre-wrap;
-    word-break:break-word;
-}
-
-.close-article{
-    margin-top:25px;
-    padding:10px 18px;
-    border:none;
-    border-radius:7px;
-    background:#777;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-
-/* ===============================
-   MESSAGES
-================================ */
-
-.loading,
-.no-articles,
-.database-error{
-    background:white;
-    padding:30px;
-    border-radius:14px;
     text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-    line-height:1.7;
+
+    border-radius:12px;
+
+    color:#555;
 }
 
-.database-error{
-    color:#a00000;
-}
-
-
-/* ===============================
-   WRITER
-================================ */
-
-.writer-section{
-    margin-top:50px;
-    background:#173f5f;
-    color:white;
-    text-align:center;
-    padding:45px 20px;
-    border-radius:15px;
-}
-
-.writer-section h2{
-    margin-bottom:12px;
-}
-
-.writer-section p{
-    margin-bottom:20px;
-}
-
-.writer-button{
-    display:inline-block;
+.no-results{
     background:white;
-    color:#173f5f;
-    padding:12px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.07);
+
+    color:#666;
+}
+
+.error-message{
+    background:#fdecec;
+
+    color:#b42318;
+
+    padding:20px;
+
+    border-radius:10px;
 }
 
 
-/* ===============================
+/* ==========================================
    FOOTER
-================================ */
+========================================== */
 
 footer{
-    margin-top:50px;
-    padding:25px;
     text-align:center;
-    background:#102d43;
+
+    margin-top:35px;
+
+    padding:22px;
+
+    background:#071d49;
+
     color:white;
+
+    font-size:14px;
 }
 
 
-/* ===============================
+/* ==========================================
    MOBILE
-================================ */
+========================================== */
 
-@media(max-width:700px){
+@media(max-width:600px){
 
-    .header-content{
-        flex-direction:column;
-        text-align:center;
+    .logo{
+        font-size:28px;
     }
 
-    nav a{
-        display:inline-block;
-        margin:6px;
+    .container{
+        padding:0 12px;
     }
 
-    .intro h1{
-        font-size:32px;
-    }
-
-    #articlesSection h2{
-        font-size:27px;
+    .category-card{
+        padding:22px 16px;
     }
 
     .article-card{
-        padding:20px;
+        padding:20px 16px;
     }
 
-    .full-article{
-        padding:20px;
+    .article-card h3{
+        font-size:21px;
     }
 
-    .full-content{
-        font-size:17px;
+    .article-content{
+        font-size:18px;
+
+        line-height:2.1;
     }
 
 }
@@ -353,200 +367,384 @@ footer{
 
 </head>
 
+
 <body>
 
 
 <header>
 
-<div class="header-content">
+    <div class="logo">
+        🪟 The Shining Window
+    </div>
 
-<div>
+    <div class="subtitle">
+        Open your mind. Share your thoughts.
+    </div>
 
-<div class="logo">
-🪟 The Shining Window
-</div>
+    <nav>
 
-<div class="tagline">
-Open your mind. Share your thoughts.
-</div>
+        <a href="index.html">
+            Home
+        </a>
 
-</div>
+        <a href="categories.html">
+            Categories
+        </a>
 
+        <a href="write.html">
+            Write for Us
+        </a>
 
-<nav>
+        <a href="about.html">
+            About
+        </a>
 
-<a href="index.html">Home</a>
-<a href="categories.html">Categories</a>
-<a href="write.html">Write for Us</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+        <a href="contact.html">
+            Contact
+        </a>
 
-</nav>
-
-</div>
+    </nav>
 
 </header>
 
 
 
-<main class="container">
+<div class="container">
 
 
-<section class="intro">
+<!-- ==========================================
+     MAIN CATEGORIES
+========================================== -->
 
-<h1>📚 Explore Categories</h1>
+<div id="categoriesPage">
 
-<p>
-Discover ideas, knowledge, creativity and stories
-from different areas of life.
-</p>
+    <div class="page-title">
 
-</section>
+        <h1>
+            📚 Explore Categories
+        </h1>
+
+        <p>
+            Discover ideas, knowledge, creativity
+            and stories from different areas of life.
+        </p>
+
+    </div>
 
 
+    <div class="categories">
 
-<section class="categories">
 
-<div class="category">
-<div class="icon">📚</div>
-<h2>Grammar</h2>
-<p>Learn English grammar and practical language use.</p>
-<button type="button" onclick="openCategory('Grammar')">Explore</button>
+        <!-- GRAMMAR -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                📚
+            </div>
+
+            <h2>
+                Grammar
+            </h2>
+
+            <p>
+                Learn English grammar and practical
+                language use.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Grammar')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- SCIENCE -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                🔬
+            </div>
+
+            <h2>
+                Science
+            </h2>
+
+            <p>
+                Explore scientific ideas and discoveries.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Science')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                🎓
+            </div>
+
+            <h2>
+                Education
+            </h2>
+
+            <p>
+                Articles about teaching and learning.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Education')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- TECHNOLOGY -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                💻
+            </div>
+
+            <h2>
+                Technology
+            </h2>
+
+            <p>
+                Discover technology and useful
+                digital tools.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Technology')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- POETRY -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                📝
+            </div>
+
+            <h2>
+                Poetry
+            </h2>
+
+            <p>
+                Read poems, nazams and creative writing.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Poetry')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- STORIES -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                📖
+            </div>
+
+            <h2>
+                Stories
+            </h2>
+
+            <p>
+                Enjoy stories and inspiring narratives.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Stories')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- GENERAL KNOWLEDGE -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                🌍
+            </div>
+
+            <h2>
+                General Knowledge
+            </h2>
+
+            <p>
+                Interesting facts and useful knowledge.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('General Knowledge')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- OPINION -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                💡
+            </div>
+
+            <h2>
+                Opinion
+            </h2>
+
+            <p>
+                Read ideas, opinions and perspectives.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Opinion')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+        <!-- OTHER -->
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                ✨
+            </div>
+
+            <h2>
+                Other
+            </h2>
+
+            <p>
+                Discover other interesting writings.
+            </p>
+
+            <button
+                class="explore-btn"
+                onclick="openCategory('Other')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+
+    </div>
+
 </div>
 
 
-<div class="category">
-<div class="icon">🔬</div>
-<h2>Science</h2>
-<p>Explore scientific ideas and discoveries.</p>
-<button type="button" onclick="openCategory('Science')">Explore</button>
-</div>
+
+<!-- ==========================================
+     CATEGORY CONTENT
+========================================== -->
+
+<div id="categoryContent">
+
+    <button
+        class="back-btn"
+        onclick="backToCategories()">
+
+        ← Back to Categories
+
+    </button>
 
 
-<div class="category">
-<div class="icon">🎓</div>
-<h2>Education</h2>
-<p>Articles about teaching and learning.</p>
-<button type="button" onclick="openCategory('Education')">Explore</button>
-</div>
+    <div class="section-title">
+
+        <h2 id="categoryHeading">
+            📚 Category
+        </h2>
+
+    </div>
 
 
-<div class="category">
-<div class="icon">💻</div>
-<h2>Technology</h2>
-<p>Discover technology and useful digital tools.</p>
-<button type="button" onclick="openCategory('Technology')">Explore</button>
-</div>
+    <div id="articlesContainer">
 
+        <div class="loading">
+            ⏳ Loading...
+        </div>
 
-<div class="category">
-<div class="icon">📝</div>
-<h2>Poetry</h2>
-<p>Read poems, nazams and creative writing.</p>
-<button type="button" onclick="openCategory('Poetry')">Explore</button>
-</div>
-
-
-<div class="category">
-<div class="icon">📖</div>
-<h2>Stories</h2>
-<p>Enjoy stories and inspiring narratives.</p>
-<button type="button" onclick="openCategory('Stories')">Explore</button>
-</div>
-
-
-<div class="category">
-<div class="icon">🌍</div>
-<h2>General Knowledge</h2>
-<p>Interesting facts and useful knowledge.</p>
-<button type="button" onclick="openCategory('General Knowledge')">Explore</button>
-</div>
-
-
-<div class="category">
-<div class="icon">💡</div>
-<h2>Opinion</h2>
-<p>Read ideas, opinions and perspectives.</p>
-<button type="button" onclick="openCategory('Opinion')">Explore</button>
-</div>
-
-
-<div class="category">
-<div class="icon">✨</div>
-<h2>Other</h2>
-<p>Discover other interesting writings.</p>
-<button type="button" onclick="openCategory('Other')">Explore</button>
-</div>
-
-</section>
-
-
-
-<section id="articlesSection">
-
-<a href="#" class="back-button" onclick="backToCategories(event)">
-← Back to Categories
-</a>
-
-<h2 id="selectedCategory">Articles</h2>
-
-
-<div id="fullArticle" class="full-article">
-
-<h2 id="fullTitle"></h2>
-
-<div id="fullMeta" class="full-meta"></div>
-
-<div id="fullContent" class="full-content"></div>
-
-<button class="close-article" type="button" onclick="closeFullArticle()">
-← Back to Articles
-</button>
+    </div>
 
 </div>
 
 
-<div id="articlesList">
-
-<div class="loading">
-Choose a category to see published writing.
 </div>
-
-</div>
-
-</section>
-
-
-
-<section class="writer-section">
-
-<h2>Have Something to Share?</h2>
-
-<p>
-Become a writer and share your ideas with the readers
-of The Shining Window.
-</p>
-
-<a class="writer-button" href="write.html">
-✍️ Write for Us
-</a>
-
-</section>
-
-</main>
 
 
 
 <footer>
-<p>© 2026 The Shining Window — All Rights Reserved</p>
+
+    © 2026 The Shining Window — All Rights Reserved
+
 </footer>
 
 
 
+<!-- ==========================================
+     FIREBASE
+========================================== -->
+
 <script type="module">
 
-import { initializeApp }
+
+import {
+    initializeApp
+}
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
     getDatabase,
@@ -556,59 +754,78 @@ import {
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
-/* ===============================
+/* ==========================================
    FIREBASE CONFIGURATION
-================================ */
-
+========================================== */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
-  authDomain: "the-shining-window.firebaseapp.com",
-  databaseURL: "https://the-shining-window-default-rtdb.firebaseio.com",
-  projectId: "the-shining-window",
-  storageBucket: "the-shining-window.firebasestorage.app",
-  messagingSenderId: "636523709313",
-  appId: "1:636523709313:web:8cbd2ce21eddae998fde80",
-  measurementId: "G-NMNL6J6J1P"
+
+    apiKey:
+        "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
+
+    authDomain:
+        "the-shining-window.firebaseapp.com",
+
+    databaseURL:
+        "https://the-shining-window-default-rtdb.firebaseio.com",
+
+    projectId:
+        "the-shining-window",
+
+    storageBucket:
+        "the-shining-window.firebasestorage.app",
+
+    messagingSenderId:
+        "636523709313",
+
+    appId:
+        "1:636523709313:web:8cbd2ce21eddae998fde80",
+
+    measurementId:
+        "G-NMNL6J6J1P"
+
 };
 
-const app = initializeApp(firebaseConfig);
 
-const db = getDatabase(app);
+const app =
+    initializeApp(firebaseConfig);
 
 
-/* ===============================
+const db =
+    getDatabase(app);
+
+
+/* ==========================================
    ELEMENTS
-================================ */
+========================================== */
 
-const articlesSection =
-document.getElementById("articlesSection");
-
-const articlesList =
-document.getElementById("articlesList");
-
-const selectedCategory =
-document.getElementById("selectedCategory");
-
-const fullArticle =
-document.getElementById("fullArticle");
-
-const fullTitle =
-document.getElementById("fullTitle");
-
-const fullMeta =
-document.getElementById("fullMeta");
-
-const fullContent =
-document.getElementById("fullContent");
+const categoriesPage =
+    document.getElementById(
+        "categoriesPage"
+    );
 
 
-let loadedArticles = [];
+const categoryContent =
+    document.getElementById(
+        "categoryContent"
+    );
 
 
-/* ===============================
-   NORMALIZE CATEGORY
-================================ */
+const categoryHeading =
+    document.getElementById(
+        "categoryHeading"
+    );
+
+
+const articlesContainer =
+    document.getElementById(
+        "articlesContainer"
+    );
+
+
+/* ==========================================
+   NORMALIZE TEXT
+========================================== */
 
 function normalize(value){
 
@@ -620,438 +837,530 @@ function normalize(value){
 }
 
 
-/* ===============================
-   GET CONTENT
-================================ */
+/* ==========================================
+   GET WRITING CONTENT
+========================================== */
 
-function getArticleContent(article){
-
-    return String(
-
-        article.article ||
-        article.content ||
-        article.poem ||
-        article.nazam ||
-        article.text ||
-        article.body ||
-        article.description ||
-        article.writing ||
-        ""
-
-    ).trim();
-
-}
-
-
-/* ===============================
-   CHECK PUBLISHED
-================================ */
-
-function isPublished(article){
-
-    const status =
-    String(
-        article.status ||
-        article.publishStatus ||
-        article.approvalStatus ||
-        ""
-    )
-    .trim()
-    .toLowerCase();
-
+function getWritingContent(item){
 
     return (
 
-        status === "published" ||
-        status === "approved" ||
-        status === "approve" ||
-        status === "public" ||
-        status === "live" ||
+        item.article ||
 
-        article.published === true ||
-        article.approved === true ||
+        item.content ||
 
-        article.publish === true
+        item.poem ||
+
+        item.nazam ||
+
+        item.text ||
+
+        item.body ||
+
+        ""
 
     );
 
 }
 
 
-/* ===============================
+/* ==========================================
+   CHECK PUBLICATION
+========================================== */
+
+function isPublished(item){
+
+    const status =
+        String(
+            item.status || ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    return (
+
+        item.approved === true ||
+
+        item.approved === "true" ||
+
+        status === "approved" ||
+
+        status === "published" ||
+
+        status === "public" ||
+
+        status === "live"
+
+    );
+
+}
+
+
+/* ==========================================
    OPEN CATEGORY
-================================ */
+========================================== */
 
-window.openCategory = async function(category){
+window.openCategory =
+async function(category){
 
-    articlesSection.style.display = "block";
-
-    fullArticle.style.display = "none";
-
-    articlesList.style.display = "block";
+    categoriesPage.style.display =
+        "none";
 
 
-    selectedCategory.textContent =
-    "📚 " + category;
+    categoryContent.style.display =
+        "block";
 
 
-    articlesList.innerHTML = `
-
-    <div class="loading">
-
-    ⏳ Loading ${escapeHtml(category)}...
-
-    </div>
-
-    `;
+    categoryHeading.textContent =
+        "📚 " + category;
 
 
-    articlesSection.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+    articlesContainer.innerHTML =
+        '<div class="loading">' +
+        '⏳ Loading ' +
+        category +
+        '...' +
+        '</div>';
 
 
     try{
 
         /*
-        READ BOTH POSSIBLE LOCATIONS
+        ======================================
+        READ THE ORIGINAL DATABASE NODE
+        ======================================
         */
 
-        const locations = [
-            "articleSubmissions",
-            "publishedArticles"
-        ];
-
-
-        let allArticles = [];
-
-
-        for(const location of locations){
-
-            const snapshot =
-            await get(ref(db,location));
-
-
-            if(snapshot.exists()){
-
-                const data =
-                snapshot.val();
-
-
-                Object.keys(data).forEach(id=>{
-
-                    const article =
-                    data[id];
-
-
-                    if(article){
-
-                        allArticles.push({
-                            id:id,
-                            ...article
-                        });
-
-                    }
-
-                });
-
-            }
-
-        }
-
-
-        const wanted =
-        normalize(category);
-
-
-        const articles =
-        allArticles.filter(article=>{
-
-
-            const articleCategory =
-            normalize(
-
-                article.category ||
-                article.Category ||
-                article.type ||
-                article.section ||
-                ""
-
-            );
-
-
-            const categoryMatches =
-            articleCategory === wanted;
-
-
-            const content =
-            getArticleContent(article);
-
-
-            /*
-            CONTENT IN publishedArticles
-            IS ACCEPTED AUTOMATICALLY
-            IF IT HAS NO STATUS
-            */
-
-            const published =
-            isPublished(article) ||
-            article.source === "published";
-
-
-            return (
-                categoryMatches &&
-                content !== "" &&
-                (
-                    published ||
-                    article.status === undefined
+        const snapshot =
+            await get(
+                ref(
+                    db,
+                    "articleSubmissions"
                 )
             );
 
-        });
 
+        if(
+            !snapshot.exists()
+        ){
 
-        articles.sort((a,b)=>{
+            articlesContainer.innerHTML =
+                '<div class="no-results">' +
 
-            return (
-                getDateValue(
-                    b.publishedAt ||
-                    b.createdAt ||
-                    b.timestamp
-                )
+                '<h3>📭 No published writing yet</h3>' +
 
-                -
+                '<p style="margin-top:8px;">' +
 
-                getDateValue(
-                    a.publishedAt ||
-                    a.createdAt ||
-                    a.timestamp
-                )
+                'There are currently no writings in ' +
 
-            );
+                '<strong>' +
+                category +
+                '</strong>.' +
 
-        });
+                '</p>' +
 
-
-        loadedArticles = articles;
-
-
-        if(articles.length === 0){
-
-            showNoArticles(category);
+                '</div>';
 
             return;
 
         }
 
 
-        let html = "";
+        const data =
+            snapshot.val();
 
 
-        articles.forEach((article,index)=>{
+        const writings = [];
 
 
-            const title =
-            article.title ||
-            article.heading ||
-            article.nameOfArticle ||
-            "Untitled";
+        /*
+        ======================================
+        FIND MATCHING WRITINGS
+        ======================================
+        */
+
+        Object.keys(data).forEach(
+            function(id){
+
+                const item =
+                    data[id];
 
 
-            const writer =
-            article.name ||
-            article.author ||
-            article.writer ||
-            "The Shining Window";
+                if(!item){
+                    return;
+                }
 
 
-            const content =
-            getArticleContent(article);
+                /*
+                CATEGORY
+                */
+
+                const itemCategory =
+                    normalize(
+                        item.category
+                    );
 
 
-            const preview =
-            createPreview(content);
+                const wantedCategory =
+                    normalize(
+                        category
+                    );
 
 
-            const date =
-            formatDate(
+                if(
+                    itemCategory !==
+                    wantedCategory
+                ){
 
-                article.publishedAt ||
-                article.submittedAt ||
-                article.createdAt ||
-                article.timestamp
+                    return;
 
-            );
-
-
-            html += `
-
-            <article class="article-card">
-
-            <h3>
-            ${escapeHtml(title)}
-            </h3>
-
-            <div class="article-meta">
-
-            ✍️ ${escapeHtml(writer)}
-
-            &nbsp; | &nbsp;
-
-            📅 ${escapeHtml(date)}
-
-            </div>
-
-            <div class="article-preview">
-
-            ${escapeHtml(preview)}
-
-            </div>
-
-            <button
-            type="button"
-            class="read-button"
-            onclick="readArticle(${index})">
-
-            📖 Read Full
-
-            </button>
-
-            </article>
-
-            `;
-
-        });
+                }
 
 
-        articlesList.innerHTML = html;
+                /*
+                PUBLICATION STATUS
+                */
+
+                if(
+                    !isPublished(item)
+                ){
+
+                    return;
+
+                }
+
+
+                /*
+                CONTENT
+                */
+
+                const content =
+                    getWritingContent(item);
+
+
+                if(
+                    String(content)
+                        .trim()
+                        === ""
+                ){
+
+                    return;
+
+                }
+
+
+                writings.push({
+
+                    id:id,
+
+                    title:
+                        item.title ||
+                        item.heading ||
+                        "Untitled",
+
+                    name:
+                        item.name ||
+                        item.author ||
+                        item.writer ||
+                        "Anonymous",
+
+                    article:
+                        content,
+
+                    submittedAt:
+                        item.submittedAt ||
+                        item.publishedAt ||
+                        item.createdAt ||
+                        item.timestamp ||
+                        ""
+
+                });
+
+            }
+        );
+
+
+        /*
+        ======================================
+        NO RESULTS
+        ======================================
+        */
+
+        if(
+            writings.length === 0
+        ){
+
+            articlesContainer.innerHTML =
+
+                '<div class="no-results">' +
+
+                '<h3>📭 No published writing yet</h3>' +
+
+                '<p style="margin-top:8px;">' +
+
+                'There are currently no published writings in ' +
+
+                '<strong>' +
+                category +
+                '</strong>.' +
+
+                '</p>' +
+
+                '</div>';
+
+            return;
+
+        }
+
+
+        /*
+        ======================================
+        NEWEST FIRST
+        ======================================
+        */
+
+        writings.sort(
+            function(a,b){
+
+                const dateA =
+                    getDateValue(
+                        a.submittedAt
+                    );
+
+                const dateB =
+                    getDateValue(
+                        b.submittedAt
+                    );
+
+                return dateB - dateA;
+
+            }
+        );
+
+
+        /*
+        ======================================
+        DISPLAY
+        ======================================
+        */
+
+        articlesContainer.innerHTML =
+            "";
+
+
+        writings.forEach(
+            function(item){
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "article-card";
+
+
+                /*
+                TITLE
+                */
+
+                const title =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                title.textContent =
+                    item.title;
+
+
+                /*
+                AUTHOR
+                */
+
+                const info =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                info.className =
+                    "article-info";
+
+
+                info.textContent =
+                    "✍️ By " +
+                    item.name;
+
+
+                /*
+                CONTENT
+                */
+
+                const content =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                content.className =
+                    "article-content";
+
+
+                content.textContent =
+                    item.article;
+
+
+                card.appendChild(
+                    title
+                );
+
+
+                card.appendChild(
+                    info
+                );
+
+
+                card.appendChild(
+                    content
+                );
+
+
+                articlesContainer.appendChild(
+                    card
+                );
+
+            }
+        );
 
 
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Firebase read error:",
+            error
+        );
 
 
-        articlesList.innerHTML = `
+        articlesContainer.innerHTML =
 
-        <div class="database-error">
+            '<div class="error-message">' +
 
-        <h3>❌ Unable to load articles</h3>
+            '<h3>❌ Unable to load writings</h3>' +
 
-        <p>
-        ${escapeHtml(error.message)}
-        </p>
+            '<p style="margin-top:8px;">' +
 
-        </div>
+            escapeHtml(
+                error.message
+            ) +
 
-        `;
+            '</p>' +
+
+            '</div>';
 
     }
 
 };
 
 
-/* ===============================
-   READ ARTICLE
-================================ */
+/* ==========================================
+   DATE VALUE
+========================================== */
 
-window.readArticle = function(index){
+function getDateValue(value){
 
-    const article =
-    loadedArticles[index];
-
-
-    if(!article) return;
+    if(!value){
+        return 0;
+    }
 
 
-    const title =
-    article.title ||
-    article.heading ||
-    article.nameOfArticle ||
-    "Untitled";
+    if(
+        typeof value === "number"
+    ){
+
+        return value < 10000000000
+            ? value * 1000
+            : value;
+
+    }
 
 
-    const writer =
-    article.name ||
-    article.author ||
-    article.writer ||
-    "The Shining Window";
+    if(
+        typeof value === "object" &&
+        value !== null
+    ){
+
+        if(
+            typeof value.seconds ===
+            "number"
+        ){
+
+            return value.seconds * 1000;
+
+        }
 
 
-    const content =
-    getArticleContent(article);
+        if(
+            typeof value._seconds ===
+            "number"
+        ){
+
+            return value._seconds * 1000;
+
+        }
+
+    }
 
 
-    const date =
-    formatDate(
-
-        article.publishedAt ||
-        article.submittedAt ||
-        article.createdAt ||
-        article.timestamp
-
-    );
+    const parsed =
+        new Date(value).getTime();
 
 
-    fullTitle.textContent = title;
+    return isNaN(parsed)
+        ? 0
+        : parsed;
+
+}
 
 
-    fullMeta.textContent =
-    "✍️ " + writer +
-    " | 📅 " + date;
+/* ==========================================
+   ESCAPE HTML
+========================================== */
+
+function escapeHtml(value){
+
+    return String(value || "")
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
 
 
-    fullContent.textContent =
-    content;
+/* ==========================================
+   BACK TO CATEGORIES
+========================================== */
+
+window.backToCategories =
+function(){
+
+    categoryContent.style.display =
+        "none";
 
 
-    articlesList.style.display = "none";
-
-    fullArticle.style.display = "block";
-
-
-    fullArticle.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
-
-};
-
-
-/* ===============================
-   CLOSE ARTICLE
-================================ */
-
-window.closeFullArticle = function(){
-
-    fullArticle.style.display = "none";
-
-    articlesList.style.display = "block";
-
-
-    articlesList.scrollIntoView({
-        behavior:"smooth"
-    });
-
-};
-
-
-/* ===============================
-   BACK
-================================ */
-
-window.backToCategories = function(event){
-
-    event.preventDefault();
-
-    articlesSection.style.display = "none";
-
-    fullArticle.style.display = "none";
-
-    articlesList.style.display = "block";
+    categoriesPage.style.display =
+        "block";
 
 
     window.scrollTo({
@@ -1062,150 +1371,9 @@ window.backToCategories = function(event){
 };
 
 
-/* ===============================
-   NO ARTICLES
-================================ */
-
-function showNoArticles(category){
-
-    articlesList.innerHTML = `
-
-    <div class="no-articles">
-
-    <h3>📭 No published writing yet</h3>
-
-    <p>
-
-    There are currently no published writings
-    in <strong>${escapeHtml(category)}</strong>.
-
-    </p>
-
-    </div>
-
-    `;
-
-}
-
-
-/* ===============================
-   PREVIEW
-================================ */
-
-function createPreview(text){
-
-    text = String(text || "")
-    .replace(/\s+/g," ")
-    .trim();
-
-
-    if(text.length <= 260){
-
-        return text;
-
-    }
-
-
-    return text.substring(0,260) + "...";
-
-}
-
-
-/* ===============================
-   DATE
-================================ */
-
-function getDateValue(value){
-
-    if(!value) return 0;
-
-
-    if(typeof value === "number"){
-
-        return value < 10000000000
-        ? value * 1000
-        : value;
-
-    }
-
-
-    if(
-        typeof value === "object" &&
-        value !== null
-    ){
-
-        if(typeof value.seconds === "number"){
-
-            return value.seconds * 1000;
-
-        }
-
-        if(typeof value._seconds === "number"){
-
-            return value._seconds * 1000;
-
-        }
-
-    }
-
-
-    const date =
-    new Date(value).getTime();
-
-
-    return isNaN(date) ? 0 : date;
-
-}
-
-
-function formatDate(value){
-
-    const time =
-    getDateValue(value);
-
-
-    if(!time){
-
-        return "Date unavailable";
-
-    }
-
-
-    return new Date(time)
-    .toLocaleDateString(
-        "en-US",
-        {
-            year:"numeric",
-            month:"long",
-            day:"numeric"
-        }
-    );
-
-}
-
-
-/* ===============================
-   SECURITY: ESCAPE HTML
-================================ */
-
-function escapeHtml(value){
-
-    return String(value || "")
-
-    .replace(/&/g,"&amp;")
-
-    .replace(/</g,"&lt;")
-
-    .replace(/>/g,"&gt;")
-
-    .replace(/"/g,"&quot;")
-
-    .replace(/'/g,"&#039;");
-
-}
-
 </script>
 
+
 </body>
+
 </html>
-Important
