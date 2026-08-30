@@ -5,9 +5,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard | The Shining Window</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Write for Us | The Shining Window</title>
 
 <style>
 
@@ -63,8 +65,8 @@ nav a:hover{
 }
 
 .container{
-    max-width:1100px;
-    margin:30px auto;
+    max-width:850px;
+    margin:35px auto;
     padding:0 15px;
 }
 
@@ -75,43 +77,94 @@ nav a:hover{
 
 .page-title h1{
     color:#0b4f8a;
-    margin-bottom:7px;
+    font-size:32px;
+    margin-bottom:8px;
 }
 
 .page-title p{
     color:#666;
 }
 
-.stats{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.stat{
+.form-card{
     background:white;
-    padding:20px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
+    padding:28px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-.stat-number{
-    font-size:30px;
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    color:#0b4f8a;
+    margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd6df;
+    border-radius:8px;
+    font-family:Arial,sans-serif;
+    font-size:15px;
+    background:white;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#1261a0;
+    box-shadow:0 0 0 2px rgba(18,97,160,.12);
+}
+
+textarea{
+    min-height:350px;
+    resize:vertical;
+    line-height:1.8;
+}
+
+.category-fixed{
+    background:#f0f6fb;
     font-weight:bold;
     color:#0b4f8a;
 }
 
-.stat-label{
-    color:#666;
-    font-size:14px;
+.help{
+    font-size:13px;
+    color:#777;
+    margin-top:5px;
+}
+
+.submit-button{
+    width:100%;
+    border:none;
+    border-radius:8px;
+    padding:14px;
+    background:#198754;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit-button:hover{
+    background:#146c43;
+}
+
+.submit-button:disabled{
+    background:#999;
+    cursor:not-allowed;
 }
 
 .message{
     display:none;
-    padding:13px;
+    padding:14px;
     margin-bottom:20px;
     border-radius:8px;
     text-align:center;
@@ -130,138 +183,21 @@ nav a:hover{
     color:#b42318;
 }
 
-.section-title{
-    color:#0b4f8a;
-    margin:25px 0 15px;
-}
-
-.submission{
-    background:white;
-    border-radius:14px;
-    padding:22px;
-    margin-bottom:20px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
-}
-
-.submission h2{
-    color:#0b4f8a;
-    margin-bottom:12px;
-}
-
-.meta{
-    background:#f0f6fb;
-    padding:12px;
-    border-radius:8px;
-    margin-bottom:15px;
-    font-size:14px;
-}
-
-.meta strong{
-    color:#0b4f8a;
-}
-
-.article{
-    white-space:pre-wrap;
-    line-height:1.8;
-    background:#fafafa;
-    border-left:4px solid #0b63a5;
+.note{
+    margin-top:20px;
     padding:15px;
-    margin-bottom:18px;
-    max-height:350px;
-    overflow:auto;
-}
-
-.status{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.status-pending{
-    background:#fff3cd;
-    color:#856404;
-}
-
-.status-published{
-    background:#d4edda;
-    color:#155724;
-}
-
-.status-rejected{
-    background:#f8d7da;
-    color:#721c24;
-}
-
-.buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-button{
-    border:none;
+    background:#f0f6fb;
+    border-left:4px solid #1261a0;
     border-radius:7px;
-    padding:11px 17px;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:14px;
-}
-
-.approve{
-    background:#198754;
-}
-
-.approve:hover{
-    background:#146c43;
-}
-
-.reject{
-    background:#dc3545;
-}
-
-.reject:hover{
-    background:#b02a37;
-}
-
-.unpublish{
-    background:#f0ad4e;
-}
-
-.unpublish:hover{
-    background:#d99432;
-}
-
-.delete{
-    background:#555;
-}
-
-.delete:hover{
-    background:#333;
-}
-
-.empty{
-    background:white;
-    padding:40px 20px;
-    border-radius:14px;
-    text-align:center;
-    color:#666;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-}
-
-.empty h2{
-    color:#0b4f8a;
-    margin-bottom:8px;
+    color:#555;
 }
 
 footer{
-    margin-top:40px;
+    margin-top:45px;
     background:#071d49;
     color:white;
     text-align:center;
-    padding:22px;
+    padding:22px 15px;
     font-size:14px;
 }
 
@@ -275,16 +211,12 @@ footer{
         padding:0 12px;
     }
 
-    .submission{
-        padding:17px;
+    .form-card{
+        padding:20px;
     }
 
-    .buttons{
-        flex-direction:column;
-    }
-
-    button{
-        width:100%;
+    .page-title h1{
+        font-size:27px;
     }
 
 }
@@ -304,16 +236,31 @@ footer{
 </div>
 
 <div class="subtitle">
-Admin Dashboard — Review Writer Submissions
+Open your mind. Share your thoughts.
 </div>
+
 
 <nav>
 
-<a href="index.html">Home</a>
+<a href="index.html">
+Home
+</a>
 
-<a href="categories.html">Categories</a>
+<a href="categories.html">
+Categories
+</a>
 
-<a href="write.html">Write for Us</a>
+<a href="write.html">
+Write for Us
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
 
 </nav>
 
@@ -326,61 +273,12 @@ Admin Dashboard — Review Writer Submissions
 <div class="page-title">
 
 <h1>
-🔐 Admin Dashboard
+✍️ Write for Us
 </h1>
 
 <p>
-Review submissions before they appear publicly.
+Share your poetry with The Shining Window.
 </p>
-
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-
-<div
-class="stat-number"
-id="totalCount">
-0
-</div>
-
-<div class="stat-label">
-Total Submissions
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div
-class="stat-number"
-id="pendingCount">
-0
-</div>
-
-<div class="stat-label">
-Pending
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div
-class="stat-number"
-id="publishedCount">
-0
-</div>
-
-<div class="stat-label">
-Published
-</div>
-
-</div>
 
 </div>
 
@@ -391,24 +289,117 @@ class="message">
 </div>
 
 
-<h2 class="section-title">
-📋 Submissions
-</h2>
+<div class="form-card">
 
 
-<div id="submissions">
+<form id="submissionForm">
 
-<div class="empty">
 
-<h2>
-⏳ Loading...
-</h2>
+<div class="form-group">
 
-<p>
-Loading submissions from Firebase.
-</p>
+<label for="name">
+Your Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required>
 
 </div>
+
+
+<div class="form-group">
+
+<label for="email">
+Email Address
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email address"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="title">
+Title
+</label>
+
+<input
+type="text"
+id="title"
+placeholder="Enter the title of your writing"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="category">
+Category
+</label>
+
+<select
+id="category"
+class="category-fixed"
+required>
+
+<option value="Poetry">
+Poetry
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="article">
+Your Writing
+</label>
+
+<textarea
+id="article"
+placeholder="Write your poetry here..."
+required></textarea>
+
+<div class="help">
+Please write your complete poetry or literary work in this box.
+</div>
+
+</div>
+
+
+<button
+type="submit"
+class="submit-button"
+id="submitButton">
+
+📤 Submit Your Writing
+
+</button>
+
+
+</form>
+
+
+<div class="note">
+
+<strong>📌 Submission Review:</strong>
+
+Your writing will first be sent to the editor for review.
+It will not appear publicly until it has been approved.
+
+</div>
+
 
 </div>
 
@@ -427,105 +418,91 @@ Loading submissions from Firebase.
 <script type="module">
 
 
+/* =====================================
+   FIREBASE
+===================================== */
+
 import {
-initializeApp
+    initializeApp
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-getDatabase,
-ref,
-onValue,
-update,
-remove
+    getDatabase,
+    ref,
+    push,
+    set
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 /* =====================================
-   FIREBASE
+   FIREBASE CONFIG
 ===================================== */
 
 const firebaseConfig = {
 
+    apiKey:
+    "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
+
+    authDomain:
+    "the-shining-window.firebaseapp.com",
+
     databaseURL:
-    "https://the-shining-window-default-rtdb.firebaseio.com"
+    "https://the-shining-window-default-rtdb.firebaseio.com",
+
+    projectId:
+    "the-shining-window",
+
+    storageBucket:
+    "the-shining-window.firebasestorage.app",
+
+    messagingSenderId:
+    "636523709313",
+
+    appId:
+    "1:636523709313:web:8cbd2ce21eddae998fde80",
+
+    measurementId:
+    "G-NMNL6J6J1P"
 
 };
 
 
-const app =
-initializeApp(firebaseConfig);
+/* =====================================
+   INITIALIZE
+===================================== */
 
+const app =
+    initializeApp(firebaseConfig);
 
 const db =
-getDatabase(app);
-
-
-const submissionsRef =
-ref(
-    db,
-    "articleSubmissions"
-);
+    getDatabase(app);
 
 
 /* =====================================
    ELEMENTS
 ===================================== */
 
-const submissions =
-document.getElementById(
-    "submissions"
-);
-
-const totalCount =
-document.getElementById(
-    "totalCount"
-);
-
-const pendingCount =
-document.getElementById(
-    "pendingCount"
-);
-
-const publishedCount =
-document.getElementById(
-    "publishedCount"
-);
+const form =
+    document.getElementById(
+        "submissionForm"
+    );
 
 const message =
-document.getElementById(
-    "message"
-);
+    document.getElementById(
+        "message"
+    );
+
+const submitButton =
+    document.getElementById(
+        "submitButton"
+    );
 
 
 /* =====================================
-   ESCAPE HTML
-===================================== */
-
-function escapeHTML(value){
-
-    if(
-        value === null ||
-        value === undefined
-    ){
-        return "";
-    }
-
-    return String(value)
-
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =====================================
-   SHOW MESSAGE
+   MESSAGE
 ===================================== */
 
 function showMessage(
@@ -539,593 +516,219 @@ function showMessage(
     message.className =
         "message " + type;
 
-    setTimeout(
-        function(){
-
-            message.className =
-                "message";
-
-        },
-        3000
-    );
+    message.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
 
 }
 
 
 /* =====================================
-   LOAD DATA
+   SUBMIT
 ===================================== */
 
-onValue(
+form.addEventListener(
+    "submit",
+    async function(event){
 
-    submissionsRef,
-
-    function(snapshot){
-
-        submissions.innerHTML = "";
-
-        if(!snapshot.exists()){
-
-            totalCount.textContent =
-                "0";
-
-            pendingCount.textContent =
-                "0";
-
-            publishedCount.textContent =
-                "0";
+        event.preventDefault();
 
 
-            submissions.innerHTML = `
+        const name =
+            document.getElementById(
+                "name"
+            ).value.trim();
 
-                <div class="empty">
 
-                    <h2>
-                        📭 No submissions
-                    </h2>
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
 
-                    <p>
-                        There are currently no writer submissions.
-                    </p>
 
-                </div>
+        const title =
+            document.getElementById(
+                "title"
+            ).value.trim();
 
-            `;
+
+        const category =
+            document.getElementById(
+                "category"
+            ).value;
+
+
+        const article =
+            document.getElementById(
+                "article"
+            ).value.trim();
+
+
+        /* =============================
+           VALIDATION
+        ============================= */
+
+        if(!name){
+
+            showMessage(
+                "Please enter your name.",
+                "error"
+            );
 
             return;
 
         }
 
 
-        const data =
-            snapshot.val();
+        if(!email){
+
+            showMessage(
+                "Please enter your email address.",
+                "error"
+            );
+
+            return;
+
+        }
 
 
-        const entries =
-            Object.entries(data);
+        if(!title){
+
+            showMessage(
+                "Please enter a title.",
+                "error"
+            );
+
+            return;
+
+        }
 
 
-        let pending = 0;
+        if(!article){
 
-        let published = 0;
+            showMessage(
+                "Please write your poetry before submitting.",
+                "error"
+            );
 
+            return;
 
-        entries.forEach(
-            function([id,item]){
-
-                const status =
-                    String(
-                        item.status || "pending"
-                    ).toLowerCase();
-
-
-                if(
-                    status === "published" ||
-                    status === "approved"
-                ){
-
-                    published++;
-
-                }
-                else if(
-                    status === "pending"
-                ){
-
-                    pending++;
-
-                }
-
-            }
-        );
-
-
-        totalCount.textContent =
-            entries.length;
-
-        pendingCount.textContent =
-            pending;
-
-        publishedCount.textContent =
-            published;
+        }
 
 
         /* =============================
-           SORT PENDING FIRST
+           DISABLE BUTTON
         ============================= */
 
-        entries.sort(
-            function(a,b){
+        submitButton.disabled =
+            true;
 
-                const aStatus =
-                    String(
-                        a[1].status || "pending"
-                    ).toLowerCase();
+        submitButton.textContent =
+            "⏳ Submitting...";
 
-                const bStatus =
-                    String(
-                        b[1].status || "pending"
-                    ).toLowerCase();
 
+        try{
 
-                if(
-                    aStatus === "pending" &&
-                    bStatus !== "pending"
-                ){
+            /* =========================
+               CREATE NEW FIREBASE ID
+            ========================= */
 
-                    return -1;
-
-                }
-
-
-                if(
-                    aStatus !== "pending" &&
-                    bStatus === "pending"
-                ){
-
-                    return 1;
-
-                }
-
-
-                return 0;
-
-            }
-        );
-
-
-        /* =============================
-           DISPLAY
-        ============================= */
-
-        entries.forEach(
-            function([id,item]){
-
-                const title =
-                    item.title ||
-                    "Untitled";
-
-
-                const name =
-                    item.name ||
-                    "Unknown";
-
-
-                const email =
-                    item.email ||
-                    "Not provided";
-
-
-                const category =
-                    item.category ||
-                    "Other";
-
-
-                const article =
-                    item.article ||
-                    "";
-
-
-                const status =
-                    String(
-                        item.status || "pending"
-                    ).toLowerCase();
-
-
-                const submittedAt =
-                    item.submittedAt ||
-                    "";
-
-
-                let statusClass =
-                    "status-pending";
-
-
-                if(
-                    status === "published" ||
-                    status === "approved"
-                ){
-
-                    statusClass =
-                        "status-published";
-
-                }
-                else if(
-                    status === "rejected"
-                ){
-
-                    statusClass =
-                        "status-rejected";
-
-                }
-
-
-                let buttons = "";
-
-
-                /* =========================
-                   PENDING
-                ========================= */
-
-                if(status === "pending"){
-
-                    buttons = `
-
-                        <button
-                        class="approve"
-                        onclick="approveArticle('${id}')">
-
-                        ✅ Approve & Publish
-
-                        </button>
-
-
-                        <button
-                        class="reject"
-                        onclick="rejectArticle('${id}')">
-
-                        ❌ Reject
-
-                        </button>
-
-                    `;
-
-                }
-
-
-                /* =========================
-                   PUBLISHED
-                ========================= */
-
-                else if(
-                    status === "published" ||
-                    status === "approved"
-                ){
-
-                    buttons = `
-
-                        <button
-                        class="unpublish"
-                        onclick="unpublishArticle('${id}')">
-
-                        ↩️ Unpublish
-
-                        </button>
-
-                    `;
-
-                }
-
-
-                /* =========================
-                   DELETE
-                ========================= */
-
-                buttons += `
-
-                    <button
-                    class="delete"
-                    onclick="deleteArticle('${id}')">
-
-                    🗑️ Delete
-
-                    </button>
-
-                `;
-
-
-                const card =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                card.className =
-                    "submission";
-
-
-                card.innerHTML = `
-
-                    <h2>
-                        ${escapeHTML(title)}
-                    </h2>
-
-
-                    <div class="meta">
-
-                        <strong>Writer:</strong>
-                        ${escapeHTML(name)}
-
-                        <br>
-
-                        <strong>Email:</strong>
-                        ${escapeHTML(email)}
-
-                        <br>
-
-                        <strong>Category:</strong>
-                        ${escapeHTML(category)}
-
-                        <br>
-
-                        <strong>Status:</strong>
-
-                        <span
-                        class="status ${statusClass}">
-
-                            ${escapeHTML(status)}
-
-                        </span>
-
-                        <br>
-
-                        <strong>Submitted:</strong>
-                        ${escapeHTML(submittedAt)}
-
-                    </div>
-
-
-                    <div class="article">
-
-                        ${escapeHTML(article)}
-
-                    </div>
-
-
-                    <div class="buttons">
-
-                        ${buttons}
-
-                    </div>
-
-                `;
-
-
-                submissions.appendChild(
-                    card
+            const newSubmission =
+                push(
+                    ref(
+                        db,
+                        "articleSubmissions"
+                    )
                 );
 
-            }
-        );
 
-    },
+            /* =========================
+               SAVE SUBMISSION
+            ========================= */
+
+            await set(
+                newSubmission,
+                {
+
+                    name:
+                    name,
+
+                    email:
+                    email,
+
+                    title:
+                    title,
+
+                    category:
+                    "Poetry",
+
+                    article:
+                    article,
+
+                    status:
+                    "pending",
+
+                    approved:
+                    false,
+
+                    submittedAt:
+                    new Date().toLocaleString()
+
+                }
+            );
 
 
-    function(error){
+            /* =========================
+               SUCCESS
+            ========================= */
 
-        console.error(
-            "Firebase error:",
-            error
-        );
+            showMessage(
+                "✅ Your writing has been submitted successfully. It is now waiting for review.",
+                "success"
+            );
 
 
-        submissions.innerHTML = `
+            form.reset();
 
-            <div class="empty">
 
-                <h2>
-                    ⚠️ Firebase Error
-                </h2>
+            document.getElementById(
+                "category"
+            ).value =
+                "Poetry";
 
-                <p>
-                    ${escapeHTML(error.message)}
-                </p>
 
-            </div>
+        }
 
-        `;
+        catch(error){
+
+            console.error(
+                "Submission error:",
+                error
+            );
+
+
+            showMessage(
+                "❌ Submission failed: " +
+                error.message,
+                "error"
+            );
+
+        }
+
+
+        finally{
+
+            submitButton.disabled =
+                false;
+
+            submitButton.textContent =
+                "📤 Submit Your Writing";
+
+        }
 
     }
-
 );
-
-
-/* =====================================
-   APPROVE
-===================================== */
-
-window.approveArticle =
-async function(id){
-
-    try{
-
-        await update(
-
-            ref(
-                db,
-                "articleSubmissions/" + id
-            ),
-
-            {
-                status:"published",
-                approved:true
-            }
-
-        );
-
-
-        showMessage(
-            "✅ Article approved and published.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        showMessage(
-            "❌ Could not publish article: " +
-            error.message,
-            "error"
-        );
-
-    }
-
-};
-
-
-/* =====================================
-   REJECT
-===================================== */
-
-window.rejectArticle =
-async function(id){
-
-    try{
-
-        await update(
-
-            ref(
-                db,
-                "articleSubmissions/" + id
-            ),
-
-            {
-                status:"rejected",
-                approved:false
-            }
-
-        );
-
-
-        showMessage(
-            "❌ Article rejected.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        showMessage(
-            "❌ Could not reject article: " +
-            error.message,
-            "error"
-        );
-
-    }
-
-};
-
-
-/* =====================================
-   UNPUBLISH
-===================================== */
-
-window.unpublishArticle =
-async function(id){
-
-    try{
-
-        await update(
-
-            ref(
-                db,
-                "articleSubmissions/" + id
-            ),
-
-            {
-                status:"pending",
-                approved:false
-            }
-
-        );
-
-
-        showMessage(
-            "↩️ Article moved back to pending.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        showMessage(
-            "❌ Could not unpublish article: " +
-            error.message,
-            "error"
-        );
-
-    }
-
-};
-
-
-/* =====================================
-   DELETE
-===================================== */
-
-window.deleteArticle =
-async function(id){
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to permanently delete this submission?"
-        );
-
-
-    if(!confirmed){
-
-        return;
-
-    }
-
-
-    try{
-
-        await remove(
-
-            ref(
-                db,
-                "articleSubmissions/" + id
-            )
-
-        );
-
-
-        showMessage(
-            "🗑️ Submission deleted.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        showMessage(
-            "❌ Could not delete submission: " +
-            error.message,
-            "error"
-        );
-
-    }
-
-};
-
 
 </script>
 
