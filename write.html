@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write for Us | The Shining Window</title>
+<title>Admin Dashboard | The Shining Window</title>
 
 <style>
 
@@ -27,35 +27,35 @@ body{
 header{
     background:linear-gradient(135deg,#071d49,#1261a0);
     color:white;
+    padding:22px 15px;
     text-align:center;
-    padding:28px 15px;
 }
 
 .logo{
-    font-size:34px;
+    font-size:30px;
     font-weight:bold;
-    text-shadow:2px 3px 4px rgba(0,0,0,.4);
 }
 
 .subtitle{
-    font-size:17px;
+    font-size:14px;
     margin-top:5px;
 }
 
 nav{
-    margin-top:18px;
+    margin-top:15px;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:10px;
+    gap:8px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    padding:8px 13px;
+    padding:8px 12px;
     border-radius:6px;
     background:rgba(255,255,255,.12);
+    font-weight:bold;
 }
 
 nav a:hover{
@@ -63,7 +63,7 @@ nav a:hover{
 }
 
 .container{
-    max-width:800px;
+    max-width:1100px;
     margin:30px auto;
     padding:0 15px;
 }
@@ -75,124 +75,216 @@ nav a:hover{
 
 .page-title h1{
     color:#0b4f8a;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .page-title p{
-    color:#555;
+    color:#666;
 }
 
-.form-box{
+.stats{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat{
     background:white;
-    padding:30px;
-    border-radius:14px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
 }
 
-.form-group{
-    margin-bottom:20px;
-}
-
-.form-group label{
-    display:block;
+.stat-number{
+    font-size:30px;
     font-weight:bold;
-    margin-bottom:7px;
     color:#0b4f8a;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:7px;
-    font-size:16px;
-    font-family:Arial,sans-serif;
-}
-
-.form-group textarea{
-    min-height:250px;
-    resize:vertical;
-    line-height:1.8;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    outline:none;
-    border-color:#0b63a5;
-    box-shadow:0 0 0 2px rgba(11,99,165,.12);
-}
-
-.submit-btn{
-    width:100%;
-    background:#0b63a5;
-    color:white;
-    border:none;
-    padding:13px;
-    border-radius:7px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.submit-btn:hover{
-    background:#084d80;
-}
-
-.submit-btn:disabled{
-    background:#888;
-    cursor:not-allowed;
+.stat-label{
+    color:#666;
+    font-size:14px;
 }
 
 .message{
     display:none;
-    margin-top:20px;
-    padding:15px;
+    padding:13px;
+    margin-bottom:20px;
     border-radius:8px;
     text-align:center;
+    font-weight:bold;
 }
 
 .success{
+    display:block;
     background:#e8f7ed;
     color:#176b35;
 }
 
 .error{
+    display:block;
     background:#fdecec;
     color:#b42318;
 }
 
-.note{
+.section-title{
+    color:#0b4f8a;
+    margin:25px 0 15px;
+}
+
+.submission{
+    background:white;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.submission h2{
+    color:#0b4f8a;
+    margin-bottom:12px;
+}
+
+.meta{
     background:#f0f6fb;
-    padding:15px;
+    padding:12px;
     border-radius:8px;
-    margin-bottom:22px;
-    color:#555;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.meta strong{
+    color:#0b4f8a;
+}
+
+.article{
+    white-space:pre-wrap;
+    line-height:1.8;
+    background:#fafafa;
+    border-left:4px solid #0b63a5;
+    padding:15px;
+    margin-bottom:18px;
+    max-height:350px;
+    overflow:auto;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.status-pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.status-published{
+    background:#d4edda;
+    color:#155724;
+}
+
+.status-rejected{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+button{
+    border:none;
+    border-radius:7px;
+    padding:11px 17px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.approve{
+    background:#198754;
+}
+
+.approve:hover{
+    background:#146c43;
+}
+
+.reject{
+    background:#dc3545;
+}
+
+.reject:hover{
+    background:#b02a37;
+}
+
+.unpublish{
+    background:#f0ad4e;
+}
+
+.unpublish:hover{
+    background:#d99432;
+}
+
+.delete{
+    background:#555;
+}
+
+.delete:hover{
+    background:#333;
+}
+
+.empty{
+    background:white;
+    padding:40px 20px;
+    border-radius:14px;
+    text-align:center;
+    color:#666;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.empty h2{
+    color:#0b4f8a;
+    margin-bottom:8px;
 }
 
 footer{
-    text-align:center;
-    margin-top:35px;
-    padding:22px;
+    margin-top:40px;
     background:#071d49;
     color:white;
+    text-align:center;
+    padding:22px;
     font-size:14px;
 }
 
 @media(max-width:600px){
 
     .logo{
-        font-size:28px;
+        font-size:25px;
     }
 
     .container{
         padding:0 12px;
     }
 
-    .form-box{
-        padding:22px 16px;
+    .submission{
+        padding:17px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
     }
 
 }
@@ -212,7 +304,7 @@ footer{
 </div>
 
 <div class="subtitle">
-Open your mind. Share your thoughts.
+Admin Dashboard — Review Writer Submissions
 </div>
 
 <nav>
@@ -222,10 +314,6 @@ Open your mind. Share your thoughts.
 <a href="categories.html">Categories</a>
 
 <a href="write.html">Write for Us</a>
-
-<a href="about.html">About</a>
-
-<a href="contact.html">Contact</a>
 
 </nav>
 
@@ -238,154 +326,92 @@ Open your mind. Share your thoughts.
 <div class="page-title">
 
 <h1>
-✍️ Write for Us
+🔐 Admin Dashboard
 </h1>
 
 <p>
-Share your ideas, knowledge, poetry, stories and opinions with our readers.
+Review submissions before they appear publicly.
 </p>
 
 </div>
 
 
-<div class="form-box">
+<div class="stats">
 
+<div class="stat">
 
-<div class="note">
+<div
+class="stat-number"
+id="totalCount">
+0
+</div>
 
-<strong>📝 Submission Guidelines</strong>
-
-<br><br>
-
-Please submit your original writing. Your submission will be reviewed before it is published on The Shining Window.
+<div class="stat-label">
+Total Submissions
+</div>
 
 </div>
 
 
-<form id="writingForm">
+<div class="stat">
 
+<div
+class="stat-number"
+id="pendingCount">
+0
+</div>
 
-<div class="form-group">
-
-<label for="name">
-Your Name
-</label>
-
-<input
-type="text"
-id="name"
-placeholder="Enter your name"
-required
->
+<div class="stat-label">
+Pending
+</div>
 
 </div>
 
 
-<div class="form-group">
+<div class="stat">
 
-<label for="title">
-Writing Title
-</label>
+<div
+class="stat-number"
+id="publishedCount">
+0
+</div>
 
-<input
-type="text"
-id="title"
-placeholder="Enter the title of your writing"
-required
->
+<div class="stat-label">
+Published
+</div>
 
 </div>
 
-
-<div class="form-group">
-
-<label for="category">
-Category
-</label>
-
-<select id="category" required>
-
-<option value="">
-Select a category
-</option>
-
-<option value="Grammar">
-Grammar
-</option>
-
-<option value="Science">
-Science
-</option>
-
-<option value="Education">
-Education
-</option>
-
-<option value="Technology">
-Technology
-</option>
-
-<option value="Poetry">
-Poetry
-</option>
-
-<option value="Stories">
-Stories
-</option>
-
-<option value="General Knowledge">
-General Knowledge
-</option>
-
-<option value="Opinion">
-Opinion
-</option>
-
-<option value="Other">
-Other
-</option>
-
-</select>
-
 </div>
-
-
-<div class="form-group">
-
-<label for="article">
-Your Writing
-</label>
-
-<textarea
-id="article"
-placeholder="Write your article, poem, story or opinion here..."
-required
-></textarea>
-
-</div>
-
-
-<button
-type="submit"
-class="submit-btn"
-id="submitBtn"
->
-
-📤 Submit Writing
-
-</button>
 
 
 <div
 id="message"
-class="message"
-></div>
+class="message">
+</div>
 
 
-</form>
+<h2 class="section-title">
+📋 Submissions
+</h2>
 
+
+<div id="submissions">
+
+<div class="empty">
+
+<h2>
+⏳ Loading...
+</h2>
+
+<p>
+Loading submissions from Firebase.
+</p>
 
 </div>
+
+</div>
+
 
 </div>
 
@@ -410,20 +436,23 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
 getDatabase,
 ref,
-push,
-set
+onValue,
+update,
+remove
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
+/* =====================================
+   FIREBASE
+===================================== */
 
 const firebaseConfig = {
 
-databaseURL:
-"https://the-shining-window-default-rtdb.firebaseio.com"
+    databaseURL:
+    "https://the-shining-window-default-rtdb.firebaseio.com"
 
 };
-
 
 
 const app =
@@ -434,179 +463,668 @@ const db =
 getDatabase(app);
 
 
-
-const form =
-document.getElementById(
-"writingForm"
+const submissionsRef =
+ref(
+    db,
+    "articleSubmissions"
 );
 
 
-const submitBtn =
+/* =====================================
+   ELEMENTS
+===================================== */
+
+const submissions =
 document.getElementById(
-"submitBtn"
+    "submissions"
 );
 
+const totalCount =
+document.getElementById(
+    "totalCount"
+);
+
+const pendingCount =
+document.getElementById(
+    "pendingCount"
+);
+
+const publishedCount =
+document.getElementById(
+    "publishedCount"
+);
 
 const message =
 document.getElementById(
-"message"
+    "message"
 );
 
 
+/* =====================================
+   ESCAPE HTML
+===================================== */
 
-form.addEventListener(
-"submit",
-async function(event){
+function escapeHTML(value){
 
-event.preventDefault();
+    if(
+        value === null ||
+        value === undefined
+    ){
+        return "";
+    }
 
+    return String(value)
 
-const name =
-document.getElementById(
-"name"
-).value.trim();
-
-
-const title =
-document.getElementById(
-"title"
-).value.trim();
-
-
-const category =
-document.getElementById(
-"category"
-).value;
-
-
-const article =
-document.getElementById(
-"article"
-).value.trim();
-
-
-
-if(
-!name ||
-!title ||
-!category ||
-!article
-){
-
-showMessage(
-"Please complete all fields.",
-"error"
-);
-
-return;
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
-
-submitBtn.disabled =
-true;
-
-submitBtn.textContent =
-"⏳ Submitting...";
-
-
-try{
-
-
-const submissionRef =
-push(
-ref(
-db,
-"articleSubmissions"
-)
-);
-
-
-await set(
-submissionRef,
-{
-
-name:name,
-
-title:title,
-
-category:category,
-
-article:article,
-
-status:"pending",
-
-approved:false,
-
-submittedAt:
-new Date().toISOString()
-
-}
-);
-
-
-
-showMessage(
-"✅ Your writing has been submitted successfully. It will be reviewed before publication.",
-"success"
-);
-
-
-form.reset();
-
-
-}
-
-catch(error){
-
-console.error(
-"Submission error:",
-error
-);
-
-
-showMessage(
-"❌ Unable to submit your writing. Please try again.",
-"error"
-);
-
-}
-
-
-submitBtn.disabled =
-false;
-
-submitBtn.textContent =
-"📤 Submit Writing";
-
-}
-
-);
-
-
+/* =====================================
+   SHOW MESSAGE
+===================================== */
 
 function showMessage(
-text,
-type
+    text,
+    type
 ){
 
-message.textContent =
-text;
+    message.textContent =
+        text;
 
-message.className =
-"message " + type;
+    message.className =
+        "message " + type;
 
-message.style.display =
-"block";
+    setTimeout(
+        function(){
 
+            message.className =
+                "message";
 
-message.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
+        },
+        3000
+    );
 
 }
+
+
+/* =====================================
+   LOAD DATA
+===================================== */
+
+onValue(
+
+    submissionsRef,
+
+    function(snapshot){
+
+        submissions.innerHTML = "";
+
+        if(!snapshot.exists()){
+
+            totalCount.textContent =
+                "0";
+
+            pendingCount.textContent =
+                "0";
+
+            publishedCount.textContent =
+                "0";
+
+
+            submissions.innerHTML = `
+
+                <div class="empty">
+
+                    <h2>
+                        📭 No submissions
+                    </h2>
+
+                    <p>
+                        There are currently no writer submissions.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const data =
+            snapshot.val();
+
+
+        const entries =
+            Object.entries(data);
+
+
+        let pending = 0;
+
+        let published = 0;
+
+
+        entries.forEach(
+            function([id,item]){
+
+                const status =
+                    String(
+                        item.status || "pending"
+                    ).toLowerCase();
+
+
+                if(
+                    status === "published" ||
+                    status === "approved"
+                ){
+
+                    published++;
+
+                }
+                else if(
+                    status === "pending"
+                ){
+
+                    pending++;
+
+                }
+
+            }
+        );
+
+
+        totalCount.textContent =
+            entries.length;
+
+        pendingCount.textContent =
+            pending;
+
+        publishedCount.textContent =
+            published;
+
+
+        /* =============================
+           SORT PENDING FIRST
+        ============================= */
+
+        entries.sort(
+            function(a,b){
+
+                const aStatus =
+                    String(
+                        a[1].status || "pending"
+                    ).toLowerCase();
+
+                const bStatus =
+                    String(
+                        b[1].status || "pending"
+                    ).toLowerCase();
+
+
+                if(
+                    aStatus === "pending" &&
+                    bStatus !== "pending"
+                ){
+
+                    return -1;
+
+                }
+
+
+                if(
+                    aStatus !== "pending" &&
+                    bStatus === "pending"
+                ){
+
+                    return 1;
+
+                }
+
+
+                return 0;
+
+            }
+        );
+
+
+        /* =============================
+           DISPLAY
+        ============================= */
+
+        entries.forEach(
+            function([id,item]){
+
+                const title =
+                    item.title ||
+                    "Untitled";
+
+
+                const name =
+                    item.name ||
+                    "Unknown";
+
+
+                const email =
+                    item.email ||
+                    "Not provided";
+
+
+                const category =
+                    item.category ||
+                    "Other";
+
+
+                const article =
+                    item.article ||
+                    "";
+
+
+                const status =
+                    String(
+                        item.status || "pending"
+                    ).toLowerCase();
+
+
+                const submittedAt =
+                    item.submittedAt ||
+                    "";
+
+
+                let statusClass =
+                    "status-pending";
+
+
+                if(
+                    status === "published" ||
+                    status === "approved"
+                ){
+
+                    statusClass =
+                        "status-published";
+
+                }
+                else if(
+                    status === "rejected"
+                ){
+
+                    statusClass =
+                        "status-rejected";
+
+                }
+
+
+                let buttons = "";
+
+
+                /* =========================
+                   PENDING
+                ========================= */
+
+                if(status === "pending"){
+
+                    buttons = `
+
+                        <button
+                        class="approve"
+                        onclick="approveArticle('${id}')">
+
+                        ✅ Approve & Publish
+
+                        </button>
+
+
+                        <button
+                        class="reject"
+                        onclick="rejectArticle('${id}')">
+
+                        ❌ Reject
+
+                        </button>
+
+                    `;
+
+                }
+
+
+                /* =========================
+                   PUBLISHED
+                ========================= */
+
+                else if(
+                    status === "published" ||
+                    status === "approved"
+                ){
+
+                    buttons = `
+
+                        <button
+                        class="unpublish"
+                        onclick="unpublishArticle('${id}')">
+
+                        ↩️ Unpublish
+
+                        </button>
+
+                    `;
+
+                }
+
+
+                /* =========================
+                   DELETE
+                ========================= */
+
+                buttons += `
+
+                    <button
+                    class="delete"
+                    onclick="deleteArticle('${id}')">
+
+                    🗑️ Delete
+
+                    </button>
+
+                `;
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "submission";
+
+
+                card.innerHTML = `
+
+                    <h2>
+                        ${escapeHTML(title)}
+                    </h2>
+
+
+                    <div class="meta">
+
+                        <strong>Writer:</strong>
+                        ${escapeHTML(name)}
+
+                        <br>
+
+                        <strong>Email:</strong>
+                        ${escapeHTML(email)}
+
+                        <br>
+
+                        <strong>Category:</strong>
+                        ${escapeHTML(category)}
+
+                        <br>
+
+                        <strong>Status:</strong>
+
+                        <span
+                        class="status ${statusClass}">
+
+                            ${escapeHTML(status)}
+
+                        </span>
+
+                        <br>
+
+                        <strong>Submitted:</strong>
+                        ${escapeHTML(submittedAt)}
+
+                    </div>
+
+
+                    <div class="article">
+
+                        ${escapeHTML(article)}
+
+                    </div>
+
+
+                    <div class="buttons">
+
+                        ${buttons}
+
+                    </div>
+
+                `;
+
+
+                submissions.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    },
+
+
+    function(error){
+
+        console.error(
+            "Firebase error:",
+            error
+        );
+
+
+        submissions.innerHTML = `
+
+            <div class="empty">
+
+                <h2>
+                    ⚠️ Firebase Error
+                </h2>
+
+                <p>
+                    ${escapeHTML(error.message)}
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+);
+
+
+/* =====================================
+   APPROVE
+===================================== */
+
+window.approveArticle =
+async function(id){
+
+    try{
+
+        await update(
+
+            ref(
+                db,
+                "articleSubmissions/" + id
+            ),
+
+            {
+                status:"published",
+                approved:true
+            }
+
+        );
+
+
+        showMessage(
+            "✅ Article approved and published.",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ Could not publish article: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   REJECT
+===================================== */
+
+window.rejectArticle =
+async function(id){
+
+    try{
+
+        await update(
+
+            ref(
+                db,
+                "articleSubmissions/" + id
+            ),
+
+            {
+                status:"rejected",
+                approved:false
+            }
+
+        );
+
+
+        showMessage(
+            "❌ Article rejected.",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ Could not reject article: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   UNPUBLISH
+===================================== */
+
+window.unpublishArticle =
+async function(id){
+
+    try{
+
+        await update(
+
+            ref(
+                db,
+                "articleSubmissions/" + id
+            ),
+
+            {
+                status:"pending",
+                approved:false
+            }
+
+        );
+
+
+        showMessage(
+            "↩️ Article moved back to pending.",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ Could not unpublish article: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+};
+
+
+/* =====================================
+   DELETE
+===================================== */
+
+window.deleteArticle =
+async function(id){
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to permanently delete this submission?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    try{
+
+        await remove(
+
+            ref(
+                db,
+                "articleSubmissions/" + id
+            )
+
+        );
+
+
+        showMessage(
+            "🗑️ Submission deleted.",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ Could not delete submission: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+};
 
 
 </script>
