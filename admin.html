@@ -5,1068 +5,677 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard | The Shining Window</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>The Shining Window</title>
 
 <style>
 
+/* ===============================
+   RESET
+================================ */
+
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
+
+
+/* ===============================
+   BODY
+================================ */
 
 body{
-    margin:0;
     font-family:Arial,sans-serif;
-    background:#f3f6fa;
-    color:#263238;
+    background:#f5f8fc;
+    color:#222;
+    line-height:1.6;
 }
+
+
+/* ===============================
+   HEADER
+================================ */
 
 header{
-    background:linear-gradient(135deg,#123c69,#1f6f8b);
+    background:#173f5f;
     color:white;
-    padding:22px 15px;
-    text-align:center;
+    padding:20px;
 }
 
-header h1{
-    margin:0;
-    font-family:Georgia,serif;
-}
-
-header p{
-    margin:7px 0 0;
-}
-
-#loginBox{
-    max-width:420px;
-    margin:60px auto;
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
-    text-align:center;
-}
-
-#loginBox input{
-    width:100%;
-    padding:13px;
-    margin:8px 0;
-    border:1px solid #bbb;
-    border-radius:8px;
-    font-size:16px;
-}
-
-button{
-    border:0;
-    border-radius:8px;
-    padding:11px 17px;
-    margin:5px;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.login-btn{
-    width:100%;
-    background:#123c69;
-    color:white;
-}
-
-.login-btn:hover{
-    background:#1f6f8b;
-}
-
-#dashboard{
-    display:none;
+.header-content{
     max-width:1100px;
-    margin:30px auto;
-    padding:0 15px;
-}
+    margin:auto;
 
-.topbar{
-    background:white;
-    padding:18px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:15px;
+
+    gap:20px;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
+
+.tagline{
+    font-size:13px;
+    margin-top:5px;
+    opacity:.9;
+}
+
+
+/* ===============================
+   NAVIGATION
+================================ */
+
+nav{
+    display:flex;
     flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
 }
 
-.logout{
-    background:#8b0000;
+nav a{
     color:white;
+    text-decoration:none;
+    padding:8px 10px;
+    font-weight:bold;
+    border-radius:6px;
 }
 
-.refresh{
+nav a:hover{
+    background:rgba(255,255,255,.15);
+}
+
+
+/* ===============================
+   HERO
+================================ */
+
+.hero{
+    max-width:1100px;
+    margin:50px auto 30px;
+    padding:20px;
+    text-align:center;
+}
+
+.hero h1{
+    color:#173f5f;
+    font-size:44px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#555;
+    font-size:18px;
+    max-width:750px;
+    margin:auto;
+}
+
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.button{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 25px;
+
+    background:#173f5f;
+    color:white;
+
+    text-decoration:none;
+    border-radius:8px;
+
+    font-weight:bold;
+}
+
+.button:hover{
+    background:#0f2f49;
+}
+
+
+/* ===============================
+   CONTENT
+================================ */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.section-title{
+    text-align:center;
+    color:#173f5f;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+
+/* ===============================
+   FEATURE CARDS
+================================ */
+
+.cards{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px 20px;
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.08);
+
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#173f5f;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.card p{
+    color:#666;
+    font-size:15px;
+}
+
+
+/* ===============================
+   WRITE SECTION
+================================ */
+
+.write-section{
+    margin-top:50px;
+
+    background:#173f5f;
+    color:white;
+
+    padding:45px 20px;
+
+    border-radius:15px;
+
+    text-align:center;
+}
+
+.write-section h2{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.write-section p{
+    max-width:700px;
+    margin:auto;
+}
+
+.write-button{
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:white;
+    color:#173f5f;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+
+/* ===============================
+   ADMIN SECTION
+================================ */
+
+.admin-section{
+    text-align:center;
+    margin:35px 0;
+}
+
+.admin-button{
+    display:inline-block;
+
     background:#123c69;
     color:white;
-}
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    margin:20px 0;
-}
+    padding:12px 22px;
 
-.stat{
-    background:white;
-    padding:22px;
-    text-align:center;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
+    border-radius:8px;
 
-.stat strong{
-    display:block;
-    font-size:30px;
-    color:#123c69;
-}
+    text-decoration:none;
 
-.stat span{
-    color:#666;
-}
-
-.submission{
-    background:white;
-    margin:20px 0;
-    padding:22px;
-    border-radius:16px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.submission h2{
-    color:#123c69;
-    margin-top:0;
-}
-
-.meta{
-    color:#666;
-    font-size:14px;
-    margin-bottom:15px;
-    line-height:1.7;
-}
-
-.article-text{
-    white-space:pre-wrap;
-    line-height:1.9;
-    border-top:1px solid #eee;
-    padding-top:15px;
-    font-size:16px;
-}
-
-.publish{
-    background:#16803c;
-    color:white;
-}
-
-.reject{
-    background:#b22222;
-    color:white;
-}
-
-.delete{
-    background:#555;
-    color:white;
-}
-
-.message{
-    text-align:center;
-    padding:30px;
-    background:white;
-    border-radius:15px;
-}
-
-.error{
-    color:#b22222;
-}
-
-.success{
-    color:#16803c;
     font-weight:bold;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.12);
+}
+
+.admin-button:hover{
+    background:#0f2f49;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer{
+    margin-top:50px;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:#102d43;
+    color:white;
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:700px){
+
+    header{
+        padding:18px 12px;
+    }
+
+    .header-content{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    nav{
+        margin-top:10px;
+    }
+
+    nav a{
+        font-size:14px;
+        padding:7px 8px;
+    }
+
+    .hero{
+        margin-top:30px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:27px;
+    }
+
+}
+
+
+/* ===============================
+   VERY SMALL SCREENS
+================================ */
+
+@media(max-width:400px){
+
+    .logo{
+        font-size:22px;
+    }
+
+    nav a{
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- ===============================
+     HEADER
+================================ -->
 
 <header>
 
-<h1>🪟 The Shining Window</h1>
+<div class="header-content">
 
-<p>Administrator Dashboard</p>
+<div>
+
+<div class="logo">
+🪟 The Shining Window
+</div>
+
+<div class="tagline">
+Open your mind. Share your thoughts.
+</div>
+
+</div>
+
+
+<nav>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="categories.html">
+Categories
+</a>
+
+<a href="write.html">
+Write for Us
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</nav>
+
+</div>
 
 </header>
 
 
-<!-- LOGIN -->
 
-<div id="loginBox">
+<!-- ===============================
+     HERO
+================================ -->
 
-<h2>🔐 Admin Login</h2>
+<section class="hero">
 
-<p>Sign in to manage article submissions.</p>
+<h1>
+Welcome to The Shining Window
+</h1>
 
-<input
-type="email"
-id="email"
-placeholder="Admin email"
-autocomplete="email"
->
+<p>
+A place to explore ideas, knowledge,
+creativity, poetry, stories and useful
+thoughts from different writers.
+</p>
 
-<input
-type="password"
-id="password"
-placeholder="Password"
-autocomplete="current-password"
->
+<a
+class="button"
+href="categories.html">
 
-<button
-class="login-btn"
-onclick="login()">
+📚 Explore Categories
 
-Login
+</a>
 
-</button>
+</section>
 
-<p
-id="loginMessage"
-class="error">
+
+
+<!-- ===============================
+     FEATURES
+================================ -->
+
+<main class="container">
+
+<h2 class="section-title">
+✨ Explore & Discover
+</h2>
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<div class="card-icon">
+📚
+</div>
+
+<h3>
+Grammar
+</h3>
+
+<p>
+Learn English grammar and practical
+language use.
 </p>
 
 </div>
 
 
-<!-- DASHBOARD -->
+<div class="card">
 
-<main id="dashboard">
-
-<div class="topbar">
-
-<div>
-
-<h2>📋 Article Management</h2>
-
-<p id="adminEmail"></p>
-
+<div class="card-icon">
+🔬
 </div>
 
-<div>
+<h3>
+Science
+</h3>
 
-<button
-class="refresh"
-onclick="loadSubmissions()">
-
-🔄 Refresh
-
-</button>
-
-<button
-class="logout"
-onclick="logout()">
-
-🚪 Logout
-
-</button>
-
-</div>
+<p>
+Explore scientific ideas, discoveries
+and interesting facts.
+</p>
 
 </div>
 
 
-<!-- STATISTICS -->
+<div class="card">
 
-<div class="stats">
-
-<div class="stat">
-
-<strong id="pendingCount">0</strong>
-
-<span>Pending</span>
-
+<div class="card-icon">
+🎓
 </div>
 
-<div class="stat">
+<h3>
+Education
+</h3>
 
-<strong id="publishedCount">0</strong>
-
-<span>Published</span>
-
-</div>
-
-<div class="stat">
-
-<strong id="rejectedCount">0</strong>
-
-<span>Rejected</span>
-
-</div>
-
-<div class="stat">
-
-<strong id="totalCount">0</strong>
-
-<span>Total Submissions</span>
-
-</div>
+<p>
+Discover useful ideas about teaching
+and learning.
+</p>
 
 </div>
 
 
-<!-- SUBMISSIONS -->
+<div class="card">
 
-<section>
+<div class="card-icon">
+💻
+</div>
 
-<h2>📥 Pending Submissions</h2>
+<h3>
+Technology
+</h3>
 
-<div id="submissions">
-
-<div class="message">
-
-Loading submissions...
+<p>
+Discover technology and useful
+digital tools.
+</p>
 
 </div>
 
+
+<div class="card">
+
+<div class="card-icon">
+📝
 </div>
+
+<h3>
+Poetry
+</h3>
+
+<p>
+Read poems, nazams, ghazals and
+creative writing.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+📖
+</div>
+
+<h3>
+Stories
+</h3>
+
+<p>
+Enjoy stories and inspiring
+narratives.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🌍
+</div>
+
+<h3>
+General Knowledge
+</h3>
+
+<p>
+Discover interesting facts and
+useful knowledge.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+💡
+</div>
+
+<h3>
+Opinion
+</h3>
+
+<p>
+Read ideas, opinions and different
+perspectives.
+</p>
+
+</div>
+
 
 </section>
+
+
+
+<!-- ===============================
+     WRITE FOR US
+================================ -->
+
+<section class="write-section">
+
+<h2>
+Have Something to Share?
+</h2>
+
+<p>
+Do you have a poem, nazam, story,
+article, opinion or useful knowledge
+to share?
+</p>
+
+<p>
+Become a writer and share your ideas
+with the readers of The Shining Window.
+</p>
+
+<a
+class="write-button"
+href="write.html">
+
+✍️ Write for Us
+
+</a>
+
+</section>
+
+
+
+<!-- ===============================
+     ADMIN DASHBOARD
+================================ -->
+
+<section class="admin-section">
+
+<a
+class="admin-button"
+href="admin.html">
+
+🔐 Admin Dashboard
+
+</a>
+
+</section>
+
 
 </main>
 
 
-<script type="module">
 
+<!-- ===============================
+     FOOTER
+================================ -->
 
-/* =====================================
-   FIREBASE
-===================================== */
+<footer>
 
-import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<p>
+© 2026 The Shining Window — All Rights Reserved
+</p>
 
-
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-import {
-    getDatabase,
-    ref,
-    get,
-    update,
-    remove
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-
-/* =====================================
-   CORRECT FIREBASE PROJECT
-===================================== */
-
-const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
-
-    authDomain:
-    "the-shining-window.firebaseapp.com",
-
-    databaseURL:
-    "https://the-shining-window-default-rtdb.firebaseio.com",
-
-    projectId:
-    "the-shining-window",
-
-    storageBucket:
-    "the-shining-window.firebasestorage.app",
-
-    messagingSenderId:
-    "636523709313",
-
-    appId:
-    "1:636523709313:web:8cbd2ce21eddae998fde80",
-
-    measurementId:
-    "G-NMNL6J6J1P"
-
-};
-
-
-/* =====================================
-   INITIALIZE
-===================================== */
-
-const app =
-initializeApp(firebaseConfig);
-
-
-const auth =
-getAuth(app);
-
-
-const db =
-getDatabase(app);
-
-
-/* =====================================
-   ADMIN EMAIL
-===================================== */
-
-const ADMIN_EMAIL =
-"poetshahbaz_quambrani@gmail.com";
-
-
-/* =====================================
-   LOGIN
-===================================== */
-
-globalThis.login =
-async function(){
-
-    const email =
-    document
-    .getElementById("email")
-    .value
-    .trim();
-
-    const password =
-    document
-    .getElementById("password")
-    .value;
-
-    const message =
-    document
-    .getElementById("loginMessage");
-
-
-    message.textContent = "";
-
-
-    if(!email || !password){
-
-        message.textContent =
-        "Please enter your email and password.";
-
-        return;
-
-    }
-
-
-    if(email !== ADMIN_EMAIL){
-
-        message.textContent =
-        "Access denied.";
-
-        return;
-
-    }
-
-
-    try{
-
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-        message.textContent =
-        "Login failed. Check your email and password.";
-
-    }
-
-};
-
-
-/* =====================================
-   LOGOUT
-===================================== */
-
-globalThis.logout =
-async function(){
-
-    await signOut(auth);
-
-};
-
-
-/* =====================================
-   AUTH STATE
-===================================== */
-
-onAuthStateChanged(
-    auth,
-    async(user)=>{
-
-        if(
-            user &&
-            user.email === ADMIN_EMAIL
-        ){
-
-            document
-            .getElementById("loginBox")
-            .style.display =
-            "none";
-
-
-            document
-            .getElementById("dashboard")
-            .style.display =
-            "block";
-
-
-            document
-            .getElementById("adminEmail")
-            .textContent =
-            "Logged in as: " + user.email;
-
-
-            await loadSubmissions();
-
-        }
-
-        else{
-
-            document
-            .getElementById("loginBox")
-            .style.display =
-            "block";
-
-
-            document
-            .getElementById("dashboard")
-            .style.display =
-            "none";
-
-        }
-
-    }
-
-);
-
-
-/* =====================================
-   LOAD REALTIME DATABASE
-===================================== */
-
-globalThis.loadSubmissions =
-async function(){
-
-    const box =
-    document
-    .getElementById("submissions");
-
-
-    box.innerHTML =
-    `<div class="message">
-        Loading submissions...
-    </div>`;
-
-
-    try{
-
-        const submissionsRef =
-        ref(
-            db,
-            "articleSubmissions"
-        );
-
-
-        const snapshot =
-        await get(submissionsRef);
-
-
-        let pending = 0;
-        let published = 0;
-        let rejected = 0;
-        let total = 0;
-
-        let html = "";
-
-
-        if(snapshot.exists()){
-
-            const submissions =
-            snapshot.val();
-
-
-            Object.entries(
-                submissions
-            ).forEach(
-                ([id,data])=>{
-
-                    total++;
-
-
-                    const status =
-                    data.status ||
-                    "pending";
-
-
-                    if(
-                        status === "pending"
-                    ){
-
-                        pending++;
-
-
-                        html +=
-                        renderSubmission(
-                            id,
-                            data
-                        );
-
-                    }
-
-
-                    if(
-                        status === "published"
-                    ){
-
-                        published++;
-
-                    }
-
-
-                    if(
-                        status === "rejected"
-                    ){
-
-                        rejected++;
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        document
-        .getElementById("pendingCount")
-        .textContent =
-        pending;
-
-
-        document
-        .getElementById("publishedCount")
-        .textContent =
-        published;
-
-
-        document
-        .getElementById("rejectedCount")
-        .textContent =
-        rejected;
-
-
-        document
-        .getElementById("totalCount")
-        .textContent =
-        total;
-
-
-        if(!html){
-
-            box.innerHTML =
-            `<div class="message">
-                🎉 No pending submissions.
-            </div>`;
-
-        }
-
-        else{
-
-            box.innerHTML =
-            html;
-
-        }
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-
-        box.innerHTML =
-        `<div class="message error">
-
-        ❌ Error loading submissions.
-
-        <br><br>
-
-        ${escapeHtml(
-            error.message
-        )}
-
-        </div>`;
-
-    }
-
-};
-
-
-/* =====================================
-   RENDER SUBMISSION
-===================================== */
-
-function renderSubmission(
-    id,
-    data
-){
-
-    const article =
-    data.article ||
-    data.content ||
-    "No article content.";
-
-
-    return `
-
-    <article class="submission">
-
-        <h2>
-
-        ${escapeHtml(
-            data.title ||
-            "Untitled Article"
-        )}
-
-        </h2>
-
-
-        <div class="meta">
-
-            ✍️ Writer:
-            ${escapeHtml(
-                data.name ||
-                "Unknown"
-            )}
-
-            <br>
-
-            📧 Email:
-            ${escapeHtml(
-                data.email ||
-                "Not provided"
-            )}
-
-            <br>
-
-            📚 Category:
-            ${escapeHtml(
-                data.category ||
-                "General"
-            )}
-
-            <br>
-
-            📅 Submitted:
-            ${escapeHtml(
-                data.submittedAt ||
-                "Unknown"
-            )}
-
-            <br>
-
-            🔖 Status:
-            ${escapeHtml(
-                data.status ||
-                "pending"
-            )}
-
-        </div>
-
-
-        <div class="article-text">
-
-        ${escapeHtml(
-            article
-        )}
-
-        </div>
-
-
-        <br>
-
-
-        <button
-        class="publish"
-        onclick="publishArticle('${id}')">
-
-        ✅ Publish
-
-        </button>
-
-
-        <button
-        class="reject"
-        onclick="rejectArticle('${id}')">
-
-        ❌ Reject
-
-        </button>
-
-
-        <button
-        class="delete"
-        onclick="deleteSubmission('${id}')">
-
-        🗑 Delete
-
-        </button>
-
-
-    </article>
-
-    `;
-
-}
-
-
-/* =====================================
-   PUBLISH
-===================================== */
-
-globalThis.publishArticle =
-async function(id){
-
-    if(
-        !confirm(
-            "Publish this article?\n\nIt will become visible on The Shining Window."
-        )
-    ){
-
-        return;
-
-    }
-
-
-    try{
-
-        const submissionRef =
-        ref(
-            db,
-            "articleSubmissions/" +
-            id
-        );
-
-
-        await update(
-            submissionRef,
-            {
-
-                status:
-                "published",
-
-                approved:
-                true,
-
-                publishedAt:
-                new Date().toISOString()
-
-            }
-        );
-
-
-        alert(
-            "✅ Published successfully!"
-        );
-
-
-        await loadSubmissions();
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-
-        alert(
-            "❌ Publishing failed:\n\n" +
-            error.message
-        );
-
-    }
-
-};
-
-
-/* =====================================
-   REJECT
-===================================== */
-
-globalThis.rejectArticle =
-async function(id){
-
-    if(
-        !confirm(
-            "Reject this submission?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    try{
-
-        const submissionRef =
-        ref(
-            db,
-            "articleSubmissions/" +
-            id
-        );
-
-
-        await update(
-            submissionRef,
-            {
-
-                status:
-                "rejected",
-
-                approved:
-                false,
-
-                rejectedAt:
-                new Date().toISOString()
-
-            }
-        );
-
-
-        alert(
-            "❌ Submission rejected."
-        );
-
-
-        await loadSubmissions();
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-
-        alert(
-            "❌ Rejection failed:\n\n" +
-            error.message
-        );
-
-    }
-
-};
-
-
-/* =====================================
-   DELETE
-===================================== */
-
-globalThis.deleteSubmission =
-async function(id){
-
-    if(
-        !confirm(
-            "Permanently delete this submission?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    try{
-
-        await remove(
-            ref(
-                db,
-                "articleSubmissions/" +
-                id
-            )
-        );
-
-
-        alert(
-            "🗑 Submission deleted."
-        );
-
-
-        await loadSubmissions();
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-
-        alert(
-            "❌ Delete failed:\n\n" +
-            error.message
-        );
-
-    }
-
-};
-
-
-/* =====================================
-   HTML ESCAPE
-===================================== */
-
-function escapeHtml(value){
-
-    return String(value)
-
-    .replaceAll(
-        "&",
-        "&amp;"
-    )
-
-    .replaceAll(
-        "<",
-        "&lt;"
-    )
-
-    .replaceAll(
-        ">",
-        "&gt;"
-    )
-
-    .replaceAll(
-        '"',
-        "&quot;"
-    )
-
-    .replaceAll(
-        "'",
-        "&#039;"
-    );
-
-}
-
-</script>
+</footer>
 
 
 </body>
