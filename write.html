@@ -129,12 +129,6 @@ textarea{
     line-height:1.8;
 }
 
-.category-fixed{
-    background:#f0f6fb;
-    font-weight:bold;
-    color:#0b4f8a;
-}
-
 .help{
     font-size:13px;
     color:#777;
@@ -239,7 +233,6 @@ footer{
 Open your mind. Share your thoughts.
 </div>
 
-
 <nav>
 
 <a href="index.html">
@@ -277,7 +270,7 @@ Contact
 </h1>
 
 <p>
-Share your poetry with The Shining Window.
+Share your poetry, stories, articles, essays and ideas with The Shining Window.
 </p>
 
 </div>
@@ -295,10 +288,12 @@ class="message">
 <form id="submissionForm">
 
 
+<!-- NAME -->
+
 <div class="form-group">
 
 <label for="name">
-Your Name
+👤 Your Name
 </label>
 
 <input
@@ -310,10 +305,12 @@ required>
 </div>
 
 
+<!-- EMAIL -->
+
 <div class="form-group">
 
 <label for="email">
-Email Address
+📧 Email Address
 </label>
 
 <input
@@ -325,10 +322,12 @@ required>
 </div>
 
 
+<!-- TITLE -->
+
 <div class="form-group">
 
 <label for="title">
-Title
+📝 Title
 </label>
 
 <input
@@ -340,19 +339,44 @@ required>
 </div>
 
 
+<!-- CATEGORY -->
+
 <div class="form-group">
 
 <label for="category">
-Category
+📚 Category
 </label>
 
 <select
 id="category"
-class="category-fixed"
 required>
+
+<option value="">
+-- Select Category --
+</option>
 
 <option value="Poetry">
 Poetry
+</option>
+
+<option value="Stories">
+Stories
+</option>
+
+<option value="Education">
+Education
+</option>
+
+<option value="Articles">
+Articles
+</option>
+
+<option value="Essays">
+Essays
+</option>
+
+<option value="Other">
+Other
 </option>
 
 </select>
@@ -360,23 +384,92 @@ Poetry
 </div>
 
 
+<!-- WRITING TYPE -->
+
+<div class="form-group">
+
+<label for="writingType">
+✍️ Writing Type
+</label>
+
+<select
+id="writingType"
+required>
+
+<option value="">
+-- Select Writing Type --
+</option>
+
+<option value="Ghazal">
+Ghazal
+</option>
+
+<option value="Nazam">
+Nazam
+</option>
+
+<option value="Poem">
+Poem
+</option>
+
+<option value="Free Verse">
+Free Verse
+</option>
+
+<option value="Short Story">
+Short Story
+</option>
+
+<option value="Article">
+Article
+</option>
+
+<option value="Essay">
+Essay
+</option>
+
+<option value="Opinion">
+Opinion
+</option>
+
+<option value="Educational">
+Educational Writing
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+<div class="help">
+Choose the type that best describes your writing.
+</div>
+
+</div>
+
+
+<!-- WRITING -->
+
 <div class="form-group">
 
 <label for="article">
-Your Writing
+📖 Your Writing
 </label>
 
 <textarea
 id="article"
-placeholder="Write your poetry here..."
+placeholder="Write your complete work here..."
 required></textarea>
 
 <div class="help">
-Please write your complete poetry or literary work in this box.
+You can submit poetry, stories, articles, essays, educational writing or other original literary work.
 </div>
 
 </div>
 
+
+<!-- SUBMIT -->
 
 <button
 type="submit"
@@ -559,6 +652,12 @@ form.addEventListener(
             ).value;
 
 
+        const writingType =
+            document.getElementById(
+                "writingType"
+            ).value;
+
+
         const article =
             document.getElementById(
                 "article"
@@ -605,10 +704,34 @@ form.addEventListener(
         }
 
 
+        if(!category){
+
+            showMessage(
+                "Please select a category.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!writingType){
+
+            showMessage(
+                "Please select a writing type.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
         if(!article){
 
             showMessage(
-                "Please write your poetry before submitting.",
+                "Please write your work before submitting.",
                 "error"
             );
 
@@ -661,7 +784,10 @@ form.addEventListener(
                     title,
 
                     category:
-                    "Poetry",
+                    category,
+
+                    writingType:
+                    writingType,
 
                     article:
                     article,
@@ -673,7 +799,7 @@ form.addEventListener(
                     false,
 
                     submittedAt:
-                    new Date().toLocaleString()
+                    new Date().toISOString()
 
                 }
             );
@@ -690,12 +816,6 @@ form.addEventListener(
 
 
             form.reset();
-
-
-            document.getElementById(
-                "category"
-            ).value =
-                "Poetry";
 
 
         }
