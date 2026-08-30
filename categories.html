@@ -56,6 +56,7 @@ nav a{
     padding:8px 13px;
     border-radius:6px;
     background:rgba(255,255,255,.12);
+    font-weight:bold;
 }
 
 nav a:hover{
@@ -221,14 +222,12 @@ nav a:hover{
     word-wrap:break-word;
     direction:auto;
     text-align:start;
-
     font-family:
         "Noto Nastaliq Urdu",
         "Noto Sans Arabic",
         "Noto Sans",
         Arial,
         sans-serif;
-
     font-size:19px;
     line-height:2.2;
     margin-top:18px;
@@ -263,6 +262,10 @@ nav a:hover{
     color:#666;
 }
 
+.no-results h3{
+    color:#0b4f8a;
+}
+
 .error-message{
     background:#fdecec;
     color:#b42318;
@@ -275,8 +278,10 @@ nav a:hover{
     color:#6b4f00;
     padding:15px;
     border-radius:10px;
-    margin-bottom:20px;
+    margin-top:18px;
     font-size:14px;
+    text-align:left;
+    line-height:1.8;
 }
 
 footer{
@@ -331,27 +336,27 @@ footer{
 
 <header>
 
-<div class="logo">
-🪟 The Shining Window
-</div>
+    <div class="logo">
+        🪟 The Shining Window
+    </div>
 
-<div class="subtitle">
-Open your mind. Share your thoughts.
-</div>
+    <div class="subtitle">
+        Open your mind. Share your thoughts.
+    </div>
 
-<nav>
+    <nav>
 
-<a href="index.html">Home</a>
+        <a href="index.html">Home</a>
 
-<a href="categories.html">Categories</a>
+        <a href="categories.html">Categories</a>
 
-<a href="write.html">Write for Us</a>
+        <a href="write.html">Write for Us</a>
 
-<a href="about.html">About</a>
+        <a href="about.html">About</a>
 
-<a href="contact.html">Contact</a>
+        <a href="contact.html">Contact</a>
 
-</nav>
+    </nav>
 
 </header>
 
@@ -359,252 +364,312 @@ Open your mind. Share your thoughts.
 <div class="container">
 
 
-<div id="categoriesPage">
+    <!-- =========================
+         CATEGORIES PAGE
+    ========================== -->
 
-<div class="page-title">
+    <div id="categoriesPage">
 
-<h1>
-📚 Explore Categories
-</h1>
+        <div class="page-title">
 
-<p>
-Discover ideas, knowledge, creativity
-and stories from different areas of life.
-</p>
+            <h1>
+                📚 Explore Categories
+            </h1>
 
-</div>
+            <p>
+                Discover ideas, knowledge, creativity and stories
+                from different areas of life.
+            </p>
 
+        </div>
 
-<div class="categories">
 
+        <div class="categories">
 
-<div class="category-card">
 
-<div class="category-icon">📚</div>
+            <!-- GRAMMAR -->
 
-<h2>Grammar</h2>
+            <div class="category-card">
 
-<p>
-Learn English grammar and practical
-language use.
-</p>
+                <div class="category-icon">
+                    📚
+                </div>
 
-<button
-class="explore-btn"
-onclick="openCategory('Grammar')">
+                <h2>
+                    Grammar
+                </h2>
 
-Explore
+                <p>
+                    Learn English grammar and practical language use.
+                </p>
 
-</button>
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Grammar')">
 
-</div>
+                    Explore
 
+                </button>
 
-<div class="category-card">
+            </div>
 
-<div class="category-icon">🔬</div>
 
-<h2>Science</h2>
+            <!-- SCIENCE -->
 
-<p>
-Explore scientific ideas and discoveries.
-</p>
+            <div class="category-card">
 
-<button
-class="explore-btn"
-onclick="openCategory('Science')">
+                <div class="category-icon">
+                    🔬
+                </div>
 
-Explore
+                <h2>
+                    Science
+                </h2>
 
-</button>
+                <p>
+                    Explore scientific ideas and discoveries.
+                </p>
 
-</div>
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Science')">
 
+                    Explore
 
-<div class="category-card">
+                </button>
 
-<div class="category-icon">🎓</div>
+            </div>
 
-<h2>Education</h2>
 
-<p>
-Articles about teaching and learning.
-</p>
+            <!-- EDUCATION -->
 
-<button
-class="explore-btn"
-onclick="openCategory('Education')">
+            <div class="category-card">
 
-Explore
+                <div class="category-icon">
+                    🎓
+                </div>
 
-</button>
+                <h2>
+                    Education
+                </h2>
 
-</div>
+                <p>
+                    Articles about teaching and learning.
+                </p>
 
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Education')">
 
-<div class="category-card">
+                    Explore
 
-<div class="category-icon">💻</div>
+                </button>
 
-<h2>Technology</h2>
+            </div>
 
-<p>
-Discover technology and useful
-digital tools.
-</p>
 
-<button
-class="explore-btn"
-onclick="openCategory('Technology')">
+            <!-- TECHNOLOGY -->
 
-Explore
+            <div class="category-card">
 
-</button>
+                <div class="category-icon">
+                    💻
+                </div>
 
-</div>
+                <h2>
+                    Technology
+                </h2>
 
+                <p>
+                    Discover technology and useful digital tools.
+                </p>
 
-<div class="category-card">
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Technology')">
 
-<div class="category-icon">📝</div>
+                    Explore
 
-<h2>Poetry</h2>
+                </button>
 
-<p>
-Read poems, nazams and creative writing.
-</p>
+            </div>
 
-<button
-class="explore-btn"
-onclick="openCategory('Poetry')">
 
-Explore
+            <!-- POETRY -->
 
-</button>
+            <div class="category-card">
 
-</div>
+                <div class="category-icon">
+                    📝
+                </div>
 
+                <h2>
+                    Poetry
+                </h2>
 
-<div class="category-card">
+                <p>
+                    Read poems, nazams and creative writing.
+                </p>
 
-<div class="category-icon">📖</div>
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Poetry')">
 
-<h2>Stories</h2>
+                    Explore
 
-<p>
-Enjoy stories and inspiring narratives.
-</p>
+                </button>
 
-<button
-class="explore-btn"
-onclick="openCategory('Stories')">
+            </div>
 
-Explore
 
-</button>
+            <!-- STORIES -->
 
-</div>
+            <div class="category-card">
 
+                <div class="category-icon">
+                    📖
+                </div>
 
-<div class="category-card">
+                <h2>
+                    Stories
+                </h2>
 
-<div class="category-icon">🌍</div>
+                <p>
+                    Enjoy stories and inspiring narratives.
+                </p>
 
-<h2>General Knowledge</h2>
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Stories')">
 
-<p>
-Interesting facts and useful knowledge.
-</p>
+                    Explore
 
-<button
-class="explore-btn"
-onclick="openCategory('General Knowledge')">
+                </button>
 
-Explore
+            </div>
 
-</button>
 
-</div>
+            <!-- GENERAL KNOWLEDGE -->
 
+            <div class="category-card">
 
-<div class="category-card">
+                <div class="category-icon">
+                    🌍
+                </div>
 
-<div class="category-icon">💡</div>
+                <h2>
+                    General Knowledge
+                </h2>
 
-<h2>Opinion</h2>
+                <p>
+                    Interesting facts and useful knowledge.
+                </p>
 
-<p>
-Read ideas, opinions and perspectives.
-</p>
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('General Knowledge')">
 
-<button
-class="explore-btn"
-onclick="openCategory('Opinion')">
+                    Explore
 
-Explore
+                </button>
 
-</button>
+            </div>
 
-</div>
 
+            <!-- OPINION -->
 
-<div class="category-card">
+            <div class="category-card">
 
-<div class="category-icon">✨</div>
+                <div class="category-icon">
+                    💡
+                </div>
 
-<h2>Other</h2>
+                <h2>
+                    Opinion
+                </h2>
 
-<p>
-Discover other interesting writings.
-</p>
+                <p>
+                    Read ideas, opinions and perspectives.
+                </p>
 
-<button
-class="explore-btn"
-onclick="openCategory('Other')">
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Opinion')">
 
-Explore
+                    Explore
 
-</button>
+                </button>
 
-</div>
+            </div>
 
 
-</div>
+            <!-- OTHER -->
 
-</div>
+            <div class="category-card">
 
+                <div class="category-icon">
+                    ✨
+                </div>
 
-<div id="categoryContent">
+                <h2>
+                    Other
+                </h2>
 
+                <p>
+                    Discover other interesting writings.
+                </p>
 
-<button
-class="back-btn"
-onclick="backToCategories()">
+                <button
+                    class="explore-btn"
+                    onclick="openCategory('Other')">
 
-← Back to Categories
+                    Explore
 
-</button>
+                </button>
 
+            </div>
 
-<div class="section-title">
 
-<h2 id="categoryHeading">
-📚 Category
-</h2>
+        </div>
 
-</div>
+    </div>
 
 
-<div id="articlesContainer">
+    <!-- =========================
+         CATEGORY CONTENT
+    ========================== -->
 
-<div class="loading">
-⏳ Loading...
-</div>
+    <div id="categoryContent">
 
-</div>
 
+        <button
+            class="back-btn"
+            onclick="backToCategories()">
 
-</div>
+            ← Back to Categories
+
+        </button>
+
+
+        <div class="section-title">
+
+            <h2 id="categoryHeading">
+                📚 Category
+            </h2>
+
+        </div>
+
+
+        <div id="articlesContainer">
+
+            <div class="loading">
+                ⏳ Loading...
+            </div>
+
+        </div>
+
+
+    </div>
 
 
 </div>
@@ -612,975 +677,1217 @@ onclick="backToCategories()">
 
 <footer>
 
-© 2026 The Shining Window — All Rights Reserved
+    © 2026 The Shining Window — All Rights Reserved
 
 </footer>
+
 
 
 <script type="module">
 
 
+/* =====================================
+   FIREBASE IMPORTS
+===================================== */
+
 import {
-initializeApp
+    initializeApp
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-getDatabase,
-ref,
-get
+    getDatabase,
+    ref,
+    get
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
+
+/* =====================================
+   FIREBASE CONFIG
+===================================== */
+
 const firebaseConfig = {
 
-apiKey:
-"AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
+    apiKey:
+        "AIzaSyDM5ILBqs3aI7zwQ6JL8D-MBec87tpw1Kk",
 
-authDomain:
-"the-shining-window.firebaseapp.com",
+    authDomain:
+        "the-shining-window.firebaseapp.com",
 
-databaseURL:
-"https://the-shining-window-default-rtdb.firebaseio.com",
+    databaseURL:
+        "https://the-shining-window-default-rtdb.firebaseio.com",
 
-projectId:
-"the-shining-window",
+    projectId:
+        "the-shining-window",
 
-storageBucket:
-"the-shining-window.firebasestorage.app",
+    storageBucket:
+        "the-shining-window.firebasestorage.app",
 
-messagingSenderId:
-"636523709313",
+    messagingSenderId:
+        "636523709313",
 
-appId:
-"1:636523709313:web:8cbd2ce21eddae998fde80",
+    appId:
+        "1:636523709313:web:8cbd2ce21eddae998fde80",
 
-measurementId:
-"G-NMNL6J6J1P"
+    measurementId:
+        "G-NMNL6J6J1P"
 
 };
 
 
+
+/* =====================================
+   INITIALIZE FIREBASE
+===================================== */
+
 const app =
-initializeApp(firebaseConfig);
+    initializeApp(firebaseConfig);
+
 
 const db =
-getDatabase(app);
+    getDatabase(app);
 
+
+
+/* =====================================
+   HTML ELEMENTS
+===================================== */
 
 const categoriesPage =
-document.getElementById("categoriesPage");
+    document.getElementById(
+        "categoriesPage"
+    );
+
 
 const categoryContent =
-document.getElementById("categoryContent");
+    document.getElementById(
+        "categoryContent"
+    );
+
 
 const categoryHeading =
-document.getElementById("categoryHeading");
+    document.getElementById(
+        "categoryHeading"
+    );
+
 
 const articlesContainer =
-document.getElementById("articlesContainer");
+    document.getElementById(
+        "articlesContainer"
+    );
 
+
+
+/* =====================================
+   NORMALIZE TEXT
+===================================== */
 
 function normalize(value){
 
-return String(value || "")
-.trim()
-.toLowerCase()
-.replace(/\s+/g," ");
+    return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g," ");
 
 }
 
 
-/* ==========================================
-   GET CONTENT
-========================================== */
 
-function getWritingContent(item){
+/* =====================================
+   GET ARTICLE CONTENT
+===================================== */
 
-const possibleFields = [
+function getArticleContent(item){
 
-"article",
-"content",
-"poem",
-"nazam",
-"text",
-"body",
-"writing",
-"description"
+    if(
+        item.article !== undefined &&
+        item.article !== null &&
+        String(item.article).trim() !== ""
+    ){
 
-];
+        return String(item.article);
 
-for(const field of possibleFields){
+    }
 
-if(
-item[field] !== undefined &&
-item[field] !== null &&
-String(item[field]).trim() !== ""
-){
 
-return String(item[field]);
+    const alternatives = [
+
+        "content",
+        "poem",
+        "nazam",
+        "nazm",
+        "text",
+        "body",
+        "writing"
+
+    ];
+
+
+    for(
+        const field of alternatives
+    ){
+
+        if(
+            item[field] !== undefined &&
+            item[field] !== null &&
+            String(item[field]).trim() !== ""
+        ){
+
+            return String(item[field]);
+
+        }
+
+    }
+
+
+    return "";
 
 }
 
-}
-
-return "";
-
-}
 
 
-/* ==========================================
+/* =====================================
    GET CATEGORY
-========================================== */
+===================================== */
 
 function getCategory(item){
 
-const possibleFields = [
-
-"category",
-"categoryName",
-"type",
-"section"
-
-];
-
-for(const field of possibleFields){
-
-if(
-item[field] !== undefined &&
-item[field] !== null &&
-String(item[field]).trim() !== ""
-){
-
-return normalize(item[field]);
-
-}
-
-}
-
-return "";
+    return normalize(
+        item.category
+    );
 
 }
 
 
-/* ==========================================
-   PUBLICATION CHECK
-========================================== */
+
+/* =====================================
+   CHECK PUBLISHED STATUS
+===================================== */
 
 function isPublished(item){
 
-const status =
-normalize(item.status);
-
-const publication =
-normalize(item.publicationStatus);
-
-const state =
-normalize(item.state);
+    const status =
+        normalize(item.status);
 
 
-if(
-item.approved === true ||
-item.approved === "true"
+    /*
+       ADMIN DASHBOARD publishes with:
+
+       status: "published"
+       approved: true
+    */
+
+
+    if(
+        status === "published"
+    ){
+
+        return true;
+
+    }
+
+
+    if(
+        status === "approved"
+    ){
+
+        return true;
+
+    }
+
+
+    if(
+        item.approved === true ||
+        item.approved === "true"
+    ){
+
+        return true;
+
+    }
+
+
+    if(
+        item.published === true ||
+        item.published === "true"
+    ){
+
+        return true;
+
+    }
+
+
+    if(
+        item.isPublished === true ||
+        item.isPublished === "true"
+    ){
+
+        return true;
+
+    }
+
+
+    return false;
+
+}
+
+
+
+/* =====================================
+   CATEGORY MATCH
+===================================== */
+
+function categoryMatches(
+    itemCategory,
+    wantedCategory
 ){
 
-return true;
+    const itemCat =
+        normalize(itemCategory);
+
+
+    const wantedCat =
+        normalize(wantedCategory);
+
+
+    if(!itemCat){
+
+        return false;
+
+    }
+
+
+    /*
+       Normal categories
+    */
+
+    if(
+        itemCat === wantedCat
+    ){
+
+        return true;
+
+    }
+
+
+    /*
+       Poetry variations
+    */
+
+    if(
+        wantedCat === "poetry"
+    ){
+
+        const poetryNames = [
+
+            "poetry",
+            "poem",
+            "poems",
+            "poet",
+            "nazam",
+            "nazm",
+            "poetry/nazam",
+            "poetry - nazam",
+            "poetry nazam",
+            "poetry/nazm",
+            "poetry - nazm",
+            "poetry nazm",
+            "شاعری",
+            "نظم"
+
+        ];
+
+
+        if(
+            poetryNames.includes(itemCat)
+        ){
+
+            return true;
+
+        }
+
+
+        /*
+           Also accept values containing
+           poetry, poem, nazam or nazm
+        */
+
+        if(
+            itemCat.includes("poetry") ||
+            itemCat.includes("poem") ||
+            itemCat.includes("nazam") ||
+            itemCat.includes("nazm") ||
+            itemCat.includes("شاعری") ||
+            itemCat.includes("نظم")
+        ){
+
+            return true;
+
+        }
+
+    }
+
+
+    return false;
 
 }
 
 
-if(
-item.published === true ||
-item.published === "true"
-){
 
-return true;
-
-}
-
-
-if(
-item.isPublished === true ||
-item.isPublished === "true"
-){
-
-return true;
-
-}
-
-
-const accepted = [
-
-"approved",
-"published",
-"public",
-"live",
-"active"
-
-];
-
-
-if(
-accepted.includes(status)
-){
-
-return true;
-
-}
-
-
-if(
-accepted.includes(publication)
-){
-
-return true;
-
-}
-
-
-if(
-accepted.includes(state)
-){
-
-return true;
-
-}
-
-
-/*
-If there is no publication field at all,
-allow the item to appear.
-
-This helps when the admin page saves
-the article without a status field.
-*/
-
-const hasPublicationField =
-
-item.status !== undefined ||
-item.approved !== undefined ||
-item.published !== undefined ||
-item.isPublished !== undefined ||
-item.publicationStatus !== undefined ||
-item.state !== undefined;
-
-
-if(!hasPublicationField){
-
-return true;
-
-}
-
-
-return false;
-
-}
-
-
-/* ==========================================
-   DATE
-========================================== */
+/* =====================================
+   DATE CONVERTER
+===================================== */
 
 function getDateValue(value){
 
-if(!value){
-return 0;
+    if(!value){
+
+        return 0;
+
+    }
+
+
+    if(
+        typeof value === "number"
+    ){
+
+        return value < 10000000000
+            ? value * 1000
+            : value;
+
+    }
+
+
+    if(
+        typeof value === "object" &&
+        value !== null
+    ){
+
+        if(
+            typeof value.seconds === "number"
+        ){
+
+            return value.seconds * 1000;
+
+        }
+
+
+        if(
+            typeof value._seconds === "number"
+        ){
+
+            return value._seconds * 1000;
+
+        }
+
+    }
+
+
+    const parsed =
+        new Date(value).getTime();
+
+
+    return isNaN(parsed)
+        ? 0
+        : parsed;
+
 }
 
-if(typeof value === "number"){
-
-return value < 10000000000
-? value * 1000
-: value;
-
-}
-
-if(
-typeof value === "object" &&
-value !== null
-){
-
-if(typeof value.seconds === "number"){
-
-return value.seconds * 1000;
-
-}
-
-if(typeof value._seconds === "number"){
-
-return value._seconds * 1000;
-
-}
-
-}
-
-const parsed =
-new Date(value).getTime();
-
-return isNaN(parsed)
-? 0
-: parsed;
-
-}
 
 
-/* ==========================================
-   PREVIEW
-========================================== */
+/* =====================================
+   CREATE PREVIEW
+===================================== */
 
 function createPreview(text){
 
-const clean =
-String(text || "").trim();
-
-if(clean.length <= 300){
-
-return clean;
-
-}
-
-return clean.substring(0,300) + "...";
-
-}
+    const clean =
+        String(text || "").trim();
 
 
-/* ==========================================
-   POETRY CATEGORY MATCH
-========================================== */
+    if(
+        clean.length <= 300
+    ){
 
-function categoryMatches(itemCategory,wantedCategory){
+        return clean;
 
-if(!itemCategory){
+    }
 
-return false;
+
+    return (
+        clean.substring(0,300)
+        + "..."
+    );
 
 }
 
 
-/*
-Poetry accepts all common names.
-*/
 
-if(wantedCategory === "poetry"){
+/* =====================================
+   ESCAPE HTML
+===================================== */
 
-const poetryNames = [
+function escapeHTML(value){
 
-"poetry",
-"poem",
-"poems",
-"nazam",
-"nazm",
-"نظم",
-"شاعری",
-"poetry/nazam",
-"poetry - nazam",
-"poetry nazam"
+    return String(value || "")
 
-];
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-return poetryNames.includes(itemCategory);
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-return itemCategory === wantedCategory;
 
-}
-
-
-/* ==========================================
+/* =====================================
    OPEN CATEGORY
-========================================== */
+===================================== */
 
 window.openCategory =
 async function(category){
 
-categoriesPage.style.display =
-"none";
 
-categoryContent.style.display =
-"block";
+    categoriesPage.style.display =
+        "none";
 
-categoryHeading.textContent =
-"📚 " + category;
 
-articlesContainer.innerHTML =
+    categoryContent.style.display =
+        "block";
 
-'<div class="loading">' +
-'⏳ Connecting to Firebase...<br><br>' +
-'Please wait...' +
-'</div>';
 
+    categoryHeading.textContent =
+        "📚 " + category;
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
 
+    articlesContainer.innerHTML = `
 
-try{
+        <div class="loading">
 
-console.log(
-"Reading Firebase: articleSubmissions"
-);
+            ⏳ Connecting to Firebase...
 
+            <br><br>
 
-const snapshot =
-await get(
-ref(
-db,
-"articleSubmissions"
-)
-);
+            Please wait...
 
+        </div>
 
-console.log(
-"Firebase snapshot:",
-snapshot.val()
-);
+    `;
 
 
-if(!snapshot.exists()){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
-showNoResults(
-category,
-"Firebase says that articleSubmissions is empty."
-);
 
-return;
 
-}
+    try{
 
 
-const data =
-snapshot.val();
+        /* ==============================
+           GET FIREBASE DATA
+        ============================== */
 
+        const snapshot =
+            await get(
+                ref(
+                    db,
+                    "articleSubmissions"
+                )
+            );
 
-const writings = [];
 
 
-let totalRecords = 0;
+        /* ==============================
+           NO DATABASE
+        ============================== */
 
-let categoryRecords = 0;
+        if(
+            !snapshot.exists()
+        ){
 
-let publishedRecords = 0;
+            showNoResults(
+                category,
+                "No records were found in articleSubmissions."
+            );
 
+            return;
 
-/* =====================================
-   READ RECORDS
-===================================== */
+        }
 
-Object.keys(data).forEach(
-function(id){
 
-const item =
-data[id];
 
-if(!item){
+        const data =
+            snapshot.val();
 
-return;
 
-}
+        const writings = [];
 
-totalRecords++;
 
+        let totalRecords = 0;
 
-/* CATEGORY */
+        let categoryRecords = 0;
 
-const itemCategory =
-getCategory(item);
+        let publishedRecords = 0;
 
 
-const wantedCategory =
-normalize(category);
 
+        /* ==============================
+           PROCESS RECORDS
+        ============================== */
 
-if(
-categoryMatches(
-itemCategory,
-wantedCategory
-)
-){
+        Object.keys(data).forEach(
+            function(id){
 
-categoryRecords++;
+                const item =
+                    data[id];
 
-}else{
 
-return;
+                if(
+                    !item ||
+                    typeof item !== "object"
+                ){
 
-}
+                    return;
 
+                }
 
-/* PUBLICATION */
 
-if(
-isPublished(item)
-){
+                totalRecords++;
 
-publishedRecords++;
 
-}else{
 
-return;
+                const itemCategory =
+                    getCategory(item);
 
-}
 
+                const wantedCategory =
+                    normalize(category);
 
-/* CONTENT */
 
-const content =
-getWritingContent(item);
 
+                /*
+                   CATEGORY CHECK
+                */
 
-if(
-!content.trim()
-){
+                if(
+                    !categoryMatches(
+                        itemCategory,
+                        wantedCategory
+                    )
+                ){
 
-return;
+                    return;
 
-}
+                }
 
 
-/* ADD */
+                categoryRecords++;
 
-writings.push({
 
-id:id,
 
-title:
-item.title ||
-item.heading ||
-item.name ||
-"Untitled",
+                /*
+                   PUBLICATION CHECK
+                */
 
-name:
-item.name ||
-item.author ||
-item.writer ||
-item.authorName ||
-"Anonymous",
+                if(
+                    !isPublished(item)
+                ){
 
-article:
-content,
+                    return;
 
-submittedAt:
-item.submittedAt ||
-item.publishedAt ||
-item.createdAt ||
-item.timestamp ||
-item.date ||
-""
+                }
 
-});
 
-}
+                publishedRecords++;
 
-);
 
 
-/* =====================================
-   DEBUG INFORMATION
-===================================== */
+                /*
+                   ARTICLE CONTENT
+                */
 
-console.log(
-"Total Firebase records:",
-totalRecords
-);
+                const article =
+                    getArticleContent(item);
 
-console.log(
-"Category records:",
-categoryRecords
-);
 
-console.log(
-"Published records:",
-publishedRecords
-);
+                if(
+                    !article.trim()
+                ){
 
-console.log(
-"Final writings:",
-writings
-);
+                    return;
+
+                }
+
+
+
+                writings.push({
+
+                    id:id,
+
+                    title:
+                        item.title ||
+                        item.heading ||
+                        item.name ||
+                        "Untitled",
+
+                    name:
+                        item.name ||
+                        item.author ||
+                        item.writer ||
+                        item.authorName ||
+                        "Anonymous",
+
+                    email:
+                        item.email ||
+                        "",
+
+                    category:
+                        item.category ||
+                        category,
+
+                    article:article,
+
+                    submittedAt:
+                        item.submittedAt ||
+                        item.publishedAt ||
+                        item.createdAt ||
+                        item.timestamp ||
+                        item.date ||
+                        ""
+
+                });
+
+            }
+        );
+
+
+
+        /* ==============================
+           NO MATCH
+        ============================== */
+
+        if(
+            writings.length === 0
+        ){
+
+            showDebugNoResults(
+                category,
+                totalRecords,
+                categoryRecords,
+                publishedRecords
+            );
+
+            return;
+
+        }
+
+
+
+        /* ==============================
+           SORT NEWEST FIRST
+        ============================== */
+
+        writings.sort(
+            function(a,b){
+
+                return (
+                    getDateValue(
+                        b.submittedAt
+                    )
+                    -
+                    getDateValue(
+                        a.submittedAt
+                    )
+                );
+
+            }
+        );
+
+
+
+        /* ==============================
+           CLEAR LOADING
+        ============================== */
+
+        articlesContainer.innerHTML =
+            "";
+
+
+
+        /* ==============================
+           DISPLAY ARTICLES
+        ============================== */
+
+        writings.forEach(
+            function(item){
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "article-card";
+
+
+
+                /* TITLE */
+
+                const title =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                title.textContent =
+                    item.title;
+
+
+
+                /* INFO */
+
+                const info =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                info.className =
+                    "article-info";
+
+
+                info.textContent =
+                    "✍️ By " +
+                    item.name;
+
+
+
+                /* PREVIEW */
+
+                const preview =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                preview.className =
+                    "article-preview";
+
+
+                preview.textContent =
+                    createPreview(
+                        item.article
+                    );
+
+
+
+                /* READ BUTTON */
+
+                const readButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                readButton.className =
+                    "read-btn";
+
+
+                readButton.textContent =
+                    "📖 Read";
+
+
+
+                /* FULL ARTICLE */
+
+                const fullArticle =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                fullArticle.className =
+                    "full-article";
+
+
+
+                /* FULL TITLE */
+
+                const fullTitle =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                fullTitle.className =
+                    "full-article-title";
+
+
+                fullTitle.textContent =
+                    item.title;
+
+
+
+                /* FULL CONTENT */
+
+                const fullContent =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                fullContent.className =
+                    "full-article-content";
+
+
+                fullContent.textContent =
+                    item.article;
+
+
+
+                /* CLOSE BUTTON */
+
+                const closeButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                closeButton.className =
+                    "close-btn";
+
+
+                closeButton.textContent =
+                    "▲ Close";
+
+
+
+                /* BUILD FULL ARTICLE */
+
+                fullArticle.appendChild(
+                    fullTitle
+                );
+
+
+                fullArticle.appendChild(
+                    fullContent
+                );
+
+
+                fullArticle.appendChild(
+                    closeButton
+                );
+
+
+
+                /* =========================
+                   READ
+                ========================= */
+
+                readButton.onclick =
+                    function(){
+
+                        fullArticle.style.display =
+                            "block";
+
+
+                        preview.style.display =
+                            "none";
+
+
+                        readButton.style.display =
+                            "none";
+
+
+                        fullArticle.scrollIntoView({
+                            behavior:"smooth",
+                            block:"start"
+                        });
+
+                    };
+
+
+
+                /* =========================
+                   CLOSE
+                ========================= */
+
+                closeButton.onclick =
+                    function(){
+
+                        fullArticle.style.display =
+                            "none";
+
+
+                        preview.style.display =
+                            "block";
+
+
+                        readButton.style.display =
+                            "inline-block";
+
+
+                        card.scrollIntoView({
+                            behavior:"smooth",
+                            block:"start"
+                        });
+
+                    };
+
+
+
+                /* BUILD CARD */
+
+                card.appendChild(
+                    title
+                );
+
+
+                card.appendChild(
+                    info
+                );
+
+
+                card.appendChild(
+                    preview
+                );
+
+
+                card.appendChild(
+                    readButton
+                );
+
+
+                card.appendChild(
+                    fullArticle
+                );
+
+
+
+                articlesContainer.appendChild(
+                    card
+                );
+
+            }
+        );
+
+
+    }
+    catch(error){
+
+
+        console.error(
+            "Firebase error:",
+            error
+        );
+
+
+        articlesContainer.innerHTML = `
+
+            <div class="error-message">
+
+                <h3>
+                    ❌ Unable to load writings
+                </h3>
+
+                <p style="margin-top:10px;">
+
+                    ${escapeHTML(
+                        error.message
+                    )}
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+};
+
 
 
 /* =====================================
    NO RESULTS
 ===================================== */
-
-if(
-writings.length === 0
-){
-
-showDebugNoResults(
-category,
-totalRecords,
-categoryRecords,
-publishedRecords
-);
-
-return;
-
-}
-
-
-/* =====================================
-   SORT
-===================================== */
-
-writings.sort(
-function(a,b){
-
-return
-getDateValue(b.submittedAt)
--
-getDateValue(a.submittedAt);
-
-}
-);
-
-
-/* =====================================
-   DISPLAY
-===================================== */
-
-articlesContainer.innerHTML =
-"";
-
-
-writings.forEach(
-function(item){
-
-const card =
-document.createElement("div");
-
-card.className =
-"article-card";
-
-
-const title =
-document.createElement("h3");
-
-title.textContent =
-item.title;
-
-
-const info =
-document.createElement("div");
-
-info.className =
-"article-info";
-
-info.textContent =
-"✍️ By " + item.name;
-
-
-const preview =
-document.createElement("div");
-
-preview.className =
-"article-preview";
-
-preview.textContent =
-createPreview(item.article);
-
-
-const readButton =
-document.createElement("button");
-
-readButton.className =
-"read-btn";
-
-readButton.textContent =
-"📖 Read";
-
-
-const fullArticle =
-document.createElement("div");
-
-fullArticle.className =
-"full-article";
-
-
-const fullTitle =
-document.createElement("div");
-
-fullTitle.className =
-"full-article-title";
-
-fullTitle.textContent =
-item.title;
-
-
-const fullContent =
-document.createElement("div");
-
-fullContent.className =
-"full-article-content";
-
-fullContent.textContent =
-item.article;
-
-
-const closeButton =
-document.createElement("button");
-
-closeButton.className =
-"close-btn";
-
-closeButton.textContent =
-"▲ Close";
-
-
-fullArticle.appendChild(
-fullTitle
-);
-
-fullArticle.appendChild(
-fullContent
-);
-
-fullArticle.appendChild(
-closeButton
-);
-
-
-readButton.onclick =
-function(){
-
-fullArticle.style.display =
-"block";
-
-preview.style.display =
-"none";
-
-readButton.style.display =
-"none";
-
-fullArticle.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-};
-
-
-closeButton.onclick =
-function(){
-
-fullArticle.style.display =
-"none";
-
-preview.style.display =
-"block";
-
-readButton.style.display =
-"inline-block";
-
-card.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-};
-
-
-card.appendChild(title);
-
-card.appendChild(info);
-
-card.appendChild(preview);
-
-card.appendChild(readButton);
-
-card.appendChild(fullArticle);
-
-
-articlesContainer.appendChild(card);
-
-}
-
-);
-
-
-}
-
-catch(error){
-
-console.error(
-"Firebase error:",
-error
-);
-
-
-articlesContainer.innerHTML =
-
-'<div class="error-message">' +
-
-'<h3>❌ Unable to load writings</h3>' +
-
-'<p style="margin-top:10px;">' +
-
-escapeHtml(error.message) +
-
-'</p>' +
-
-'<p style="margin-top:12px;">' +
-
-'Please check Firebase Realtime Database ' +
-'permissions and the articleSubmissions path.' +
-
-'</p>' +
-
-'</div>';
-
-}
-
-};
-
-
-/* ==========================================
-   NO RESULTS
-========================================== */
 
 function showNoResults(
-category,
-message
+    category,
+    message
 ){
 
-articlesContainer.innerHTML =
+    articlesContainer.innerHTML = `
 
-'<div class="no-results">' +
+        <div class="no-results">
 
-'<h3>📭 No published writing yet</h3>' +
+            <h3>
+                📭 No published writing yet
+            </h3>
 
-'<p style="margin-top:8px;">' +
+            <p style="margin-top:8px;">
 
-'There are currently no writings in ' +
+                There are currently no
+                published writings in
 
-'<strong>' +
+                <strong>
+                    ${escapeHTML(category)}
+                </strong>.
 
-escapeHtml(category) +
+            </p>
 
-'</strong>.' +
+            <div class="debug-message">
 
-'</p>' +
+                ${escapeHTML(message)}
 
-'<p style="margin-top:10px;font-size:14px;">' +
+            </div>
 
-escapeHtml(message) +
+        </div>
 
-'</p>' +
-
-'</div>';
+    `;
 
 }
 
 
-/* ==========================================
+
+/* =====================================
    DEBUG NO RESULTS
-========================================== */
+===================================== */
 
 function showDebugNoResults(
-category,
-total,
-categoryCount,
-published
+    category,
+    total,
+    categoryCount,
+    published
 ){
 
-articlesContainer.innerHTML =
+    articlesContainer.innerHTML = `
 
-'<div class="no-results">' +
+        <div class="no-results">
 
-'<h3>📭 Nothing matched</h3>' +
+            <h3>
+                📭 Nothing matched
+            </h3>
 
-'<p style="margin-top:10px;">' +
 
-'Category: <strong>' +
+            <p style="margin-top:10px;">
 
-escapeHtml(category) +
+                Category:
 
-'</strong>' +
+                <strong>
+                    ${escapeHTML(category)}
+                </strong>
 
-'</p>' +
+            </p>
 
-'<div class="debug-message" style="margin-top:18px;text-align:left;">' +
 
-'<strong>Firebase check:</strong><br><br>' +
+            <div class="debug-message">
 
-'Total records found: ' +
-total +
+                <strong>
+                    Firebase Check:
+                </strong>
 
-'<br>' +
+                <br><br>
 
-'Matching category records: ' +
-categoryCount +
+                Total records found:
+                ${total}
 
-'<br>' +
+                <br>
 
-'Published/approved records: ' +
-published +
+                Matching category records:
+                ${categoryCount}
 
-'<br><br>' +
+                <br>
 
-'Open your browser console with ' +
-'<strong>Console</strong> ' +
-'to see the Firebase data.' +
+                Published records:
+                ${published}
 
-'</div>' +
+                <br><br>
 
-'</div>';
+                <strong>
+                    Expected Firebase fields:
+                </strong>
+
+                <br>
+
+                category = ${escapeHTML(category)}
+
+                <br>
+
+                status = published
+
+                <br>
+
+                approved = true
+
+            </div>
+
+        </div>
+
+    `;
 
 }
 
 
-/* ==========================================
-   ESCAPE HTML
-========================================== */
 
-function escapeHtml(value){
-
-return String(value || "")
-
-.replace(/&/g,"&amp;")
-
-.replace(/</g,"&lt;")
-
-.replace(/>/g,"&gt;")
-
-.replace(/"/g,"&quot;")
-
-.replace(/'/g,"&#039;");
-
-}
-
-
-/* ==========================================
-   BACK
-========================================== */
+/* =====================================
+   BACK TO CATEGORIES
+===================================== */
 
 window.backToCategories =
 function(){
 
-categoryContent.style.display =
-"none";
+    categoryContent.style.display =
+        "none";
 
-categoriesPage.style.display =
-"block";
 
-articlesContainer.innerHTML =
+    categoriesPage.style.display =
+        "block";
 
-'<div class="loading">' +
-'⏳ Loading...' +
-'</div>';
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    articlesContainer.innerHTML = `
+
+        <div class="loading">
+
+            ⏳ Loading...
+
+        </div>
+
+    `;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 };
+
 
 </script>
 
