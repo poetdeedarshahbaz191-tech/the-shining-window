@@ -181,28 +181,86 @@ button{
     font-size:14px;
 }
 
-.approve{
-    background:#218739;
+button:hover{
+    opacity:.9;
 }
 
-.approve:hover{
-    background:#176b2b;
+.approve{
+    background:#218739;
 }
 
 .reject{
     background:#c62828;
 }
 
-.reject:hover{
-    background:#9e1e1e;
-}
-
 .delete{
     background:#555;
 }
 
-.delete:hover{
-    background:#333;
+.edit{
+    background:#1976d2;
+}
+
+.cancel{
+    background:#777;
+}
+
+.save{
+    background:#218739;
+}
+
+/* ================================
+   EDIT FORM
+================================ */
+
+.edit-form{
+    display:none;
+    background:#f8fbfe;
+    border:2px solid #1976d2;
+    border-radius:12px;
+    padding:20px;
+    margin-top:15px;
+}
+
+.edit-form h3{
+    color:#173f5f;
+    margin-bottom:15px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    color:#173f5f;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:11px;
+    border:1px solid #ccd6df;
+    border-radius:7px;
+    font-family:Arial,sans-serif;
+    font-size:15px;
+    background:white;
+}
+
+.form-group textarea{
+    min-height:300px;
+    resize:vertical;
+    line-height:1.7;
+}
+
+.form-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
 }
 
 .empty{
@@ -256,7 +314,8 @@ footer{
         padding:17px;
     }
 
-    .buttons{
+    .buttons,
+    .form-buttons{
         flex-direction:column;
     }
 
@@ -317,7 +376,7 @@ Write for Us
 </h1>
 
 <p>
-Review, approve or reject submitted articles.
+Review, edit, publish or delete writer submissions.
 </p>
 
 </div>
@@ -429,7 +488,7 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 
 /* =================================
-   YOUR REAL FIREBASE CONFIG
+   FIREBASE CONFIG
 ================================= */
 
 const firebaseConfig = {
@@ -463,16 +522,14 @@ const firebaseConfig = {
 
 
 /* =================================
-   INITIALIZE
+   INITIALIZE FIREBASE
 ================================= */
 
 const app =
     initializeApp(firebaseConfig);
 
-
 const db =
     getDatabase(app);
-
 
 const submissionsRef =
     ref(db,"articleSubmissions");
@@ -512,15 +569,12 @@ function showMessage(text){
     messageBox.style.display =
         "block";
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            messageBox.style.display =
-                "none";
+        messageBox.style.display =
+            "none";
 
-        },
-        3000
-    );
+    },3000);
 
 }
 
@@ -542,6 +596,7 @@ function escapeHTML(value){
     }
 
     return String(value)
+
         .replace(/&/g,"&amp;")
         .replace(/</g,"&lt;")
         .replace(/>/g,"&gt;")
@@ -562,22 +617,15 @@ onValue(
 
     (snapshot) => {
 
+        submissionsContainer.innerHTML = "";
 
-        submissionsContainer.innerHTML =
-            "";
 
 
         if(!snapshot.exists()){
 
-
-            totalCount.textContent =
-                "0";
-
-            pendingCount.textContent =
-                "0";
-
-            publishedCount.textContent =
-                "0";
+            totalCount.textContent = "0";
+            pendingCount.textContent = "0";
+            publishedCount.textContent = "0";
 
 
             submissionsContainer.innerHTML = `
@@ -605,17 +653,13 @@ onValue(
         const data =
             snapshot.val();
 
-
         const entries =
             Object.entries(data);
 
 
 
-        let pending =
-            0;
-
-        let published =
-            0;
+        let pending = 0;
+        let published = 0;
 
 
 
@@ -631,17 +675,13 @@ onValue(
         entries.forEach(
             ([id,item]) => {
 
-
                 const status =
                     String(
                         item.status || "pending"
                     ).toLowerCase();
 
-
-
                 const approved =
                     item.approved === true;
-
 
 
                 if(
@@ -653,6 +693,7 @@ onValue(
                     published++;
 
                 }
+
                 else if(
                     status !== "rejected"
                 ){
@@ -669,7 +710,6 @@ onValue(
         pendingCount.textContent =
             pending;
 
-
         publishedCount.textContent =
             published;
 
@@ -682,18 +722,15 @@ onValue(
         entries.sort(
             (a,b) => {
 
-
                 const aStatus =
                     String(
                         a[1].status || "pending"
                     ).toLowerCase();
 
-
                 const bStatus =
                     String(
                         b[1].status || "pending"
                     ).toLowerCase();
-
 
 
                 if(
@@ -706,7 +743,6 @@ onValue(
                 }
 
 
-
                 if(
                     aStatus !== "pending" &&
                     bStatus === "pending"
@@ -715,7 +751,6 @@ onValue(
                     return 1;
 
                 }
-
 
 
                 return 0;
@@ -737,7 +772,6 @@ onValue(
                     String(
                         item.status || "pending"
                     ).toLowerCase();
-
 
 
                 const title =
@@ -773,24 +807,23 @@ onValue(
 
 
                 const card =
-                    document.createElement(
-                        "div"
-                    );
-
+                    document.createElement("div");
 
                 card.className =
                     "submission";
 
-
-
-                let buttons =
-                    "";
+                card.id =
+                    "submission-" + id;
 
 
 
                 /* =================================
-                   PENDING
+                   BUTTONS
                 ================================= */
+
+                let buttons = "";
+
+
 
                 if(
                     status === "pending" ||
@@ -820,12 +853,6 @@ onValue(
 
                 }
 
-
-
-                /* =================================
-                   PUBLISHED
-                ================================= */
-
                 else if(
                     status === "published" ||
                     status === "approved"
@@ -845,10 +872,46 @@ onValue(
 
                 }
 
+                else if(
+                    status === "rejected"
+                ){
+
+                    buttons = `
+
+                        <button
+                            class="approve"
+                            onclick="approveArticle('${id}')">
+
+                            ✅ Publish
+
+                        </button>
+
+                    `;
+
+                }
+
 
 
                 /* =================================
-                   DELETE
+                   EDIT BUTTON
+                ================================= */
+
+                buttons += `
+
+                    <button
+                        class="edit"
+                        onclick="showEditForm('${id}')">
+
+                        ✏️ Edit
+
+                    </button>
+
+                `;
+
+
+
+                /* =================================
+                   DELETE BUTTON
                 ================================= */
 
                 buttons += `
@@ -890,6 +953,10 @@ onValue(
                 }
 
 
+
+                /* =================================
+                   CARD HTML
+                ================================= */
 
                 card.innerHTML = `
 
@@ -964,13 +1031,145 @@ onValue(
 
                     </div>
 
+
+
+                    <!-- EDIT FORM -->
+
+                    <div
+                        class="edit-form"
+                        id="edit-form-${id}">
+
+                        <h3>
+                            ✏️ Edit Submission
+                        </h3>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="edit-title-${id}"
+                                value="${escapeHTML(title)}">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Writer Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="edit-name-${id}"
+                                value="${escapeHTML(name)}">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="edit-email-${id}"
+                                value="${escapeHTML(email)}">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Category
+                            </label>
+
+                            <select
+                                id="edit-category-${id}">
+
+                                <option value="Poetry"
+                                    ${category === "Poetry" ? "selected" : ""}>
+                                    Poetry
+                                </option>
+
+                                <option value="Stories"
+                                    ${category === "Stories" ? "selected" : ""}>
+                                    Stories
+                                </option>
+
+                                <option value="Education"
+                                    ${category === "Education" ? "selected" : ""}>
+                                    Education
+                                </option>
+
+                                <option value="Articles"
+                                    ${category === "Articles" ? "selected" : ""}>
+                                    Articles
+                                </option>
+
+                                <option value="Essays"
+                                    ${category === "Essays" ? "selected" : ""}>
+                                    Essays
+                                </option>
+
+                                <option value="Other"
+                                    ${category === "Other" ? "selected" : ""}>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Writing / Content
+                            </label>
+
+                            <textarea
+                                id="edit-article-${id}">${escapeHTML(article)}</textarea>
+
+                        </div>
+
+
+                        <div class="form-buttons">
+
+                            <button
+                                class="save"
+                                onclick="saveEdit('${id}')">
+
+                                💾 Save Changes
+
+                            </button>
+
+
+                            <button
+                                class="cancel"
+                                onclick="cancelEdit('${id}')">
+
+                                ✖️ Cancel
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
                 `;
 
 
 
-                submissionsContainer.appendChild(
-                    card
-                );
+                submissionsContainer.appendChild(card);
 
             }
         );
@@ -984,7 +1183,6 @@ onValue(
     ================================= */
 
     (error) => {
-
 
         console.error(
             "Firebase error:",
@@ -1015,6 +1213,190 @@ onValue(
 
 
 /* =================================
+   SHOW EDIT FORM
+================================= */
+
+window.showEditForm =
+function(id){
+
+    const form =
+        document.getElementById(
+            "edit-form-" + id
+        );
+
+    if(!form){
+
+        return;
+
+    }
+
+    form.style.display =
+        "block";
+
+
+    form.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+};
+
+
+
+/* =================================
+   CANCEL EDIT
+================================= */
+
+window.cancelEdit =
+function(id){
+
+    const form =
+        document.getElementById(
+            "edit-form-" + id
+        );
+
+    if(!form){
+
+        return;
+
+    }
+
+    form.style.display =
+        "none";
+
+};
+
+
+
+/* =================================
+   SAVE EDIT
+================================= */
+
+window.saveEdit =
+async function(id){
+
+    const title =
+        document.getElementById(
+            "edit-title-" + id
+        ).value.trim();
+
+
+    const name =
+        document.getElementById(
+            "edit-name-" + id
+        ).value.trim();
+
+
+    const email =
+        document.getElementById(
+            "edit-email-" + id
+        ).value.trim();
+
+
+    const category =
+        document.getElementById(
+            "edit-category-" + id
+        ).value;
+
+
+    const article =
+        document.getElementById(
+            "edit-article-" + id
+        ).value.trim();
+
+
+
+    if(!title){
+
+        alert(
+            "Please enter a title."
+        );
+
+        return;
+
+    }
+
+
+    if(!name){
+
+        alert(
+            "Please enter the writer name."
+        );
+
+        return;
+
+    }
+
+
+    if(!article){
+
+        alert(
+            "Please enter the writing/content."
+        );
+
+        return;
+
+    }
+
+
+
+    try{
+
+        await update(
+
+            ref(
+                db,
+                "articleSubmissions/" + id
+            ),
+
+            {
+
+                title:
+                title,
+
+                name:
+                name,
+
+                email:
+                email,
+
+                category:
+                category,
+
+                article:
+                article
+
+            }
+
+        );
+
+
+        showMessage(
+            "✏️ Submission updated successfully."
+        );
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Could not save changes: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+
+/* =================================
    APPROVE & PUBLISH
 ================================= */
 
@@ -1022,7 +1404,6 @@ window.approveArticle =
 async function(id){
 
     try{
-
 
         await update(
 
@@ -1044,21 +1425,15 @@ async function(id){
         );
 
 
-
         showMessage(
             "✅ Article approved and published successfully."
         );
-
 
     }
 
     catch(error){
 
-
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         alert(
             "Could not publish article: " +
@@ -1079,7 +1454,6 @@ window.rejectArticle =
 async function(id){
 
     try{
-
 
         await update(
 
@@ -1105,16 +1479,11 @@ async function(id){
             "❌ Article rejected."
         );
 
-
     }
 
     catch(error){
 
-
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         alert(
             "Could not reject article: " +
@@ -1135,7 +1504,6 @@ window.unpublishArticle =
 async function(id){
 
     try{
-
 
         await update(
 
@@ -1161,16 +1529,11 @@ async function(id){
             "↩️ Article moved back to pending."
         );
 
-
     }
 
     catch(error){
 
-
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         alert(
             "Could not unpublish article: " +
@@ -1190,7 +1553,6 @@ async function(id){
 window.deleteArticle =
 async function(id){
 
-
     const confirmed =
         confirm(
             "Are you sure you want to permanently delete this submission?"
@@ -1207,7 +1569,6 @@ async function(id){
 
     try{
 
-
         await remove(
 
             ref(
@@ -1219,19 +1580,14 @@ async function(id){
 
 
         showMessage(
-            "🗑️ Submission deleted."
+            "🗑️ Submission deleted successfully."
         );
-
 
     }
 
     catch(error){
 
-
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         alert(
             "Could not delete submission: " +
@@ -1241,7 +1597,6 @@ async function(id){
     }
 
 };
-
 
 </script>
 
