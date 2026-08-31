@@ -127,6 +127,13 @@ textarea{
     min-height:350px;
     resize:vertical;
     line-height:1.8;
+
+    /* Default English direction */
+    direction:ltr;
+    text-align:left;
+
+    /* Better handling of mixed text */
+    unicode-bidi:plaintext;
 }
 
 .help{
@@ -576,6 +583,134 @@ const submitButton =
         "submitButton"
     );
 
+const article =
+    document.getElementById(
+        "article"
+    );
+
+
+/* =====================================
+   SINDHI / ENGLISH DIRECTION
+===================================== */
+
+/*
+   Sindhi uses the Arabic Unicode block.
+
+   If the first meaningful character is
+   Sindhi/Arabic script:
+       direction = RTL
+       alignment = right
+
+   Otherwise:
+       direction = LTR
+       alignment = left
+*/
+
+function detectWritingDirection(text){
+
+    const firstCharacter =
+        text.trim().charAt(0);
+
+    if(!firstCharacter){
+
+        article.style.direction =
+            "ltr";
+
+        article.style.textAlign =
+            "left";
+
+        return;
+
+    }
+
+
+    const code =
+        firstCharacter.charCodeAt(0);
+
+
+    /*
+       Arabic:
+       U+0600 – U+06FF
+
+       Arabic Supplement:
+       U+0750 – U+077F
+
+       Arabic Extended:
+       U+08A0 – U+08FF
+
+       Sindhi commonly uses
+       Arabic-based Unicode characters.
+    */
+
+    const isRTL =
+        (
+            (code >= 0x0600 && code <= 0x06FF) ||
+            (code >= 0x0750 && code <= 0x077F) ||
+            (code >= 0x08A0 && code <= 0x08FF)
+        );
+
+
+    if(isRTL){
+
+        article.style.direction =
+            "rtl";
+
+        article.style.textAlign =
+            "right";
+
+    }
+
+    else{
+
+        article.style.direction =
+            "ltr";
+
+        article.style.textAlign =
+            "left";
+
+    }
+
+}
+
+
+/* =====================================
+   DETECT WHILE TYPING
+===================================== */
+
+article.addEventListener(
+    "input",
+    function(){
+
+        detectWritingDirection(
+            article.value
+        );
+
+    }
+);
+
+
+/* =====================================
+   DETECT WHEN PASTING
+===================================== */
+
+article.addEventListener(
+    "paste",
+    function(){
+
+        setTimeout(
+            function(){
+
+                detectWritingDirection(
+                    article.value
+                );
+
+            },
+            50
+        );
+
+    }
+);
+
 
 /* =====================================
    MESSAGE
@@ -635,10 +770,8 @@ form.addEventListener(
             ).value;
 
 
-        const article =
-            document.getElementById(
-                "article"
-            ).value.trim();
+        const articleText =
+            article.value.trim();
 
 
         /* =============================
@@ -693,7 +826,7 @@ form.addEventListener(
         }
 
 
-        if(!article){
+        if(!articleText){
 
             showMessage(
                 "Please write your work before submitting.",
@@ -752,7 +885,7 @@ form.addEventListener(
                     writingType,
 
                     article:
-                    article,
+                    articleText,
 
                     status:
                     "pending",
@@ -778,6 +911,14 @@ form.addEventListener(
 
 
             form.reset();
+
+
+            /* Reset writing direction */
+            article.style.direction =
+                "ltr";
+
+            article.style.textAlign =
+                "left";
 
 
         }
